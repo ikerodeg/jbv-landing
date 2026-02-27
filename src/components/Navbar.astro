@@ -1,0 +1,87 @@
+---
+const links = [
+  { href: '#inicio', label: 'Inicio' },
+  { href: '#sobre-mi', label: 'Sobre Mí' },
+  { href: '#servicios', label: 'Servicios' },
+  { href: '#proceso', label: 'Proceso' },
+  { href: '#por-que', label: 'Por Qué' },
+  { href: '#contacto', label: 'Contacto' },
+];
+---
+
+<header>
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Navegación principal">
+    <a href="#inicio" class="navbar-logo" aria-label="JBV – Inicio">JBV</a>
+
+    <button
+      class="nav-toggle"
+      id="nav-toggle"
+      aria-controls="nav-menu"
+      aria-expanded="false"
+      aria-label="Abrir menú de navegación"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <ul class="nav-links" id="nav-menu" role="menubar">
+      {links.map(link => (
+        <li role="none">
+          <a
+            href={link.href}
+            role="menuitem"
+            class="nav-link"
+            data-section={link.href.slice(1)}
+          >{link.label}</a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</header>
+
+<script>
+  const navbar = document.getElementById('navbar')!;
+  const toggle = document.getElementById('nav-toggle')!;
+  const menu = document.getElementById('nav-menu')!;
+  const navLinks = document.querySelectorAll<HTMLAnchorElement>('.nav-link');
+
+  // Scroll opacity
+  const onScroll = () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+
+    // Active section highlight
+    const sections = [...navLinks].map(a => ({
+      a,
+      el: document.getElementById(a.dataset.section ?? '')
+    }));
+
+    let current = '';
+    for (const { el, a } of sections) {
+      if (el && el.getBoundingClientRect().top <= 140) {
+        current = a.dataset.section ?? '';
+      }
+    }
+    for (const { a } of sections) {
+      a.classList.toggle('active', a.dataset.section === current);
+    }
+  };
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Mobile toggle
+  toggle.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!open));
+    menu.classList.toggle('open', !open);
+  });
+
+  // Close on link click
+  navLinks.forEach(a => {
+    a.addEventListener('click', () => {
+      toggle.setAttribute('aria-expanded', 'false');
+      menu.classList.remove('open');
+    });
+  });
+</script>

@@ -1,0 +1,87 @@
+---
+import '../styles/global.css';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+}
+
+const {
+  title = 'JBV | Intermediario de Grúas Autopropulsadas Alemania–España',
+  description = 'Intermediación profesional de grúas autopropulsadas entre Alemania y España. 27 años de experiencia, transparencia total y los mejores precios en maquinaria de calidad alemana.',
+  canonical = 'https://jbv-gruas.es',
+} = Astro.props;
+
+const structuredData = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "JBV",
+  "description": description,
+  "url": canonical,
+  "telephone": "+34600000000",
+  "areaServed": ["ES", "DE"],
+  "serviceType": "Intermediación de Grúas Autopropulsadas",
+  "founder": {
+    "@type": "Person",
+    "name": "Ximo",
+    "jobTitle": "Fundador y Experto en Grúas"
+  },
+  "sameAs": [],
+});
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <!-- SEO -->
+    <meta name="keywords" content="intermediario grúas Alemania España, comprar grúas autopropulsadas alemanas, grúas autopropulsadas, maquinaria construcción alemana, JBV grúas" />
+    <meta name="author" content="JBV" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="es" />
+    <meta name="geo.region" content="ES" />
+    <meta name="geo.placename" content="España" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="JBV" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- Theme -->
+    <meta name="theme-color" content="#0f1623" />
+
+    <!-- Preload critical resources -->
+    <link
+      rel="preload"
+      as="image"
+      href="/images/bg-crane.png"
+      fetchpriority="high"
+    />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={structuredData} />
+
+    <!-- Favicon placeholders -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+
+  <body>
+    <slot />
+  </body>
+</html>

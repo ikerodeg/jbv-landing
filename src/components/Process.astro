@@ -1,0 +1,62 @@
+---
+const steps = [
+  {
+    num: '01',
+    title: 'Escuchamos Sus Necesidades',
+    desc: 'Conversamos para entender exactamente qué tipo de grúa necesita: tonelaje, marca, presupuesto, plazos y cualquier requisito técnico específico.',
+  },
+  {
+    num: '02',
+    title: 'Búsqueda y Selección',
+    desc: 'Rastreamos el mercado alemán y seleccionamos las mejores opciones que se ajustan a sus criterios, con acceso a oportunidades exclusivas.',
+  },
+  {
+    num: '03',
+    title: 'Revisión y Asesoramiento',
+    desc: 'Inspeccionamos la maquinaria in situ en Alemania y le asesoramos con informes detallados, fotos y vídeos. Transparencia absoluta.',
+  },
+  {
+    num: '04',
+    title: 'Gestión y Entrega',
+    desc: 'Nos encargamos de la negociación, documentación, transporte y entrega hasta su instalación en España. Sin complicaciones.',
+  },
+  {
+    num: '05',
+    title: 'Soporte Post-Compra',
+    desc: 'Le acompañamos después de la entrega con soporte técnico y gestión de cualquier incidencia. Una relación a largo plazo.',
+  },
+];
+---
+
+<section id="proceso" class="section process" aria-label="Proceso de compra">
+  <div class="section-inner">
+    <div class="process-inner">
+      <div class="process-header reveal">
+        <p class="section-eyebrow">Proceso de Compra</p>
+        <h2 class="section-title">
+          Cinco pasos hacia<br>su <span class="accent">grúa ideal</span>
+        </h2>
+        <p class="section-lead">
+          Un proceso sencillo, transparente y diseñado para que usted solo tome la decisión final.
+          Nosotros nos encargamos de todo lo demás.
+        </p>
+        <a href="#contacto" class="btn btn-primary">Iniciar consulta</a>
+      </div>
+
+      <div class="process-track" role="list">
+        {steps.map((step, i) => (
+          <div class={`process-step reveal reveal-delay-${i + 1}`} role="listitem">
+            <div class="step-aside" aria-hidden="true">
+              <div class="step-num">{step.num}</div>
+              <div class="step-line"></div>
+            </div>
+            <div class="step-body">
+              <h3>{step.title}</h3>
+              <p>{step.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

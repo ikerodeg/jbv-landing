@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.jbv.com/sitemap-index.xml

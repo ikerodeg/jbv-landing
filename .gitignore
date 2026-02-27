@@ -1,0 +1,55 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Testing
+coverage/
+
+# Astro
+.astro/
+
+# Output
+dist/
+dist-ssr/
+*.local
+
+# Vite
+.vite/
+
+# Type info
+*.tsbuildinfo
+tsconfig.json.tsbuildinfo
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Lock files (mantiene solo uno)
+bun.lock
+package-lock.json
+yarn.lock
+
+# Build
+output

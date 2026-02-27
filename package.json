@@ -8,7 +8,10 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "lint": "astro check",
+    "format": "astro format",
+    "check": "astro check"
   },
   "engines": {
     "node": ">=20.0.0"

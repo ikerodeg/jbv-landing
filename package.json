@@ -2,10 +2,16 @@
   "name": "jbv-web",
   "type": "module",
   "version": "1.0.0",
+  "description": "Landing page para JBV - Servicio de grúas y esclusas",
+  "private": true,
+  "license": "MIT",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview"
+  },
+  "engines": {
+    "node": ">=20.0.0"
   },
   "dependencies": {
     "astro": "^5.1.0"

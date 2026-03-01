@@ -1,0 +1,39 @@
+/* ============================================================
+   BASE LAYER
+   ============================================================ */
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-block-start: 80px;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-weight: 400;
+    line-height: 1.65;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img, video {
+    max-inline-size: 100%;
+    block-size: auto;
+    display: block;
+  }
+
+  a { color: inherit; }
+
+  ::selection {
+    background-color: var(--orange-500);
+    color: var(--navy-900);
+  }
+}

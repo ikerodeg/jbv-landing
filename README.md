@@ -65,7 +65,7 @@ npm run preview
 
 1. **Teléfono**: Reemplaza `+34 600 000 000` con el número real de Ximo
 2. **WhatsApp**: Actualiza `https://wa.me/34600000000` con el número real
-3. **Email**: Actualiza `info@jbv-gruas.es` con el email real
+3. **Email**: Actualiza `info@jbv.com` con el email real
 4. **Dominio**: Actualiza `site` en `astro.config.mjs` y `canonical` en Layout
 5. **Analytics**: Añadir Google Analytics en `Layout.astro` (dentro de `<head>`)
 6. **Formulario**: Conectar a servicio de email (FormSubmit.co, Netlify Forms, etc.)
@@ -79,7 +79,7 @@ El formulario actualmente simula el envío. Para producción, opciones:
 ```html
 <form action="https://formsubmit.co/tu@email.com" method="POST">
   <input type="hidden" name="_subject" value="Nueva consulta JBV">
-  <input type="hidden" name="_next" value="https://jbv-gruas.es/gracias">
+  <input type="hidden" name="_next" value="https://www.jbv.com/gracias">
   ...
 </form>
 ```

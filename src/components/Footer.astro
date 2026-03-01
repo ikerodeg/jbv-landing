@@ -1,5 +1,5 @@
 ---
-import { navigationLinks } from '@data/navigation';
+import { navigationLinks } from "@data/navigation";
 const year = new Date().getFullYear();
 ---
 
@@ -8,17 +8,22 @@ const year = new Date().getFullYear();
     <div class="footer-brand">
       <a href="#inicio" class="logo" aria-label="JBV – Inicio">JBV</a>
       <p>
-        Intermediación profesional de grúas autopropulsadas entre Alemania y España.
-        27 años de experiencia, transparencia total y los mejores precios.
+        Intermediación profesional de grúas autopropulsadas entre Alemania y
+        España. 27 años de experiencia, transparencia total y los mejores
+        precios.
       </p>
     </div>
 
     <nav class="footer-col" aria-label="Navegación secundaria">
       <h4>Navegación</h4>
       <ul>
-        {navigationLinks.map(link => (
-          <li><a href={link.href}>{link.label}</a></li>
-        ))}
+        {
+          navigationLinks.map((link) => (
+            <li>
+              <a href={link.href}>{link.label}</a>
+            </li>
+          ))
+        }
       </ul>
     </nav>
 
@@ -29,12 +34,16 @@ const year = new Date().getFullYear();
           <a href="tel:+34600000000">+34 600 000 000</a>
         </li>
         <li>
-          <a href="https://wa.me/34600000000" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://wa.me/34600000000"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             WhatsApp
           </a>
         </li>
         <li>
-          <a href="mailto:info@jbv-gruas.es">info@jbv-gruas.es</a>
+          <a href="mailto:info@jbv.com">info@jbv.com</a>
         </li>
       </ul>
     </div>

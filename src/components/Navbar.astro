@@ -1,10 +1,15 @@
 ---
-import { navigationLinks } from '@data/navigation';
+import { navigationLinks } from "@data/navigation";
 const links = navigationLinks;
 ---
 
 <header>
-  <nav class="navbar" id="navbar" role="navigation" aria-label="Navegación principal">
+  <nav
+    class="navbar"
+    id="navbar"
+    role="navigation"
+    aria-label="Navegación principal"
+  >
     <a href="#inicio" class="navbar-logo" aria-label="JBV – Inicio">JBV</a>
 
     <button
@@ -20,213 +25,220 @@ const links = navigationLinks;
     </button>
 
     <ul class="nav-links" id="nav-menu" role="menubar">
-      {links.map(link => (
-        <li role="none">
-          <a
-            href={link.href}
-            role="menuitem"
-            class="nav-link"
-            data-section={link.href.slice(1)}
-          >{link.label}</a>
-        </li>
-      ))}
+      {
+        links.map((link) => (
+          <li role="none">
+            <a
+              href={link.href}
+              role="menuitem"
+              class="nav-link"
+              data-section={link.href.slice(1)}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
     </ul>
   </nav>
 </header>
 
 <script>
-  const navbar = document.getElementById('navbar')!;
-  const toggle = document.getElementById('nav-toggle')!;
-  const menu = document.getElementById('nav-menu')!;
-  const navLinks = document.querySelectorAll<HTMLAnchorElement>('.nav-link');
+  const navbar = document.getElementById("navbar")!;
+  const toggle = document.getElementById("nav-toggle")!;
+  const menu = document.getElementById("nav-menu")!;
+  const navLinks = document.querySelectorAll<HTMLAnchorElement>(".nav-link");
 
   // Scroll opacity
   const onScroll = () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 60);
+    navbar.classList.toggle("scrolled", window.scrollY > 60);
 
     // Active section highlight
-    const sections = [...navLinks].map(a => ({
+    const sections = [...navLinks].map((a) => ({
       a,
-      el: document.getElementById(a.dataset.section ?? '')
+      el: document.getElementById(a.dataset.section ?? ""),
     }));
 
-    let current = '';
+    let current = "";
     for (const { el, a } of sections) {
       if (el && el.getBoundingClientRect().top <= 140) {
-        current = a.dataset.section ?? '';
+        current = a.dataset.section ?? "";
       }
     }
     for (const { a } of sections) {
-      a.classList.toggle('active', a.dataset.section === current);
+      a.classList.toggle("active", a.dataset.section === current);
     }
   };
 
-  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
   // Mobile toggle
-  toggle.addEventListener('click', () => {
-    const open = toggle.getAttribute('aria-expanded') === 'true';
-    toggle.setAttribute('aria-expanded', String(!open));
-    menu.classList.toggle('open', !open);
+  toggle.addEventListener("click", () => {
+    const open = toggle.getAttribute("aria-expanded") === "true";
+    toggle.setAttribute("aria-expanded", String(!open));
+    menu.classList.toggle("open", !open);
   });
 
   // Close on link click
-  navLinks.forEach(a => {
-    a.addEventListener('click', () => {
-      toggle.setAttribute('aria-expanded', 'false');
-      menu.classList.remove('open');
+  navLinks.forEach((a) => {
+    a.addEventListener("click", () => {
+      toggle.setAttribute("aria-expanded", "false");
+      menu.classList.remove("open");
     });
   });
 </script>
 
 <style>
-.navbar {
-  position: fixed;
-  inset-block-start: 0;
-  inset-inline: 0;
-  z-index: 100;
-  padding-block: 1.25rem;
-  padding-inline: clamp(1.5rem, 4vw, 3rem);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: oklch(0.11 0.03 252 / 0);
-  backdrop-filter: blur(0px);
-  transition:
-    background-color 0.5s var(--ease),
-    backdrop-filter 0.5s var(--ease),
-    box-shadow 0.5s var(--ease),
-    padding 0.4s var(--ease);
-}
-
-.navbar.scrolled {
-  background-color: oklch(0.10 0.025 252 / 0.92);
-  backdrop-filter: blur(20px) saturate(150%);
-  box-shadow: 0 1px 0 var(--white-08), 0 8px 32px oklch(0 0 0 / 0.4);
-  padding-block: 0.85rem;
-}
-
-.navbar-logo {
-  font-family: var(--font-display);
-  font-size: 2rem;
-  letter-spacing: 0.1em;
-  color: var(--orange-500);
-  text-decoration: none;
-  text-shadow: var(--glow-sm);
-  transition: text-shadow var(--dur) var(--ease);
-}
-
-.navbar-logo:hover {
-  text-shadow: var(--glow-md);
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 2.5rem;
-  list-style: none;
-}
-
-.nav-links a {
-  font-family: var(--font-condensed);
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--white-80);
-  text-decoration: none;
-  position: relative;
-  padding-block-end: 4px;
-  transition: color var(--dur) var(--ease);
-}
-
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  inset-block-end: 0;
-  inset-inline-start: 0;
-  inline-size: 0;
-  block-size: 2px;
-  background: var(--orange-500);
-  box-shadow: var(--glow-sm);
-  transition: inline-size 0.4s var(--ease);
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-  color: var(--orange-400);
-  text-shadow: var(--glow-sm);
-}
-
-.nav-links a:hover::after,
-.nav-links a.active::after {
-  inline-size: 100%;
-  box-shadow: var(--glow-md);
-}
-
-/* Hamburger */
-.nav-toggle {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 6px;
-  z-index: 200;
-}
-
-.nav-toggle span {
-  display: block;
-  inline-size: 26px;
-  block-size: 2px;
-  background: var(--white);
-  border-radius: 2px;
-  transition: transform 0.3s var(--ease), opacity 0.3s;
-}
-
-.nav-toggle[aria-expanded="true"] span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.nav-toggle[aria-expanded="true"] span:nth-child(2) {
-  opacity: 0;
-  transform: scaleX(0);
-}
-
-.nav-toggle[aria-expanded="true"] span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
-}
-
-@media (max-width: 768px) {
-  .nav-toggle {
+  .navbar {
+    position: fixed;
+    inset-block-start: 0;
+    inset-inline: 0;
+    z-index: 100;
+    padding-block: 1.25rem;
+    padding-inline: clamp(1.5rem, 4vw, 3rem);
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: oklch(0.11 0.03 252 / 0);
+    backdrop-filter: blur(0px);
+    transition:
+      background-color 0.5s var(--ease),
+      backdrop-filter 0.5s var(--ease),
+      box-shadow 0.5s var(--ease),
+      padding 0.4s var(--ease);
+  }
+
+  .navbar.scrolled {
+    background-color: oklch(0.1 0.025 252 / 0.92);
+    backdrop-filter: blur(20px) saturate(150%);
+    box-shadow:
+      0 1px 0 var(--white-08),
+      0 8px 32px oklch(0 0 0 / 0.4);
+  }
+
+  .navbar-logo {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    letter-spacing: 0.1em;
+    color: var(--orange-500);
+    text-decoration: none;
+    text-shadow: var(--glow-sm);
+    transition: text-shadow var(--dur) var(--ease);
+  }
+
+  .navbar-logo:hover {
+    text-shadow: var(--glow-md);
   }
 
   .nav-links {
-    position: fixed;
-    inset-block: 0;
-    inset-inline-end: 0;
-    inline-size: min(320px, 85vw);
-    block-size: 100dvh;
-    flex-direction: column;
-    justify-content: center;
-    gap: 2rem;
-    background: oklch(0.10 0.025 252 / 0.97);
-    backdrop-filter: blur(24px);
-    transform: translateX(110%);
-    transition: transform 0.4s var(--ease);
-    padding-inline: 2.5rem;
-    border-inline-start: 1px solid var(--border);
-  }
-
-  .nav-links.open {
-    transform: translateX(0);
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    list-style: none;
   }
 
   .nav-links a {
-    font-size: 1.2rem;
+    font-family: var(--font-condensed);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--white-80);
+    text-decoration: none;
+    position: relative;
+    padding-block-end: 4px;
+    transition: color var(--dur) var(--ease);
   }
-}
+
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    inset-block-end: 0;
+    inset-inline-start: 0;
+    inline-size: 0;
+    block-size: 2px;
+    background: var(--orange-500);
+    box-shadow: var(--glow-sm);
+    transition: inline-size 0.4s var(--ease);
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: var(--orange-400);
+    text-shadow: var(--glow-sm);
+  }
+
+  .nav-links a:hover::after,
+  .nav-links a.active::after {
+    inline-size: 100%;
+    box-shadow: var(--glow-md);
+  }
+
+  /* Hamburger */
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    z-index: 200;
+  }
+
+  .nav-toggle span {
+    display: block;
+    inline-size: 26px;
+    block-size: 2px;
+    background: var(--white);
+    border-radius: 2px;
+    transition:
+      transform 0.3s var(--ease),
+      opacity 0.3s;
+  }
+
+  .nav-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .nav-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  .nav-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  @media (max-width: 768px) {
+    .nav-toggle {
+      display: flex;
+    }
+
+    .nav-links {
+      position: fixed;
+      inset-block: 0;
+      inset-inline-end: 0;
+      inline-size: min(320px, 85vw);
+      block-size: 100dvh;
+      flex-direction: column;
+      justify-content: center;
+      gap: 2rem;
+      background: oklch(0.1 0.025 252 / 0.97);
+      backdrop-filter: blur(24px);
+      transform: translateX(110%);
+      transition: transform 0.4s var(--ease);
+      padding-inline: 2.5rem;
+      border-inline-start: 1px solid var(--border);
+    }
+
+    .nav-links.open {
+      transform: translateX(0);
+    }
+
+    .nav-links a {
+      font-size: 1.2rem;
+    }
+  }
 </style>

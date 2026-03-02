@@ -211,38 +211,38 @@ Bajos:      9  (CSS muerto, minor optimizations, etc.)
 
 ### Plan de Implementación (orden por dependencia de proyecto)
 
-- [x] ✅ 1. Añadir `engines`, `private: true`, `description` y `license` en `package.json`
-- [x] ✅ 2. Mover `astro` de `dependencies` a `devDependencies`
-- [x] ✅ 3. Añadir scripts `lint`, `format` y `check` en `package.json`
-- [x] ✅ 4. Crear `.nvmrc` con la versión de Node requerida
-- [x] ✅ 5. Unificar `site` en `astro.config.mjs` con el canonical real (`www.jbv.com`)
-- [x] ✅ 6. Instalar `@astrojs/sitemap` y configurar en `astro.config.mjs`
-- [x] ✅ 7. Añadir path aliases (`@components`, `@layouts`, `@data`, `@styles`) en `tsconfig.json`
-- [x] ✅ 8. Crear `public/robots.txt` con referencia al sitemap
-- [x] ✅ 9. Crear directorio `src/data/` y extraer datos compartidos (`navigation.ts`, `services.ts`, `steps.ts`, `reasons.ts`)
-- [x] ✅ 10. Crear `src/components/ui/Icon.astro` para centralizar SVGs reutilizados (WhatsApp, teléfono)
-- [ ] ❌ 11. Dividir `global.css` en archivos por sección (`tokens.css`, `base.css`, `navbar.css`, `hero.css`, `about.css`, `services.css`, `process.css`, `whyus.css`, `contact.css`, `footer.css`, `animations.css`)
-- [ ] ❌ 12. Eliminar CSS muerto (`.btn-ghost`, `.divider`, `.form-field select`)
-- [ ] ❌ 13. Reemplazar colores OKLCH hardcodeados repetidos por variables CSS con opacidades
-- [ ] ❌ 14. Mover `@import url(Google Fonts)` del CSS a `<link rel="preconnect">` + `<link>` en `Layout.astro`
-- [ ] ❌ 15. Añadir `color-scheme: dark` en `:root`
-- [ ] ❌ 16. Añadir media query `prefers-reduced-motion: reduce` para desactivar animaciones
-- [ ] ❌ 17. Crear `LegalLayout.astro` para páginas legales (eliminar estilos inline y `<style>` duplicados)
-- [ ] ❌ 18. Refactorizar páginas legales (`aviso-legal`, `cookies`, `privacidad`) para usar `LegalLayout.astro`
-- [ ] ❌ 19. Añadir canonical dinámico con `Astro.url` en cada página legal
-- [ ] ❌ 20. Convertir `bg-crane.png` a WebP/AVIF
-- [ ] ❌ 21. Reemplazar `<img>` nativas por componente `<Image />` de Astro en `Hero.astro` y `About.astro`
-- [ ] ❌ 22. Mover `preload` de `bg-crane.png` solo a la página principal (no en Layout global)
-- [ ] ❌ 23. Reemplazar datos ficticios (`+34600000000`, `info@jbv-gruas.es`) por datos reales en todos los archivos
-- [ ] ❌ 24. Corregir `"sameAs": []` en Structured Data (omitir si no hay redes, o añadir las reales)
-- [ ] ❌ 25. Añadir `og:image` al Layout
-- [ ] ❌ 26. Eliminar `<meta name="keywords">` del Layout
-- [ ] ❌ 27. Reemplazar non-null assertions (`!`) en `Navbar.astro` por optional chaining con guardias
-- [ ] ❌ 28. Añadir throttle o `requestAnimationFrame` al listener de scroll del Navbar
-- [ ] ❌ 29. Implementar validación JS real en el formulario de contacto
-- [ ] ❌ 30. Conectar el formulario a un backend real (FormSubmit, Netlify Forms, etc.)
-- [ ] ❌ 31. Eliminar el comentario TODO del formulario
-- [ ] ❌ 32. Cambiar `<script src="../scripts/reveal.js">` por import en `index.astro`
-- [x] ✅ 33. Eliminar atributo no estándar `writingsuggestions="false"` del textarea
-- [ ] ❌ 34. Reorganizar `public/images/` en subcarpetas (`hero/`, `about/`)
-- [ ] ❌ 35. Reorganizar `src/components/` en subcarpetas (`ui/`, `sections/`)
+- [x] 1. Añadir `engines`, `private: true`, `description` y `license` en `package.json`
+- [x] 2. Mover `astro` de `dependencies` a `devDependencies`
+- [x] 3. Añadir scripts `lint`, `format` y `check` en `package.json`
+- [x] 4. Crear `.nvmrc` con la versión de Node requerida
+- [x] 5. Unificar `site` en `astro.config.mjs` con el canonical real (`www.jbv.com`)
+- [x] 6. Instalar `@astrojs/sitemap` y configurar en `astro.config.mjs`
+- [x] 7. Añadir path aliases (`@components`, `@layouts`, `@data`, `@styles`) en `tsconfig.json`
+- [x] 8. Crear `public/robots.txt` con referencia al sitemap
+- [x] 9. Crear directorio `src/data/` y extraer datos compartidos (`navigation.ts`, `services.ts`, `steps.ts`, `reasons.ts`)
+- [x] 10. Crear `src/components/ui/Icon.astro` para centralizar SVGs reutilizados (WhatsApp, teléfono)
+- [x] 11. Dividir `global.css` en archivos por sección (`tokens.css`, `base.css`, `navbar.css`, `hero.css`, `about.css`, `services.css`, `process.css`, `whyus.css`, `contact.css`, `footer.css`, `animations.css`)
+- [x] 12. Eliminar CSS muerto (`.btn-ghost`, `.divider`, `.form-field select`)
+- [ ] 13. Reemplazar colores OKLCH hardcodeados repetidos por variables CSS con opacidades
+- [ ] 14. Mover `@import url(Google Fonts)` del CSS a `<link rel="preconnect">` + `<link>` en `Layout.astro`
+- [ ] 15. Añadir `color-scheme: dark` en `:root`
+- [ ] 16. Añadir media query `prefers-reduced-motion: reduce` para desactivar animaciones
+- [ ] 17. Crear `LegalLayout.astro` para páginas legales (eliminar estilos inline y `<style>` duplicados)
+- [ ] 18. Refactorizar páginas legales (`aviso-legal`, `cookies`, `privacidad`) para usar `LegalLayout.astro`
+- [ ] 19. Añadir canonical dinámico con `Astro.url` en cada página legal
+- [ ] 20. Convertir `bg-crane.png` a WebP/AVIF
+- [ ] 21. Reemplazar `<img>` nativas por componente `<Image />` de Astro en `Hero.astro` y `About.astro`
+- [ ] 22. Mover `preload` de `bg-crane.png` solo a la página principal (no en Layout global)
+- [ ] 23. Reemplazar datos ficticios (`+34600000000`, `info@jbv-gruas.es`) por datos reales en todos los archivos
+- [ ] 24. Corregir `"sameAs": []` en Structured Data (omitir si no hay redes, o añadir las reales)
+- [ ] 25. Añadir `og:image` al Layout
+- [ ] 26. Eliminar `<meta name="keywords">` del Layout
+- [ ] 27. Reemplazar non-null assertions (`!`) en `Navbar.astro` por optional chaining con guardias
+- [ ] 28. Añadir throttle o `requestAnimationFrame` al listener de scroll del Navbar
+- [ ] 29. Implementar validación JS real en el formulario de contacto
+- [ ] 30. Conectar el formulario a un backend real (FormSubmit, Netlify Forms, etc.)
+- [ ] 31. Eliminar el comentario TODO del formulario
+- [ ] 32. Cambiar `<script src="../scripts/reveal.js">` por import en `index.astro`
+- [x] 33. Eliminar atributo no estándar `writingsuggestions="false"` del textarea
+- [ ] 34. Reorganizar `public/images/` en subcarpetas (`hero/`, `about/`)
+- [ ] 35. Reorganizar `src/components/` en subcarpetas (`ui/`, `sections/`)

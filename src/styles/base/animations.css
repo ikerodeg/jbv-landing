@@ -84,10 +84,5 @@
     transition-delay: 0.5s;
   }
 
-  /* Divider line */
-  .divider {
-    inline-size: 100%;
-    block-size: 1px;
-    background: linear-gradient(90deg, transparent, var(--border), transparent);
-  }
+
 }

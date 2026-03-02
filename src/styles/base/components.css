@@ -45,16 +45,6 @@
     background: oklch(0.73 0.19 52 / 0.07);
   }
 
-  .btn-ghost {
-    background: var(--white-08);
-    color: var(--white-80);
-    border: 1px solid var(--border);
-  }
-
-  .btn-ghost:hover {
-    background: var(--white-20);
-    color: var(--white);
-  }
 
   .btn svg {
     inline-size: 18px;

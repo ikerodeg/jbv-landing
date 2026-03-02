@@ -230,9 +230,9 @@ Bajos:      9  (CSS muerto, minor optimizations, etc.)
 - [x] 17. Crear `LegalLayout.astro` para páginas legales (eliminar estilos inline y `<style>` duplicados)
 - [x] 18. Refactorizar páginas legales (`aviso-legal`, `cookies`, `privacidad`) para usar `LegalLayout.astro`
 - [x] 19. Añadir canonical dinámico con `Astro.url` en cada página legal
-- [ ] 20. Convertir `bg-crane.png` a WebP/AVIF
-- [ ] 21. Reemplazar `<img>` nativas por componente `<Image />` de Astro en `Hero.astro` y `About.astro`
-- [ ] 22. Mover `preload` de `bg-crane.png` solo a la página principal (no en Layout global)
+- [x] 20. Convertir `bg-crane.png` a WebP/AVIF
+- [x] 21. Reemplazar `<img>` nativas por componente `<Image />` de Astro en `Hero.astro` y `About.astro`
+- [x] 22. Mover `preload` de `bg-crane.png` solo a la página principal (no en Layout global)
 - [ ] 23. Reemplazar datos ficticios (`+34600000000`, `info@jbv-gruas.es`) por datos reales en todos los archivos
 - [ ] 24. Corregir `"sameAs": []` en Structured Data (omitir si no hay redes, o añadir las reales)
 - [ ] 25. Añadir `og:image` al Layout

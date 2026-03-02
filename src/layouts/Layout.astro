@@ -77,19 +77,14 @@ const structuredData = JSON.stringify({
     <!-- Theme -->
     <meta name="theme-color" content="#0f1623" />
 
-    <!-- Preload critical resources -->
-    <link
-      rel="preload"
-      as="image"
-      href="/images/bg-crane.png"
-      fetchpriority="high"
-    />
-
     <!-- Structured Data -->
     <script type="application/ld+json" set:html={structuredData} />
 
     <!-- Favicon placeholders -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Extra Head Tags -->
+    <slot name="head" />
   </head>
 
   <body>

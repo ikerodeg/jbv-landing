@@ -1,18 +1,13 @@
 ---
+import { Image } from "astro:assets";
 import Icon from "./ui/Icon.astro";
+import bgCrane from "../assets/images/bg-crane.png";
 ---
 
 <section id="inicio" class="hero" aria-label="Inicio">
   <!-- Background image -->
   <div class="hero-bg" aria-hidden="true">
-    <img
-      src="/images/bg-crane.png"
-      alt=""
-      fetchpriority="high"
-      decoding="async"
-      width="1920"
-      height="1080"
-    />
+    <Image src={bgCrane} alt="" fetchpriority="high" decoding="async" />
   </div>
 
   <!-- Gradient mask -->
@@ -21,10 +16,10 @@ import Icon from "./ui/Icon.astro";
   <!-- Content -->
   <div class="hero-content">
     <div class="hero-inner">
-      <h1 class="hero-title">
-        <span class="accent">JBV</span>
-        Intermediación Profesional de Grúas Autopropulsadas
-      </h1>
+      <h1 class="hero-title">JBV</h1>
+      <h2 class="hero-subtitle">
+        Intermediación Profesional<br />de Grúas Autopropulsadas
+      </h2>
 
       <div class="hero-badge">
         <span>Alemania · España</span>
@@ -143,7 +138,7 @@ import Icon from "./ui/Icon.astro";
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--orange-400);
-    margin-block-end: 1.75rem;
+    margin-block-end: 1rem;
     animation: fadeUp 0.7s 0.1s var(--ease) both;
   }
 
@@ -159,27 +154,22 @@ import Icon from "./ui/Icon.astro";
 
   .hero-title {
     font-family: var(--font-display);
-    font-size: clamp(3.5rem, 9vw, 7rem);
-    line-height: 0.95;
+    font-size: 20rem;
+    line-height: 0.9;
+    color: var(--orange-500);
+    text-shadow: var(--glow-md);
     letter-spacing: 0.02em;
-    color: var(--white);
     margin-block-end: 0.5rem;
     animation: fadeUp 0.7s 0.2s var(--ease) both;
   }
 
-  .hero-title .accent {
-    color: var(--orange-500);
-    text-shadow: var(--glow-md);
-    display: block;
-  }
-
   .hero-subtitle {
     font-family: var(--font-condensed);
-    font-size: clamp(1rem, 2vw, 1rem);
+    font-size: 3rem;
     font-weight: 600;
     letter-spacing: 0.05em;
     color: var(--white-80);
-    margin-block-end: 1rem;
+    margin-block: 1rem;
     animation: fadeUp 0.7s 0.3s var(--ease) both;
   }
 

@@ -225,7 +225,7 @@ Bajos:      9  (CSS muerto, minor optimizations, etc.)
 - [x] 12. Eliminar CSS muerto (`.btn-ghost`, `.divider`, `.form-field select`)
 - [ ] 13. Reemplazar colores OKLCH hardcodeados repetidos por variables CSS con opacidades
 - [x] 14. Mover `@import url(Google Fonts)` del CSS a `<link rel="preconnect">` + `<link>` en `Layout.astro`
-- [ ] 15. Añadir `color-scheme: dark` en `:root`
+- [x] 15. Añadir `color-scheme: dark` en `:root`
 - [ ] 16. Añadir media query `prefers-reduced-motion: reduce` para desactivar animaciones
 - [ ] 17. Crear `LegalLayout.astro` para páginas legales (eliminar estilos inline y `<style>` duplicados)
 - [ ] 18. Refactorizar páginas legales (`aviso-legal`, `cookies`, `privacidad`) para usar `LegalLayout.astro`

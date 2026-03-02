@@ -10,7 +10,7 @@ const links = navigationLinks;
     role="navigation"
     aria-label="Navegación principal"
   >
-    <a href="#inicio" class="navbar-logo" aria-label="JBV – Inicio">JBV</a>
+    <a href="/#inicio" class="navbar-logo" aria-label="JBV – Inicio">JBV</a>
 
     <button
       class="nav-toggle"
@@ -32,7 +32,7 @@ const links = navigationLinks;
               href={link.href}
               role="menuitem"
               class="nav-link"
-              data-section={link.href.slice(1)}
+              data-section={link.href.replace(/^\/?#/, "")}
             >
               {link.label}
             </a>

@@ -9,9 +9,10 @@ export interface Props {
 }
 
 const { title, description } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} canonical={canonicalURL}>
   <Navbar />
   <main class="legal-content">
     <slot />

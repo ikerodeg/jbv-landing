@@ -229,7 +229,7 @@ Bajos:      9  (CSS muerto, minor optimizations, etc.)
 - [ ] 16. Añadir media query `prefers-reduced-motion: reduce` para desactivar animaciones
 - [x] 17. Crear `LegalLayout.astro` para páginas legales (eliminar estilos inline y `<style>` duplicados)
 - [x] 18. Refactorizar páginas legales (`aviso-legal`, `cookies`, `privacidad`) para usar `LegalLayout.astro`
-- [ ] 19. Añadir canonical dinámico con `Astro.url` en cada página legal
+- [x] 19. Añadir canonical dinámico con `Astro.url` en cada página legal
 - [ ] 20. Convertir `bg-crane.png` a WebP/AVIF
 - [ ] 21. Reemplazar `<img>` nativas por componente `<Image />` de Astro en `Hero.astro` y `About.astro`
 - [ ] 22. Mover `preload` de `bg-crane.png` solo a la página principal (no en Layout global)

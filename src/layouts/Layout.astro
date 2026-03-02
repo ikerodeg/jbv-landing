@@ -1,5 +1,5 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
 
 export interface Props {
   title?: string;
@@ -8,26 +8,26 @@ export interface Props {
 }
 
 const {
-  title = 'JBV | Intermediario de Grúas Autopropulsadas Alemania–España',
-  description = 'Intermediación profesional de grúas autopropulsadas entre Alemania y España. 27 años de experiencia, transparencia total y los mejores precios en maquinaria de calidad alemana.',
-  canonical = 'https://www.jbv.com',
+  title = "JBV | Intermediario de Grúas Autopropulsadas Alemania–España",
+  description = "Intermediación profesional de grúas autopropulsadas entre Alemania y España. 27 años de experiencia, transparencia total y los mejores precios en maquinaria de calidad alemana.",
+  canonical = "https://www.jbv.com",
 } = Astro.props;
 
 const structuredData = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "name": "JBV",
-  "description": description,
-  "url": canonical,
-  "telephone": "+34600000000",
-  "areaServed": ["ES", "DE"],
-  "serviceType": "Intermediación de Grúas Autopropulsadas",
-  "founder": {
+  name: "JBV",
+  description: description,
+  url: canonical,
+  telephone: "+34600000000",
+  areaServed: ["ES", "DE"],
+  serviceType: "Intermediación de Grúas Autopropulsadas",
+  founder: {
     "@type": "Person",
-    "name": "Ximo",
-    "jobTitle": "Fundador y Experto en Grúas"
+    name: "Ximo",
+    jobTitle: "Fundador y Experto en Grúas",
   },
-  "sameAs": [],
+  sameAs: [],
 });
 ---
 
@@ -42,8 +42,19 @@ const structuredData = JSON.stringify({
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Barlow+Condensed:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- SEO -->
-    <meta name="keywords" content="intermediario grúas Alemania España, comprar grúas autopropulsadas alemanas, grúas autopropulsadas, maquinaria construcción alemana, JBV grúas" />
+    <meta
+      name="keywords"
+      content="intermediario grúas Alemania España, comprar grúas autopropulsadas alemanas, grúas autopropulsadas, maquinaria construcción alemana, JBV grúas"
+    />
     <meta name="author" content="JBV" />
     <meta name="robots" content="index, follow" />
     <meta name="language" content="es" />

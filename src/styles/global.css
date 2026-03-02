@@ -3,7 +3,6 @@
    Tokens · OKLCH · Logical Properties · Modern CSS
    ============================================================ */
 
-@import './base/typography.css';
 @import './base/tokens.css';
 @import './base/reset.css';
 @import './base/layout.css';

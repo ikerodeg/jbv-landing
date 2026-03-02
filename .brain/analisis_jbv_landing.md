@@ -224,7 +224,7 @@ Bajos:      9  (CSS muerto, minor optimizations, etc.)
 - [x] 11. Dividir `global.css` en archivos por sección (`tokens.css`, `base.css`, `navbar.css`, `hero.css`, `about.css`, `services.css`, `process.css`, `whyus.css`, `contact.css`, `footer.css`, `animations.css`)
 - [x] 12. Eliminar CSS muerto (`.btn-ghost`, `.divider`, `.form-field select`)
 - [ ] 13. Reemplazar colores OKLCH hardcodeados repetidos por variables CSS con opacidades
-- [ ] 14. Mover `@import url(Google Fonts)` del CSS a `<link rel="preconnect">` + `<link>` en `Layout.astro`
+- [x] 14. Mover `@import url(Google Fonts)` del CSS a `<link rel="preconnect">` + `<link>` en `Layout.astro`
 - [ ] 15. Añadir `color-scheme: dark` en `:root`
 - [ ] 16. Añadir media query `prefers-reduced-motion: reduce` para desactivar animaciones
 - [ ] 17. Crear `LegalLayout.astro` para páginas legales (eliminar estilos inline y `<style>` duplicados)

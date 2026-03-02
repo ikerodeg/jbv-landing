@@ -1,31 +1,42 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/Navbar.astro';
-import Footer from '../components/Footer.astro';
+import LegalLayout from "../layouts/LegalLayout.astro";
 ---
 
-<Layout title="Política de Cookies | JBV" description="Política de cookies de JBV conforme a la LSSI-CE y el RGPD.">
-  <Navbar />
-  <main style="padding-block-start: 120px; padding-block-end: 4rem; padding-inline: 2rem; max-inline-size: 800px; margin-inline: auto;">
-    <h1 style="font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: oklch(0.73 0.19 52); margin-block-end: 2rem;">Política de Cookies</h1>
+<LegalLayout
+  title="Política de Cookies | JBV"
+  description="Política de cookies de JBV conforme a la LSSI-CE y el RGPD."
+>
+  <h1>Política de Cookies</h1>
 
-    <h2>¿Qué son las cookies?</h2>
-    <p>Las cookies son pequeños ficheros de texto que los sitios web envían al navegador y se almacenan en el terminal del usuario. Sirven para reconocer al usuario en visitas sucesivas y mejorar la experiencia de navegación.</p>
+  <h2>¿Qué son las cookies?</h2>
+  <p>
+    Las cookies son pequeños ficheros de texto que los sitios web envían al
+    navegador y se almacenan en el terminal del usuario. Sirven para reconocer
+    al usuario en visitas sucesivas y mejorar la experiencia de navegación.
+  </p>
 
-    <h2>Tipos de cookies que utilizamos</h2>
-    <p><strong>Cookies técnicas (necesarias):</strong> Imprescindibles para el funcionamiento del sitio web. No requieren consentimiento.</p>
-    <p><strong>Cookies analíticas (Google Analytics):</strong> Permiten medir y analizar el comportamiento de los usuarios en la web, con el fin de mejorar el servicio. Requieren su consentimiento previo.</p>
+  <h2>Tipos de cookies que utilizamos</h2>
+  <p>
+    <strong>Cookies técnicas (necesarias):</strong> Imprescindibles para el funcionamiento
+    del sitio web. No requieren consentimiento.
+  </p>
+  <p>
+    <strong>Cookies analíticas (Google Analytics):</strong> Permiten medir y analizar
+    el comportamiento de los usuarios en la web, con el fin de mejorar el servicio.
+    Requieren su consentimiento previo.
+  </p>
 
-    <h2>Gestión de cookies</h2>
-    <p>Puede configurar su navegador para aceptar, rechazar o eliminar las cookies. Las instrucciones varían según el navegador. Tenga en cuenta que deshabilitar ciertas cookies puede afectar al funcionamiento del sitio.</p>
+  <h2>Gestión de cookies</h2>
+  <p>
+    Puede configurar su navegador para aceptar, rechazar o eliminar las cookies.
+    Las instrucciones varían según el navegador. Tenga en cuenta que
+    deshabilitar ciertas cookies puede afectar al funcionamiento del sitio.
+  </p>
 
-    <h2>Más información</h2>
-    <p>Para más información sobre el tratamiento de sus datos, consulte nuestra <a href="/privacidad" style="color: oklch(0.73 0.19 52);">Política de Privacidad</a>.</p>
-  </main>
-  <Footer />
-</Layout>
-
-<style>
-  h2 { color: oklch(0.85 0.06 252); margin-block: 1.5rem 0.5rem; font-family: 'Barlow Condensed', sans-serif; font-size: 1.2rem; letter-spacing: 0.05em; text-transform: uppercase; }
-  p { color: oklch(0.98 0 0 / 0.6); line-height: 1.7; margin-block-end: 0.75rem; }
-</style>
+  <h2>Más información</h2>
+  <p>
+    Para más información sobre el tratamiento de sus datos, consulte nuestra <a
+      href="/privacidad">Política de Privacidad</a
+    >.
+  </p>
+</LegalLayout>

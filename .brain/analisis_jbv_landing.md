@@ -227,8 +227,8 @@ Bajos:      9  (CSS muerto, minor optimizations, etc.)
 - [x] 14. Mover `@import url(Google Fonts)` del CSS a `<link rel="preconnect">` + `<link>` en `Layout.astro`
 - [x] 15. Añadir `color-scheme: dark` en `:root`
 - [ ] 16. Añadir media query `prefers-reduced-motion: reduce` para desactivar animaciones
-- [ ] 17. Crear `LegalLayout.astro` para páginas legales (eliminar estilos inline y `<style>` duplicados)
-- [ ] 18. Refactorizar páginas legales (`aviso-legal`, `cookies`, `privacidad`) para usar `LegalLayout.astro`
+- [x] 17. Crear `LegalLayout.astro` para páginas legales (eliminar estilos inline y `<style>` duplicados)
+- [x] 18. Refactorizar páginas legales (`aviso-legal`, `cookies`, `privacidad`) para usar `LegalLayout.astro`
 - [ ] 19. Añadir canonical dinámico con `Astro.url` en cada página legal
 - [ ] 20. Convertir `bg-crane.png` a WebP/AVIF
 - [ ] 21. Reemplazar `<img>` nativas por componente `<Image />` de Astro en `Hero.astro` y `About.astro`

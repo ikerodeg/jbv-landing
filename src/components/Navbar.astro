@@ -50,23 +50,32 @@ const links = navigationLinks;
   const navLinks = document.querySelectorAll<HTMLAnchorElement>(".nav-link");
 
   // Scroll opacity
+  let isTicking = false;
+
   const onScroll = () => {
-    navbar?.classList.toggle("scrolled", window.scrollY > 60);
+    if (!isTicking) {
+      window.requestAnimationFrame(() => {
+        navbar?.classList.toggle("scrolled", window.scrollY > 60);
 
-    // Active section highlight
-    const sections = [...navLinks].map((a) => ({
-      a,
-      el: document.getElementById(a.dataset.section ?? ""),
-    }));
+        // Active section highlight
+        const sections = [...navLinks].map((a) => ({
+          a,
+          el: document.getElementById(a.dataset.section ?? ""),
+        }));
 
-    let current = "";
-    for (const { el, a } of sections) {
-      if (el && el.getBoundingClientRect().top <= 140) {
-        current = a.dataset.section ?? "";
-      }
-    }
-    for (const { a } of sections) {
-      a.classList.toggle("active", a.dataset.section === current);
+        let current = "";
+        for (const { el, a } of sections) {
+          if (el && el.getBoundingClientRect().top <= 140) {
+            current = a.dataset.section ?? "";
+          }
+        }
+        for (const { a } of sections) {
+          a.classList.toggle("active", a.dataset.section === current);
+        }
+
+        isTicking = false;
+      });
+      isTicking = true;
     }
   };
 

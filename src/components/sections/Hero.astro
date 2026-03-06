@@ -116,7 +116,7 @@ import bgCrane from "../../assets/images/bg-crane.png";
     inline-size: 100%;
     max-inline-size: var(--container);
     margin-inline: auto;
-    padding-inline: 2rem;
+    padding-inline: var(--hero-padding-inline);
     /* padding-block: 10rem 6rem; */
   }
 
@@ -128,8 +128,8 @@ import bgCrane from "../../assets/images/bg-crane.png";
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
-    padding-inline: 1.1rem;
-    padding-block: 0.45rem;
+    padding-inline: var(--hero-badge-pad-inline);
+    padding-block: var(--hero-badge-pad-block);
     border: 1px solid oklch(var(--orange-500-base) / 0.35);
     border-radius: 100px;
     background: oklch(var(--orange-500-base) / 0.08);
@@ -139,7 +139,7 @@ import bgCrane from "../../assets/images/bg-crane.png";
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--orange-400);
-    margin-block-end: 1rem;
+    margin-block-end: var(--hero-gap-badge);
     animation: fadeUp 0.7s 0.1s var(--ease) both;
   }
 
@@ -158,9 +158,9 @@ import bgCrane from "../../assets/images/bg-crane.png";
     font-size: 20rem;
     line-height: 0.9;
     color: var(--orange-500);
-    text-shadow: var(--glow-md);
+    text-shadow: var(--glow-lg);
     letter-spacing: 0.02em;
-    margin-block-end: 0.5rem;
+    margin-block-end: var(--hero-gap-title);
     animation: fadeUp 0.7s 0.2s var(--ease) both;
   }
 
@@ -170,7 +170,7 @@ import bgCrane from "../../assets/images/bg-crane.png";
     font-weight: 600;
     letter-spacing: 0.05em;
     color: var(--white-80);
-    margin-block: 1rem;
+    margin-block: var(--hero-gap-subtitle);
     animation: fadeUp 0.7s 0.3s var(--ease) both;
   }
 
@@ -179,7 +179,7 @@ import bgCrane from "../../assets/images/bg-crane.png";
     color: var(--white-50);
     line-height: 1.7;
     max-inline-size: 520px;
-    margin-block-end: 2.5rem;
+    margin-block-end: var(--hero-gap-desc);
     animation: fadeUp 0.7s 0.4s var(--ease) both;
   }
 

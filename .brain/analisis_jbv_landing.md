@@ -237,7 +237,7 @@ Bajos:      9  (CSS muerto, minor optimizations, etc.)
 - [x] 24. Corregir `"sameAs": []` en Structured Data (omitir si no hay redes, o añadir las reales)
 - [x] 25. Añadir `og:image` al Layout
 - [x] 26. Eliminar `<meta name="keywords">` del Layout
-- [ ] 27. Reemplazar non-null assertions (`!`) en `Navbar.astro` por optional chaining con guardias
+- [x] 27. Reemplazar non-null assertions (`!`) en `Navbar.astro` por optional chaining con guardias
 - [ ] 28. Añadir throttle o `requestAnimationFrame` al listener de scroll del Navbar
 - [ ] 29. Implementar validación JS real en el formulario de contacto
 - [ ] 30. Conectar el formulario a un backend real (FormSubmit, Netlify Forms, etc.)

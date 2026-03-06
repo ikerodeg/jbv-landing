@@ -44,14 +44,14 @@ const links = navigationLinks;
 </header>
 
 <script>
-  const navbar = document.getElementById("navbar")!;
-  const toggle = document.getElementById("nav-toggle")!;
-  const menu = document.getElementById("nav-menu")!;
+  const navbar = document.getElementById("navbar");
+  const toggle = document.getElementById("nav-toggle");
+  const menu = document.getElementById("nav-menu");
   const navLinks = document.querySelectorAll<HTMLAnchorElement>(".nav-link");
 
   // Scroll opacity
   const onScroll = () => {
-    navbar.classList.toggle("scrolled", window.scrollY > 60);
+    navbar?.classList.toggle("scrolled", window.scrollY > 60);
 
     // Active section highlight
     const sections = [...navLinks].map((a) => ({
@@ -74,17 +74,17 @@ const links = navigationLinks;
   onScroll();
 
   // Mobile toggle
-  toggle.addEventListener("click", () => {
+  toggle?.addEventListener("click", () => {
     const open = toggle.getAttribute("aria-expanded") === "true";
     toggle.setAttribute("aria-expanded", String(!open));
-    menu.classList.toggle("open", !open);
+    menu?.classList.toggle("open", !open);
   });
 
   // Close on link click
   navLinks.forEach((a) => {
     a.addEventListener("click", () => {
-      toggle.setAttribute("aria-expanded", "false");
-      menu.classList.remove("open");
+      toggle?.setAttribute("aria-expanded", "false");
+      menu?.classList.remove("open");
     });
   });
 </script>

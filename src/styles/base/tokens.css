@@ -57,22 +57,21 @@
   --font-condensed: 'Barlow Condensed', sans-serif;
   --font-body: 'Barlow', system-ui, sans-serif;
 
-  /* Spacing */
+  /* Spacing Scale */
+  --space-1: 0.15rem;   /* ~2.4px */
+  --space-2: 0.25rem;   /* 4px */
+  --space-3: 0.5rem;    /* 8px */
+  --space-4: 0.75rem;   /* 12px */
+  --space-5: 1rem;      /* 16px */
+  --space-6: 1.25rem;   /* 20px */
+  --space-7: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-9: 2.5rem;    /* 40px */
+  --space-10: 3rem;     /* 48px */
+  --space-11: 3.5rem;   /* 56px */
+  --space-12: 4rem;     /* 64px */
   --section-pad: clamp(5rem, 10vw, 9rem);
-  --container: min(1200px, 100% - 4rem);
-
-  /* Fluid Spacing Scale (Mobile > Viewport > Desktop) */
-  --space-fluid-xs: clamp(0.25rem, 1vw, 0.5rem);       /* Max: 0.5rem (8px)  - Detalles mínimos, gap sutiles */
-  --space-fluid-sm: clamp(0.5rem, 1.5vw, 0.75rem);     /* Max: 0.75rem (12px) - Padding interno pequeño, gaps de texto */
-  --space-fluid-md: clamp(0.75rem, 2vw, 1rem);         /* Max: 1rem (16px)    - Margen estándar, párrafos */
-  --space-fluid-lg: clamp(1rem, 2.5vw, 1.25rem);       /* Max: 1.25rem (20px) - Padding horizontal intermedio */
-  --space-fluid-xl: clamp(1.25rem, 3vw, 1.5rem);       /* Max: 1.5rem (24px)  - Padding vertical bloques secundarios */
-  --space-fluid-2xl: clamp(1.5rem, 4vw, 2rem);         /* Max: 2rem (32px)    - Padding general contenedores */
-  --space-fluid-3xl: clamp(2rem, 5vw, 2.5rem);         /* Max: 2.5rem (40px)  - Gap grande (ej: texto y botones) */
-  --space-fluid-4xl: clamp(2.5rem, 6vw, 3rem);         /* Max: 3rem (48px)    - Margen superior bloques destacados */
-  --space-fluid-5xl: clamp(3rem, 7vw, 4rem);           /* Max: 4rem (64px)    - Separador importante */
-  --space-fluid-6xl: clamp(3rem, 6vw, 6rem);           /* Max: 6rem (96px)    - Gap colosal entre columnas (fluido largo) */
-  --space-fluid-7xl: clamp(6rem, 10vw, 10rem);         /* Max: 10rem (160px)  - Padding altísimo de secciones Hero */
+  --container: min(1200px, 100% - var(--space-12));
 
   /* Radius */
   --r-sm: 4px;

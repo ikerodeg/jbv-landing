@@ -2,7 +2,10 @@
    BASE LAYER
    ============================================================ */
 @layer base {
-  *, *::before, *::after {
+
+  *,
+  *::before,
+  *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -10,7 +13,7 @@
 
   html {
     scroll-behavior: smooth;
-    scroll-padding-block-start: 40px;
+    scroll-padding-block-start: 0px;
     -webkit-text-size-adjust: 100%;
   }
 
@@ -24,13 +27,16 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  img, video {
+  img,
+  video {
     max-inline-size: 100%;
     block-size: auto;
     display: block;
   }
 
-  a { color: inherit; }
+  a {
+    color: inherit;
+  }
 
   ::selection {
     background-color: var(--orange-500);

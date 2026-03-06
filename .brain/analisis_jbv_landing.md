@@ -236,7 +236,7 @@ Bajos:      9  (CSS muerto, minor optimizations, etc.)
 - [x] 23. Reemplazar datos ficticios (`+34600000000`, `info@jbv-gruas.es`) por datos reales en todos los archivos
 - [x] 24. Corregir `"sameAs": []` en Structured Data (omitir si no hay redes, o añadir las reales)
 - [x] 25. Añadir `og:image` al Layout
-- [ ] 26. Eliminar `<meta name="keywords">` del Layout
+- [x] 26. Eliminar `<meta name="keywords">` del Layout
 - [ ] 27. Reemplazar non-null assertions (`!`) en `Navbar.astro` por optional chaining con guardias
 - [ ] 28. Añadir throttle o `requestAnimationFrame` al listener de scroll del Navbar
 - [ ] 29. Implementar validación JS real en el formulario de contacto

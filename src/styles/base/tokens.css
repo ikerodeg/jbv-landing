@@ -61,6 +61,16 @@
   --section-pad: clamp(5rem, 10vw, 9rem);
   --container: min(1200px, 100% - 4rem);
 
+  /* Fluid Spacing Scale (Mobile > Viewport > Desktop) */
+  --space-fluid-xs: clamp(0.25rem, 1vw, 0.5rem);       /* Max: 0.5rem (aprox 8px) - Ideal para gap sutiles o padding compactos */
+  --space-fluid-sm: clamp(0.5rem, 2vw, 1rem);          /* Max: 1rem (16px) - Margen estándar texto/subtítulos */
+  --space-fluid-md: clamp(0.75rem, 2.5vw, 1.25rem);    /* Max: 1.25rem (20px) - Padding horizontal de botones o pastillas */
+  --space-fluid-lg: clamp(1rem, 4vw, 2rem);            /* Max: 2rem (32px) - Padding general contenedores */
+  --space-fluid-xl: clamp(1.5rem, 5vw, 2.5rem);        /* Max: 2.5rem (40px) - Gap grande entre bloques (ej. descripción y botones) */
+  --space-fluid-2xl: clamp(2.5rem, 6vw, 4rem);         /* Max: 4rem (64px) - Separador importante */
+  --space-fluid-3xl: clamp(4rem, 8vw, 6rem);           /* Max: 6rem (96px) - Padding interno vertical inferior grandes */
+  --space-fluid-4xl: clamp(6rem, 10vw, 10rem);         /* Max: 10rem (160px) - Padding interno vertical superior colosales */
+
   /* Radius */
   --r-sm: 4px;
   --r-md: 8px;
@@ -68,12 +78,5 @@
 
   /* Transitions */
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
-  /* Hero Fluid Spacings */
-  --hero-padding-inline: clamp(1rem, 5vw, 2rem);
-  --hero-badge-pad-inline: clamp(0.8rem, 2.5vw, 1.1rem);
-  --hero-badge-pad-block: clamp(0.35rem, 1vw, 0.45rem);
-  --hero-gap-badge: clamp(0.75rem, 2vw, 1rem);
-  --hero-gap-title: clamp(0.25rem, 1vw, 0.5rem);
-  --hero-gap-subtitle: clamp(0.5rem, 2vw, 1rem);
-  --hero-gap-desc: clamp(1.5rem, 4vw, 2.5rem);
+  --dur: 0.35s;
 }

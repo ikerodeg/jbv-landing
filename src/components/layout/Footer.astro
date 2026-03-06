@@ -64,8 +64,8 @@ const year = new Date().getFullYear();
   .footer {
     background: oklch(0.09 0.02 252);
     border-block-start: 1px solid var(--border);
-    padding-block: 4rem 2rem;
-    padding-inline: 2rem;
+    padding-block: var(--space-fluid-5xl) var(--space-fluid-3xl);
+    padding-inline: var(--space-fluid-2xl);
   }
 
   .footer-inner {
@@ -73,8 +73,8 @@ const year = new Date().getFullYear();
     margin-inline: auto;
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
-    gap: 3rem;
-    margin-block-end: 3rem;
+    gap: var(--space-fluid-4xl);
+    margin-block-end: var(--space-fluid-4xl);
   }
 
   .footer-brand .logo {
@@ -85,7 +85,7 @@ const year = new Date().getFullYear();
     text-shadow: var(--glow-sm);
     text-decoration: none;
     display: inline-block;
-    margin-block-end: 1rem;
+    margin-block-end: var(--space-fluid-md);
   }
 
   .footer-brand p {
@@ -102,14 +102,14 @@ const year = new Date().getFullYear();
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--white);
-    margin-block-end: 1.25rem;
+    margin-block-end: var(--space-fluid-lg);
   }
 
   .footer-col ul {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 0.65rem;
+    gap: var(--space-fluid-sm);
   }
 
   .footer-col a {
@@ -126,20 +126,20 @@ const year = new Date().getFullYear();
   .footer-bottom {
     max-inline-size: var(--container);
     margin-inline: auto;
-    padding-block-start: 2rem;
+    padding-block-start: var(--space-fluid-3xl);
     border-block-start: 1px solid var(--border);
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: var(--space-fluid-md);
     font-size: 0.8rem;
     color: var(--navy-500);
   }
 
   .footer-legal {
     display: flex;
-    gap: 1.5rem;
+    gap: var(--space-fluid-2xl);
     flex-wrap: wrap;
   }
 
@@ -156,7 +156,6 @@ const year = new Date().getFullYear();
   @media (max-width: 768px) {
     .footer-inner {
       grid-template-columns: 1fr;
-      gap: 2rem;
     }
 
     .footer-bottom {

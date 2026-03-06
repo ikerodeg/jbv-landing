@@ -143,7 +143,7 @@ const links = navigationLinks;
   .nav-links {
     display: flex;
     align-items: center;
-    gap: 2.5rem;
+    gap: var(--space-fluid-4xl);
     list-style: none;
   }
 
@@ -192,7 +192,7 @@ const links = navigationLinks;
     background: none;
     border: none;
     cursor: pointer;
-    padding: 6px;
+    padding: var(--space-fluid-xs);
     z-index: 200;
   }
 
@@ -233,12 +233,12 @@ const links = navigationLinks;
       block-size: 100dvh;
       flex-direction: column;
       justify-content: center;
-      gap: 2rem;
+      gap: var(--space-fluid-3xl);
       background: oklch(0.1 0.025 252 / 0.97);
       backdrop-filter: blur(24px);
       transform: translateX(110%);
       transition: transform 0.4s var(--ease);
-      padding-inline: 2.5rem;
+      padding-inline: var(--space-fluid-4xl);
       border-inline-start: 1px solid var(--border);
     }
 

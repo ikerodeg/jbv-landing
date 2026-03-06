@@ -75,8 +75,8 @@ import { steps } from "@data/steps";
     inline-size: 56px;
     block-size: 56px;
     border-radius: 50%;
-    border: 2px solid oklch(0.73 0.19 52 / 0.4);
-    background: oklch(0.73 0.19 52 / 0.08);
+    border: 2px solid oklch(var(--orange-500-base) / 0.4);
+    background: oklch(var(--orange-500-base) / 0.08);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -91,7 +91,7 @@ import { steps } from "@data/steps";
   .process-step:hover .step-num {
     border-color: var(--orange-500);
     box-shadow: var(--glow-sm);
-    background: oklch(0.73 0.19 52 / 0.15);
+    background: oklch(var(--orange-500-base) / 0.15);
   }
 
   .step-line {
@@ -99,8 +99,8 @@ import { steps } from "@data/steps";
     inline-size: 1px;
     background: linear-gradient(
       to bottom,
-      oklch(0.73 0.19 52 / 0.3),
-      oklch(0.73 0.19 52 / 0.05)
+      oklch(var(--orange-500-base) / 0.3),
+      oklch(var(--orange-500-base) / 0.05)
     );
     margin-block-start: 0.5rem;
   }

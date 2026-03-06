@@ -93,8 +93,8 @@ import ximoAbout from "../../assets/images/ximo.webp";
     position: absolute;
     inset: 0;
     background-image:
-      linear-gradient(oklch(1 0 0 / 0.02) 1px, transparent 1px),
-      linear-gradient(90deg, oklch(1 0 0 / 0.02) 1px, transparent 1px);
+      linear-gradient(oklch(var(--white-base) / 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, oklch(var(--white-base) / 0.02) 1px, transparent 1px);
     background-size: 60px 60px;
     mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent);
     pointer-events: none;
@@ -167,9 +167,9 @@ import ximoAbout from "../../assets/images/ximo.webp";
     text-align: center;
     padding-block: 1.5rem;
     padding-inline: 0.75rem;
-    border: 1px solid oklch(0.73 0.19 52 / 0.15);
+    border: 1px solid oklch(var(--orange-500-base) / 0.15);
     border-radius: var(--r-md);
-    background: oklch(0.73 0.19 52 / 0.04);
+    background: oklch(var(--orange-500-base) / 0.04);
     position: relative;
     overflow: hidden;
     transition:
@@ -194,8 +194,8 @@ import ximoAbout from "../../assets/images/ximo.webp";
   }
 
   .stat:hover {
-    border-color: oklch(0.73 0.19 52 / 0.4);
-    box-shadow: 0 8px 30px oklch(0.73 0.19 52 / 0.1);
+    border-color: oklch(var(--orange-500-base) / 0.4);
+    box-shadow: 0 8px 30px oklch(var(--orange-500-base) / 0.1);
   }
 
   .stat:hover::before {
@@ -277,7 +277,7 @@ import ximoAbout from "../../assets/images/ximo.webp";
     block-size: 200px;
     background: radial-gradient(
       ellipse,
-      oklch(0.73 0.19 52 / 0.18) 0%,
+      oklch(var(--orange-500-base) / 0.18) 0%,
       transparent 70%
     );
     filter: blur(30px);

@@ -244,4 +244,4 @@ Bajos:      9  (CSS muerto, minor optimizations, etc.)
 - [ ] 31. Eliminar el comentario TODO del formulario
 - [x] 32. Cambiar `<script src="../scripts/reveal.js">` por import en `index.astro`
 - [x] 33. Eliminar atributo no estándar `writingsuggestions="false"` del textarea
-- [ ] 35. Reorganizar `src/components/` en subcarpetas (`ui/`, `sections/`)
+- [x] 35. Reorganizar `src/components/` en subcarpetas (`ui/`, `sections/`, `layout/`)

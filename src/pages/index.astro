@@ -1,14 +1,14 @@
 ---
 import { getImage } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
-import Navbar from "../components/Navbar.astro";
-import Hero from "../components/Hero.astro";
-import About from "../components/About.astro";
-import Services from "../components/Services.astro";
-import Process from "../components/Process.astro";
-import WhyUs from "../components/WhyUs.astro";
-import Contact from "../components/Contact.astro";
-import Footer from "../components/Footer.astro";
+import Navbar from "../components/layout/Navbar.astro";
+import Hero from "../components/sections/Hero.astro";
+import About from "../components/sections/About.astro";
+import Services from "../components/sections/Services.astro";
+import Process from "../components/sections/Process.astro";
+import WhyUs from "../components/sections/WhyUs.astro";
+import Contact from "../components/sections/Contact.astro";
+import Footer from "../components/layout/Footer.astro";
 import bgCrane from "../assets/images/bg-crane.png";
 
 const optimizedBg = await getImage({ src: bgCrane, format: "webp" });

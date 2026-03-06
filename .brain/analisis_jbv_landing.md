@@ -242,7 +242,7 @@ Bajos:      9  (CSS muerto, minor optimizations, etc.)
 - [x] 29. Implementar validación JS real en el formulario de contacto
 - [ ] 30. Conectar el formulario a un backend real (FormSubmit, Netlify Forms, etc.)
 - [ ] 31. Eliminar el comentario TODO del formulario
-- [ ] 32. Cambiar `<script src="../scripts/reveal.js">` por import en `index.astro`
+- [x] 32. Cambiar `<script src="../scripts/reveal.js">` por import en `index.astro`
 - [x] 33. Eliminar atributo no estándar `writingsuggestions="false"` del textarea
 - [ ] 34. Reorganizar `public/images/` en subcarpetas (`hero/`, `about/`)
 - [ ] 35. Reorganizar `src/components/` en subcarpetas (`ui/`, `sections/`)

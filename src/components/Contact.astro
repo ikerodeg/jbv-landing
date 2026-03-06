@@ -169,14 +169,76 @@ import Icon from "./ui/Icon.astro";
 </section>
 
 <script>
-  const form = document.getElementById(
-    "contact-form",
-  ) as HTMLFormElement | null;
+  const form = document.getElementById("contact-form") as HTMLFormElement | null;
   const success = document.getElementById("form-success");
+
+  const showError = (input: HTMLInputElement | HTMLTextAreaElement, message: string) => {
+    const parent = input.closest(".form-field, .form-privacy");
+    if (!parent) return;
+
+    input.classList.add("invalid");
+    let errorEl = parent.querySelector(".field-error");
+    if (!errorEl) {
+      errorEl = document.createElement("span");
+      errorEl.className = "field-error";
+      errorEl.setAttribute("aria-live", "polite");
+      parent.appendChild(errorEl);
+    }
+    errorEl.textContent = message;
+  };
+
+  const clearErrors = () => {
+    if (!form) return;
+    form.querySelectorAll(".invalid").forEach((el) => el.classList.remove("invalid"));
+    form.querySelectorAll(".field-error").forEach((el) => el.remove());
+  };
+
+  const isValidEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
   form?.addEventListener("submit", (e) => {
     e.preventDefault();
-    // In production: connect to FormSubmit, Netlify Forms, or email service
+    clearErrors();
+
+    let isValid = true;
+    const formData = new FormData(form);
+
+    // Honeypot check
+    if (formData.get("_honey")) return;
+
+    const nombre = form.elements.namedItem("nombre") as HTMLInputElement;
+    const empresa = form.elements.namedItem("empresa") as HTMLInputElement;
+    const telefono = form.elements.namedItem("telefono") as HTMLInputElement;
+    const email = form.elements.namedItem("email") as HTMLInputElement;
+    const privacidad = form.elements.namedItem("privacidad") as HTMLInputElement;
+
+    if (!nombre.value.trim()) {
+      showError(nombre, "El nombre es obligatorio");
+      isValid = false;
+    }
+
+    if (!empresa.value.trim()) {
+      showError(empresa, "La empresa es obligatoria");
+      isValid = false;
+    }
+
+    if (!telefono.value.trim()) {
+      showError(telefono, "El teléfono es requerido");
+      isValid = false;
+    }
+
+    if (email.value.trim() && !isValidEmail(email.value.trim())) {
+      showError(email, "Introduzca un email válido");
+      isValid = false;
+    }
+
+    if (!privacidad.checked) {
+      showError(privacidad, "Debe aceptar la política de privacidad");
+      isValid = false;
+    }
+
+    if (!isValid) return;
+
+    // In production: conect to FormSubmit, Netlify Forms, or email service
     form.hidden = true;
     if (success) success.hidden = false;
   });
@@ -329,6 +391,19 @@ import Icon from "./ui/Icon.astro";
     box-shadow: 0 0 0 3px oklch(0.73 0.19 52 / 0.12);
   }
 
+  .form-field input.invalid,
+  .form-field textarea.invalid {
+    border-color: var(--orange-500);
+    background-color: oklch(0.73 0.19 52 / 0.05);
+  }
+
+  :global(.field-error) {
+    color: var(--orange-500);
+    font-size: 0.82rem;
+    margin-block-start: 0.25rem;
+    flex-basis: 100%;
+  }
+
   .form-field textarea {
     min-block-size: 130px;
     resize: vertical;
@@ -340,6 +415,7 @@ import Icon from "./ui/Icon.astro";
     display: flex;
     gap: 0.5rem;
     align-items: flex-start;
+    flex-wrap: wrap;
   }
 
   .form-privacy input[type="checkbox"] {

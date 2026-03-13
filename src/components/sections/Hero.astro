@@ -62,147 +62,149 @@ import bgCrane from "../../assets/images/bg-crane.png";
 </section>
 
 <style>
-  .hero {
-    position: relative;
-    min-block-size: 100svh;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-  }
+  @media (width >= 640px) {
+    .hero {
+      position: relative;
+      min-block-size: 100svh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
 
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-  }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
 
-  .hero-bg img {
-    inline-size: 100%;
-    block-size: 100%;
-    object-fit: cover;
-    object-position: 65% center;
-  }
+    .hero-bg img {
+      inline-size: 100%;
+      block-size: 100%;
+      object-fit: cover;
+      object-position: 65% center;
+    }
 
-  .hero-mask {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    background: linear-gradient(
-      100deg,
-      oklch(0.09 0.03 252 / 0.98) 0%,
-      oklch(0.09 0.03 252 / 0.92) 25%,
-      oklch(0.09 0.03 252 / 0.65) 45%,
-      oklch(0.09 0.03 252 / 0.25) 65%,
-      oklch(0.09 0.03 252 / 0.05) 80%,
-      transparent 100%
-    );
-  }
+    .hero-mask {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(
+        100deg,
+        oklch(0.09 0.03 252 / 0.98) 0%,
+        oklch(0.09 0.03 252 / 0.92) 25%,
+        oklch(0.09 0.03 252 / 0.65) 45%,
+        oklch(0.09 0.03 252 / 0.25) 65%,
+        oklch(0.09 0.03 252 / 0.05) 80%,
+        transparent 100%
+      );
+    }
 
-  /* Bottom fade */
-  .hero-mask::after {
-    content: "";
-    position: absolute;
-    inset-block-end: 0;
-    inset-inline: 0;
-    block-size: 12.5rem;
-    background: linear-gradient(to top, var(--bg), transparent);
-  }
+    /* Bottom fade */
+    .hero-mask::after {
+      content: "";
+      position: absolute;
+      inset-block-end: 0;
+      inset-inline: 0;
+      block-size: 12.5rem;
+      background: linear-gradient(to top, var(--bg), transparent);
+    }
 
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    inline-size: fit-content;
-    margin-inline-start: clamp(4rem, 10vw, 12rem);
-  }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      inline-size: fit-content;
+      margin-inline-start: clamp(4rem, 10vw, 12rem);
+    }
 
-  .hero-title {
-    font-family: var(--font-display);
-    font-size: 20rem;
-    line-height: 0.9;
-    color: var(--orange-500);
-    text-shadow: var(--glow-lg);
-    letter-spacing: 0.02em;
-    animation: fadeUp 0.7s 0.2s var(--ease) both;
-  }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: 20rem;
+      line-height: 0.9;
+      color: var(--orange-500);
+      text-shadow: var(--glow-lg);
+      letter-spacing: 0.02em;
+      animation: fadeUp 0.7s 0.2s var(--ease) both;
+    }
 
-  .hero-subtitle {
-    font-family: var(--font-condensed);
-    font-size: 3rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    color: var(--white-80);
-    margin-block-end: var(--margin-space-2);
-    animation: fadeUp 0.7s 0.3s var(--ease) both;
-  }
+    .hero-subtitle {
+      font-family: var(--font-condensed);
+      font-size: 3rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--white-80);
+      margin-block-end: var(--margin-space-2);
+      animation: fadeUp 0.7s 0.3s var(--ease) both;
+    }
 
-  .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--padding-space-2);
-    padding-inline: var(--padding-space-3);
-    padding-block: var(--padding-space-2);
-    border: 1px solid oklch(var(--orange-500-base) / 0.35);
-    border-radius: 100px;
-    background: oklch(var(--orange-500-base) / 0.08);
-    font-family: var(--font-condensed);
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--orange-400);
-    margin-block-end: var(--margin-space-2);
-    animation: fadeUp 0.7s 0.1s var(--ease) both;
-  }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--padding-space-2);
+      padding-inline: var(--padding-space-3);
+      padding-block: var(--padding-space-2);
+      border: 1px solid oklch(var(--orange-500-base) / 0.35);
+      border-radius: 100px;
+      background: oklch(var(--orange-500-base) / 0.08);
+      font-family: var(--font-condensed);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--orange-400);
+      margin-block-end: var(--margin-space-2);
+      animation: fadeUp 0.7s 0.1s var(--ease) both;
+    }
 
-  .hero-badge::before {
-    content: "";
-    inline-size: 6px;
-    block-size: 6px;
-    border-radius: 50%;
-    background: var(--orange-500);
-    box-shadow: var(--glow-sm);
-    animation: pulse 2s infinite;
-  }
+    .hero-badge::before {
+      content: "";
+      inline-size: 6px;
+      block-size: 6px;
+      border-radius: 50%;
+      background: var(--orange-500);
+      box-shadow: var(--glow-sm);
+      animation: pulse 2s infinite;
+    }
 
-  .hero-desc {
-    font-size: clamp(0.9rem, 1.5vw, 1rem);
-    color: var(--white-50);
-    line-height: 1.7;
-    max-inline-size: 520px;
-    text-wrap: balance;
-    margin-block-end: var(--margin-space-5);
-    animation: fadeUp 0.7s 0.4s var(--ease) both;
-  }
+    .hero-desc {
+      font-size: clamp(0.9rem, 1.5vw, 1rem);
+      color: var(--white-50);
+      line-height: 1.7;
+      max-inline-size: 520px;
+      text-wrap: balance;
+      margin-block-end: var(--margin-space-5);
+      animation: fadeUp 0.7s 0.4s var(--ease) both;
+    }
 
-  .hero-ctas {
-    display: flex;
-    gap: var(--margin-space-3);
-    flex-wrap: wrap;
-    animation: fadeUp 0.7s 0.5s var(--ease) both;
-  }
+    .hero-ctas {
+      display: flex;
+      gap: var(--margin-space-3);
+      flex-wrap: wrap;
+      animation: fadeUp 0.7s 0.5s var(--ease) both;
+    }
 
-  .hero-scroll {
-    position: absolute;
-    inset-block-end: 2.5rem;
-    inset-inline-start: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--white-50);
-    font-family: var(--font-condensed);
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    animation: fadeIn 1s 1.2s both;
-  }
+    .hero-scroll {
+      position: absolute;
+      inset-block-end: 2.5rem;
+      inset-inline-start: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--white-50);
+      font-family: var(--font-condensed);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      animation: fadeIn 1s 1.2s both;
+    }
 
-  .scroll-line {
-    inline-size: 1px;
-    block-size: 50px;
-    background: linear-gradient(to bottom, var(--orange-500), transparent);
-    animation: scrollLine 1.5s ease-in-out infinite;
+    .scroll-line {
+      inline-size: 1px;
+      block-size: 50px;
+      background: linear-gradient(to bottom, var(--orange-500), transparent);
+      animation: scrollLine 1.5s ease-in-out infinite;
+    }
   }
 </style>

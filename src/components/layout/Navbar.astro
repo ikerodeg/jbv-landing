@@ -86,26 +86,9 @@ const links = navigationLinks;
   toggle?.addEventListener("click", () => {
     const open = toggle.getAttribute("aria-expanded") === "true";
     toggle.setAttribute("aria-expanded", String(!open));
-    menu?.classList.toggle("open", !open);
-  });
-
   // Close on link click
   navLinks.forEach((a) => {
-    a.addEventListener("click", (e) => {
-      // Handle smooth scroll manually for GitHub Pages subpath compatibility
-      const targetId = a.getAttribute("href")?.split("#")[1];
-      if (targetId) {
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-          e.preventDefault();
-          targetElement.scrollIntoView({
-            behavior: "smooth"
-          });
-          // Update URL without jumping
-          history.pushState(null, "", `#${targetId}`);
-        }
-      }
-
+    a.addEventListener("click", () => {
       toggle?.setAttribute("aria-expanded", "false");
       menu?.classList.remove("open");
     });

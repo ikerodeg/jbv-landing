@@ -1,8 +1,8 @@
 export const navigationLinks = [
-  { href: '/#inicio', label: 'Inicio' },
-  { href: '/#sobre-mi', label: 'Sobre Mí' },
-  { href: '/#servicios', label: 'Servicios' },
-  { href: '/#proceso', label: 'Proceso' },
-  { href: '/#por-que', label: 'Por Qué' },
-  { href: '/#contacto', label: 'Contacto' },
+  { href: `${import.meta.env.BASE_URL}#inicio`, label: 'Inicio' },
+  { href: `${import.meta.env.BASE_URL}#sobre-mi`, label: 'Sobre Mí' },
+  { href: `${import.meta.env.BASE_URL}#servicios`, label: 'Servicios' },
+  { href: `${import.meta.env.BASE_URL}#proceso`, label: 'Proceso' },
+  { href: `${import.meta.env.BASE_URL}#por-que`, label: 'Por Qué' },
+  { href: `${import.meta.env.BASE_URL}#contacto`, label: 'Contacto' },
 ];

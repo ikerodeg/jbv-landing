@@ -7,7 +7,7 @@ import ximoAbout from "../../assets/images/ximo.webp";
   <div class="about-inner">
     <!-- Text column -->
     <div class="about-text reveal">
-      <p class="about-eyebrow">Sobre Mí</p>
+      <span class="about-eyebrow">Sobre Mí</span>
 
       <h2 class="about-title">
         Hola, soy <span class="accent">Ximo</span>
@@ -47,7 +47,7 @@ import ximoAbout from "../../assets/images/ximo.webp";
 
     <!-- Photo column -->
     <div class="about-photo reveal reveal-delay-2">
-      <div class="image-wrapper reveal">
+      <div class="about-photo-frame reveal">
         <Image
           src={ximoAbout}
           alt="Ximo, fundador de JBV"
@@ -63,6 +63,7 @@ import ximoAbout from "../../assets/images/ximo.webp";
 </section>
 
 <style>
+  /* Seccion About */
   .about {
     position: relative;
     min-block-size: 100svh;
@@ -72,6 +73,7 @@ import ximoAbout from "../../assets/images/ximo.webp";
     background: var(--navy-800);
   }
 
+  /* Decorative top border */
   .about::before {
     content: "";
     position: absolute;
@@ -93,13 +95,18 @@ import ximoAbout from "../../assets/images/ximo.webp";
     position: absolute;
     inset: 0;
     background-image:
-      linear-gradient(oklch(var(--white-base) / 0.02) 1px, transparent 1px),
-      linear-gradient(90deg, oklch(var(--white-base) / 0.02) 1px, transparent 1px);
+      linear-gradient(oklch(var(--white-base) / 0.05) 1px, transparent 1px),
+      linear-gradient(
+        90deg,
+        oklch(var(--white-base) / 0.05) 1px,
+        transparent 1px
+      );
     background-size: 60px 60px;
     mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent);
     pointer-events: none;
   }
 
+  /* Contenido principal */
   .about-inner {
     position: relative;
     z-index: 1;
@@ -109,24 +116,26 @@ import ximoAbout from "../../assets/images/ximo.webp";
     gap: clamp(3rem, 6vw, 6rem);
     max-inline-size: var(--container);
     margin-inline: auto;
-    padding-inline: var(--space-8);
-    padding-block: var(--section-pad);
+    padding-inline: var(--padding-space-5);
     inline-size: 100%;
   }
 
+  /* Titulo de la seccion */
   .about-eyebrow {
+    display: block;
     font-family: var(--font-condensed);
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--orange-500);
-    margin-block-end: var(--space-5);
+    margin-block-end: var(--margin-space-3);
     display: flex;
     align-items: center;
     gap: 0.75rem;
   }
 
+  /* Decorativo del titulo de la seccion */
   .about-eyebrow::before {
     content: "";
     inline-size: 32px;
@@ -135,38 +144,44 @@ import ximoAbout from "../../assets/images/ximo.webp";
     box-shadow: var(--glow-sm);
   }
 
+  /* Titulo principal */
   .about-title {
     font-family: var(--font-display);
     font-size: clamp(2.5rem, 5vw, 4rem);
     line-height: 1;
     letter-spacing: 0.02em;
     color: var(--white);
-    margin-block-end: var(--space-7);
+    margin-block-end: var(--margin-space-2);
   }
 
+  /* Resaltar la palabra Ximo */
   .about-title .accent {
     color: var(--orange-500);
     text-shadow: var(--glow-sm);
   }
 
+  /* Texto de la seccion */
   .about-text p {
     font-size: 1rem;
     color: var(--white-50);
     line-height: 1.75;
-    margin-block-end: var(--space-5);
+    margin-block-end: var(--margin-space-1);
+    text-wrap: pretty;
   }
 
+  /* Contenedor de estadisticas */
   .stats-row {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
-    margin-block-start: var(--space-10);
+    margin-block-start: var(--margin-space-5);
   }
 
+  /* tarjeta de estadistica */
   .stat {
     text-align: center;
-    padding-block: var(--space-7);
-    padding-inline: var(--space-4);
+    padding-block: var(--padding-space-3);
+    padding-inline: var(--padding-space-4);
     border: 1px solid oklch(var(--orange-500-base) / 0.15);
     border-radius: var(--r-md);
     background: oklch(var(--orange-500-base) / 0.04);
@@ -177,6 +192,7 @@ import ximoAbout from "../../assets/images/ximo.webp";
       box-shadow var(--dur) var(--ease);
   }
 
+  /* Decorativo de la tarjeta de estadistica */
   .stat::before {
     content: "";
     position: absolute;
@@ -189,19 +205,44 @@ import ximoAbout from "../../assets/images/ximo.webp";
       var(--orange-500),
       transparent
     );
-    opacity: 0;
+    opacity: 1;
     transition: opacity var(--dur) var(--ease);
   }
 
+  /* Decorativo de la tarjeta de estadistica */
+  .stat::after {
+    content: "";
+    position: absolute;
+    inset-block-end: 0;
+    inset-inline: 0;
+    block-size: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--orange-500),
+      transparent
+    );
+    opacity: 1;
+    transition: opacity var(--dur) var(--ease);
+  }
+
+  /* Hover de la tarjeta de estadistica */
   .stat:hover {
     border-color: oklch(var(--orange-500-base) / 0.4);
     box-shadow: 0 8px 30px oklch(var(--orange-500-base) / 0.1);
   }
 
+  /* Hover de la tarjeta de estadistica */
   .stat:hover::before {
     opacity: 1;
   }
 
+  /* Hover de la tarjeta de estadistica */
+  .stat:hover::after {
+    opacity: 1;
+  }
+
+  /* Numero de la tarjeta de estadistica */
   .stat-num {
     font-family: var(--font-display);
     font-size: clamp(2rem, 4vw, 2.75rem);
@@ -212,6 +253,7 @@ import ximoAbout from "../../assets/images/ximo.webp";
     letter-spacing: 0.02em;
   }
 
+  /* Etiqueta de la tarjeta de estadistica */
   .stat-label {
     font-family: var(--font-condensed);
     font-size: 0.78rem;
@@ -222,6 +264,7 @@ import ximoAbout from "../../assets/images/ximo.webp";
     text-transform: uppercase;
   }
 
+  /* Columna de la foto */
   .about-photo {
     position: relative;
     display: flex;
@@ -233,33 +276,8 @@ import ximoAbout from "../../assets/images/ximo.webp";
     position: relative;
     max-inline-size: 440px;
     inline-size: 100%;
-  }
-
-  /* Decorative corner accent */
-  .about-photo-frame::before {
-    content: "";
-    position: absolute;
-    inset-block-start: -12px;
-    inset-inline-end: -12px;
-    inline-size: 80px;
-    block-size: 80px;
-    border-block-start: 3px solid var(--orange-500);
-    border-inline-end: 3px solid var(--orange-500);
-    border-radius: 0 var(--r-lg) 0 0;
-    opacity: 0.6;
-  }
-
-  .about-photo-frame::after {
-    content: "";
-    position: absolute;
-    inset-block-end: -12px;
-    inset-inline-start: -12px;
-    inline-size: 80px;
-    block-size: 80px;
-    border-block-end: 3px solid var(--orange-500);
-    border-inline-start: 3px solid var(--orange-500);
-    border-radius: 0 0 0 var(--r-lg);
-    opacity: 0.3;
+    border-radius: var(--r-lg);
+    overflow: hidden;
   }
 
   .about-photo-frame img {
@@ -268,6 +286,7 @@ import ximoAbout from "../../assets/images/ximo.webp";
     position: relative;
     z-index: 1;
     filter: drop-shadow(0 30px 60px oklch(0 0 0 / 0.5));
+    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
   }
 
   .about-glow {

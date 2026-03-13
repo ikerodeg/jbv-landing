@@ -1,109 +1,153 @@
-# JBV — Sitio Web Oficial
+# JBV — Grúas y Esclusas
 
-Intermediación Profesional de Grúas Autopropulsadas entre Alemania y España.
+Landing page profesional para **JBV**, servicio de intermediación de grúas autopropulsadas entre Alemania y España. Desarrollada con Astro 5, HTML semántico y CSS moderno. Optimizada para rendimiento, SEO y despliegue en GitHub Pages.
+
+🔗 **Demo en vivo**: [jbv-landing](https://ikerodeg.github.io/jbv-landing/) _(próximamente)_
+
+---
 
 ## Stack Tecnológico
 
-- **Framework**: Astro 5
-- **Estilos**: Vanilla CSS moderno (OKLCH, Logical Properties, @layer, custom properties)
-- **JavaScript**: Vanilla ES Modules
-- **Fuentes**: Bebas Neue (display) + Barlow / Barlow Condensed (cuerpo)
-- **Package Manager**: Bun (recomendado) / npm
+| Categoría        | Tecnología                                                        |
+| ---------------- | ----------------------------------------------------------------- |
+| Framework        | [Astro 5](https://astro.build/)                                   |
+| Estilos          | Vanilla CSS moderno — OKLCH, Logical Properties, `@layer`, Custom Properties |
+| JavaScript       | Vanilla ES Modules                                                |
+| Tipografía       | Bebas Neue (display) · Barlow / Barlow Condensed (cuerpo)         |
+| Package Manager  | [Bun](https://bun.sh/) (recomendado) / npm                       |
+| Despliegue       | GitHub Pages                                                      |
+
+---
 
 ## Estructura del Proyecto
 
-```
-jbv-astro/
+```text
+jbv-landing/
 ├── public/
-│   ├── images/
-│   │   ├── bg-crane.png        ← Imagen de fondo hero (grúa)
-│   │   └── ximo.webp           ← Foto de Ximo
-│   └── favicon.svg
+│   ├── images/               ← Recursos gráficos (WebP)
+│   ├── favicon.svg
+│   └── robots.txt
 ├── src/
 │   ├── components/
-│   │   ├── Navbar.astro
-│   │   ├── Hero.astro
-│   │   ├── About.astro
-│   │   ├── Services.astro
-│   │   ├── Process.astro
-│   │   ├── WhyUs.astro
-│   │   ├── Contact.astro
-│   │   └── Footer.astro
+│   │   ├── layout/
+│   │   │   ├── Navbar.astro
+│   │   │   └── Footer.astro
+│   │   ├── sections/
+│   │   │   ├── Hero.astro
+│   │   │   ├── About.astro
+│   │   │   ├── Services.astro
+│   │   │   ├── Process.astro
+│   │   │   ├── WhyUs.astro
+│   │   │   └── Contact.astro
+│   │   └── ui/
+│   │       └── Icon.astro
+│   ├── data/                  ← Contenido estructurado
 │   ├── layouts/
-│   │   └── Layout.astro        ← Layout principal con SEO
+│   │   ├── Layout.astro       ← Layout principal con SEO
+│   │   └── LegalLayout.astro  ← Layout para páginas legales
 │   ├── pages/
-│   │   ├── index.astro         ← Página principal
+│   │   ├── index.astro        ← Página principal
 │   │   ├── aviso-legal.astro
 │   │   ├── privacidad.astro
 │   │   └── cookies.astro
 │   ├── scripts/
-│   │   └── reveal.js           ← Scroll reveal con IntersectionObserver
+│   │   └── reveal.js          ← Scroll reveal con IntersectionObserver
 │   └── styles/
-│       └── global.css          ← Design system completo
-└── astro.config.mjs
+│       ├── global.css          ← Punto de entrada de estilos
+│       └── base/
+│           ├── tokens.css      ← Design tokens (colores, espaciado, tipografía)
+│           ├── reset.css       ← Reset CSS normalizado
+│           ├── layout.css      ← Utilidades de layout
+│           ├── components.css  ← Estilos base de componentes
+│           └── animations.css  ← Animaciones y transiciones
+├── astro.config.mjs
+├── tsconfig.json
+└── package.json
 ```
 
-## Setup
+---
 
-### Con Bun (recomendado según spec)
+## Inicio Rápido
+
+### Requisitos previos
+
+- [Node.js](https://nodejs.org/) ≥ 20.0.0
+- [Bun](https://bun.sh/) (recomendado) o npm
+
+### Instalación
+
 ```bash
-bun install
-bun run dev       # Desarrollo
-bun run build     # Producción
-bun run preview   # Preview de build
+# Clonar el repositorio
+git clone https://github.com/ikerodeg/jbv-landing.git
+cd jbv-landing
+
+# Instalar dependencias
+bun install        # o: npm install
 ```
 
-### Con npm (alternativa)
+### Desarrollo
+
 ```bash
-npm install
-npm run dev
-npm run build
-npm run preview
+bun run dev        # Servidor de desarrollo en http://localhost:4321
 ```
 
-## Personalización Obligatoria
+### Producción
 
-1. **Teléfono**: Reemplaza `+34 600 000 000` con el número real de Ximo
-2. **WhatsApp**: Actualiza `https://wa.me/34600000000` con el número real
-3. **Email**: Actualiza `info@jbv.com` con el email real
-4. **Dominio**: Actualiza `site` en `astro.config.mjs` y `canonical` en Layout
-5. **Analytics**: Añadir Google Analytics en `Layout.astro` (dentro de `<head>`)
-6. **Formulario**: Conectar a servicio de email (FormSubmit.co, Netlify Forms, etc.)
-7. **Aviso Legal**: Completar datos completos del titular con abogado
-
-## Formulario de Contacto
-
-El formulario actualmente simula el envío. Para producción, opciones:
-
-### FormSubmit (gratuito, sin backend)
-```html
-<form action="https://formsubmit.co/tu@email.com" method="POST">
-  <input type="hidden" name="_subject" value="Nueva consulta JBV">
-  <input type="hidden" name="_next" value="https://www.jbv.com/gracias">
-  ...
-</form>
+```bash
+bun run build      # Genera el sitio estático en dist/
+bun run preview    # Vista previa del build de producción
 ```
 
-### Netlify Forms (si hospedas en Netlify)
-Añadir `data-netlify="true"` al form y `netlify` como atributo.
+### Scripts adicionales
+
+```bash
+bun run lint       # Comprobación de tipos con Astro check
+bun run check      # Validación del proyecto
+```
+
+---
+
+## Características
+
+- **Rendimiento** — Build 100 % estático; sin JavaScript en runtime salvo las animaciones de scroll.
+- **SEO completo** — Meta tags, Open Graph, JSON-LD (`LocalBusiness`), canonical URL, sitemap automático y `robots.txt`.
+- **Diseño responsivo** — Mobile-first con breakpoints fluidos.
+- **CSS moderno** — Uso de `@layer`, Custom Properties, OKLCH y Logical Properties para un design system escalable.
+- **Accesibilidad** — HTML5 semántico, contraste adecuado y navegación por teclado.
+- **Páginas legales** — Aviso Legal, Política de Privacidad y Política de Cookies con layout dedicado.
+
+---
+
+## Despliegue en GitHub Pages
+
+El sitio está configurado para desplegarse en **GitHub Pages**. El build genera archivos HTML/CSS/JS estáticos en la carpeta `dist/` sin dependencias en runtime.
+
+---
 
 ## SEO
 
-El sitio incluye:
-- Meta tags completos (title, description, keywords)
+El sitio implementa las mejores prácticas de posicionamiento:
+
+- Meta tags completos (`title`, `description`, `keywords`)
 - Open Graph para redes sociales
-- Structured Data (JSON-LD) con schema.org/LocalBusiness
-- Canonical URL
-- `lang="es"` en html
-- Semántica HTML5 correcta
+- Structured Data con JSON-LD — `schema.org/LocalBusiness`
+- URL canónica por página
+- Atributo `lang="es"` en el documento
+- Sitemap XML generado automáticamente
+- `robots.txt` configurado
 
-## Despliegue
+---
 
-Compatible con cualquier hosting estático:
-- **Netlify** (recomendado): `npm run build` → carpeta `dist/`
-- **Vercel**: Detección automática de Astro
-- **GitHub Pages**: Requiere configuración de base path
+## Licencia
 
-## Dependencias de Producción (Astro genera HTML estático puro)
+El **código fuente** de este proyecto está licenciado bajo la [Licencia MIT](https://opensource.org/licenses/MIT). Consulta el archivo [LICENSE](./LICENSE) para más detalles.
 
-El build de producción genera HTML/CSS/JS estático. Sin dependencias en runtime.
+### Contenido y marca
+
+Las imágenes, logotipos, textos comerciales, contenido de marca y demás material gráfico incluidos en este repositorio son **propiedad exclusiva de JBV** y **no están cubiertos por la licencia MIT**. Queda prohibida su reproducción, distribución o uso comercial sin autorización expresa por escrito del titular.
+
+---
+
+<p align="center">
+  Desarrollado con <a href="https://astro.build/">Astro</a> · Desplegado en <a href="https://pages.github.com/">GitHub Pages</a>
+</p>

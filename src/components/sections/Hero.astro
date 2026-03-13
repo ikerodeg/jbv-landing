@@ -15,44 +15,42 @@ import bgCrane from "../../assets/images/bg-crane.png";
 
   <!-- Content -->
   <div class="hero-content">
-    <div class="hero-inner">
-      <h1 class="hero-title">JBV</h1>
-      <h2 class="hero-subtitle">
-        Intermediación Profesional<br />de Grúas Autopropulsadas
-      </h2>
+    <h1 class="hero-title">JBV</h1>
+    <h2 class="hero-subtitle">
+      Intermediación Profesional<br />de Grúas Autopropulsadas
+    </h2>
 
-      <div class="hero-badge">
-        <span>Alemania · España</span>
-      </div>
+    <div class="hero-badge">
+      <span>Alemania · España</span>
+    </div>
 
-      <p class="hero-desc">
-        Para empresas que valoran la transparencia, la fiabilidad y el mejor
-        precio en maquinaria de calidad alemana. Conectamos a su empresa
-        directamente con las mejores oportunidades del mercado alemán.
-      </p>
+    <p class="hero-desc">
+      Para empresas que valoran la transparencia, la fiabilidad y el mejor
+      precio en maquinaria de calidad alemana. Conectamos a su empresa
+      directamente con las mejores oportunidades del mercado alemán.
+    </p>
 
-      <div class="hero-ctas">
-        <!-- TODO: Reemplazar el número de teléfono y WhatsApp ficticio (+34600000000) por los reales -->
-        <a
-          href="https://wa.me/34600000000"
-          class="btn btn-primary"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Contactar por WhatsApp"
-        >
-          <Icon name="whatsapp" />
-          WhatsApp
-        </a>
+    <div class="hero-ctas">
+      <!-- TODO: Reemplazar el número de teléfono y WhatsApp ficticio (+34600000000) por los reales -->
+      <a
+        href="https://wa.me/34600000000"
+        class="btn btn-whatsapp"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Contactar por WhatsApp"
+      >
+        <Icon name="whatsapp" />
+        WhatsApp
+      </a>
 
-        <a
-          href="tel:+34600000000"
-          class="btn btn-outline"
-          aria-label="Llamar por teléfono"
-        >
-          <Icon name="phone" />
-          Llamar ahora
-        </a>
-      </div>
+      <a
+        href="tel:+34600000000"
+        class="btn btn-outline"
+        aria-label="Llamar por teléfono"
+      >
+        <Icon name="phone" />
+        Llamar ahora
+      </a>
     </div>
   </div>
 
@@ -106,30 +104,43 @@ import bgCrane from "../../assets/images/bg-crane.png";
     position: absolute;
     inset-block-end: 0;
     inset-inline: 0;
-    block-size: 200px;
+    block-size: 12.5rem;
     background: linear-gradient(to top, var(--bg), transparent);
   }
 
   .hero-content {
     position: relative;
     z-index: 2;
-    inline-size: 100%;
-    max-inline-size: var(--container);
-    margin-inline: auto;
-    padding-inline: var(--space-8);
-    /* padding-block: 10rem 6rem; */
+    inline-size: fit-content;
+    margin-inline-start: clamp(4rem, 10vw, 12rem);
   }
 
-  .hero-inner {
-    max-inline-size: 620px;
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: 20rem;
+    line-height: 0.9;
+    color: var(--orange-500);
+    text-shadow: var(--glow-lg);
+    letter-spacing: 0.02em;
+    animation: fadeUp 0.7s 0.2s var(--ease) both;
+  }
+
+  .hero-subtitle {
+    font-family: var(--font-condensed);
+    font-size: 3rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--white-80);
+    margin-block-end: var(--margin-space-2);
+    animation: fadeUp 0.7s 0.3s var(--ease) both;
   }
 
   .hero-badge {
     display: inline-flex;
     align-items: center;
-    gap: 0.6rem;
-    padding-inline: 1.1rem;
-    padding-block: var(--space-3);
+    gap: var(--padding-space-2);
+    padding-inline: var(--padding-space-3);
+    padding-block: var(--padding-space-2);
     border: 1px solid oklch(var(--orange-500-base) / 0.35);
     border-radius: 100px;
     background: oklch(var(--orange-500-base) / 0.08);
@@ -139,7 +150,7 @@ import bgCrane from "../../assets/images/bg-crane.png";
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--orange-400);
-    margin-block-end: var(--space-5);
+    margin-block-end: var(--margin-space-2);
     animation: fadeUp 0.7s 0.1s var(--ease) both;
   }
 
@@ -153,39 +164,19 @@ import bgCrane from "../../assets/images/bg-crane.png";
     animation: pulse 2s infinite;
   }
 
-  .hero-title {
-    font-family: var(--font-display);
-    font-size: 20rem;
-    line-height: 0.9;
-    color: var(--orange-500);
-    text-shadow: var(--glow-lg);
-    letter-spacing: 0.02em;
-    margin-block-end: var(--space-3);
-    animation: fadeUp 0.7s 0.2s var(--ease) both;
-  }
-
-  .hero-subtitle {
-    font-family: var(--font-condensed);
-    font-size: 3rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    color: var(--white-80);
-    margin-block: var(--space-5);
-    animation: fadeUp 0.7s 0.3s var(--ease) both;
-  }
-
   .hero-desc {
     font-size: clamp(0.9rem, 1.5vw, 1rem);
     color: var(--white-50);
     line-height: 1.7;
     max-inline-size: 520px;
-    margin-block-end: var(--space-9);
+    text-wrap: balance;
+    margin-block-end: var(--margin-space-5);
     animation: fadeUp 0.7s 0.4s var(--ease) both;
   }
 
   .hero-ctas {
     display: flex;
-    gap: 1rem;
+    gap: var(--margin-space-3);
     flex-wrap: wrap;
     animation: fadeUp 0.7s 0.5s var(--ease) both;
   }

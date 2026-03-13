@@ -86,6 +86,9 @@ const links = navigationLinks;
   toggle?.addEventListener("click", () => {
     const open = toggle.getAttribute("aria-expanded") === "true";
     toggle.setAttribute("aria-expanded", String(!open));
+    menu?.classList.toggle("open", !open);
+  });
+
   // Close on link click
   navLinks.forEach((a) => {
     a.addEventListener("click", () => {

@@ -12,21 +12,18 @@ import ximoAbout from "../../assets/images/ximo.webp";
       <h2 class="about-title">
         Hola, soy <span class="accent">Ximo</span>
       </h2>
-
       <p>
-        Cuento con <strong>27 años de experiencia</strong> en el sector de las grúas,
-        de los cuales <strong>14 años</strong> han sido viviendo y trabajando en Alemania.
+        Conozco el mercado alemán de primera mano: cada fabricante, cada detalle
+        técnico, cada oportunidad.
+      </p>
+      <p>
+        Esa experiencia directa es lo que me permite encontrar para su empresa
+        exactamente lo que necesita, al mejor precio y con total garantía.
       </p>
       <p>
         Nuestra empresa nació con el objetivo de ofrecer grúas autopropulsadas y
         maquinaria de origen alemán con total transparencia y profesionalidad
         durante todo el proceso de compra.
-      </p>
-      <p>
-        Conozco el mercado alemán de primera mano: cada fabricante, cada detalle
-        técnico, cada oportunidad. Esa experiencia directa es lo que me permite
-        encontrar para su empresa exactamente lo que necesita, al mejor precio y
-        con total garantía.
       </p>
 
       <div class="stats-row">
@@ -63,6 +60,10 @@ import ximoAbout from "../../assets/images/ximo.webp";
 </section>
 
 <style>
+  /* ═══════════════════════════════════════════
+    Base / Mobile-first
+    ═══════════════════════════════════════════ */
+
   /* Seccion About */
   .about {
     position: relative;
@@ -94,6 +95,7 @@ import ximoAbout from "../../assets/images/ximo.webp";
     content: "";
     position: absolute;
     inset: 0;
+    z-index: 0;
     background-image:
       linear-gradient(oklch(var(--white-base) / 0.05) 1px, transparent 1px),
       linear-gradient(
@@ -110,13 +112,13 @@ import ximoAbout from "../../assets/images/ximo.webp";
   .about-inner {
     position: relative;
     z-index: 1;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     gap: clamp(3rem, 6vw, 6rem);
-    max-inline-size: var(--container);
-    margin-inline: auto;
-    padding-inline: var(--padding-space-5);
+    padding-inline: var(--padding-space-3);
+    padding-block: var(--padding-space-8) var(--padding-space-3);
     inline-size: 100%;
   }
 
@@ -146,7 +148,7 @@ import ximoAbout from "../../assets/images/ximo.webp";
 
   /* Titulo principal */
   .about-title {
-    font-family: var(--font-display);
+    font-family: var(--font-condensed);
     font-size: clamp(2.5rem, 5vw, 4rem);
     line-height: 1;
     letter-spacing: 0.02em;
@@ -160,33 +162,42 @@ import ximoAbout from "../../assets/images/ximo.webp";
     text-shadow: var(--glow-sm);
   }
 
+  .about-text {
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+  }
+
   /* Texto de la seccion */
   .about-text p {
-    font-size: 1rem;
+    font-size: var(--fs-mobile-fluid-3);
+    margin-block-end: var(--margin-space-2);
     color: var(--white-50);
     line-height: 1.75;
-    margin-block-end: var(--margin-space-1);
     text-wrap: pretty;
   }
 
   /* Contenedor de estadisticas */
   .stats-row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    margin-block-start: var(--margin-space-5);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--margin-space-1);
+    justify-content: center;
+    margin-block-start: var(--margin-space-1);
   }
 
   /* tarjeta de estadistica */
   .stat {
     text-align: center;
-    padding-block: var(--padding-space-3);
-    padding-inline: var(--padding-space-4);
+    inline-size: clamp(100px, 25vw, 200px);
+    padding-block: var(--padding-space-1);
+    padding-inline: var(--padding-space-1);
     border: 1px solid oklch(var(--orange-500-base) / 0.15);
     border-radius: var(--r-md);
     background: oklch(var(--orange-500-base) / 0.04);
     position: relative;
     overflow: hidden;
+    font-size: 0.8rem;
     transition:
       border-color var(--dur) var(--ease),
       box-shadow var(--dur) var(--ease);
@@ -244,7 +255,7 @@ import ximoAbout from "../../assets/images/ximo.webp";
 
   /* Numero de la tarjeta de estadistica */
   .stat-num {
-    font-family: var(--font-display);
+    font-family: var(--font-condensed);
     font-size: clamp(2rem, 4vw, 2.75rem);
     color: var(--orange-500);
     text-shadow: var(--glow-sm);
@@ -264,62 +275,273 @@ import ximoAbout from "../../assets/images/ximo.webp";
     text-transform: uppercase;
   }
 
-  /* Columna de la foto */
-  .about-photo {
-    position: relative;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-  }
+  /* ═══════════════════════════════════════════
+     Desktop overrides (solo diferencias)
+     ═══════════════════════════════════════════ */
 
-  .about-photo-frame {
-    position: relative;
-    max-inline-size: 440px;
-    inline-size: 100%;
-    border-radius: var(--r-lg);
-    overflow: hidden;
-  }
-
-  .about-photo-frame img {
-    inline-size: 100%;
-    block-size: auto;
-    position: relative;
-    z-index: 1;
-    filter: drop-shadow(0 30px 60px oklch(0 0 0 / 0.5));
-    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-  }
-
-  .about-glow {
-    position: absolute;
-    inset-block-end: -40px;
-    inset-inline: 0;
-    block-size: 200px;
-    background: radial-gradient(
-      ellipse,
-      oklch(var(--orange-500-base) / 0.18) 0%,
-      transparent 70%
-    );
-    filter: blur(30px);
-    z-index: 0;
-  }
-
-  @media (max-width: 900px) {
-    .about-inner {
-      grid-template-columns: 1fr;
-      gap: 3rem;
+  @media (width >= 640px) {
+    /* Seccion About */
+    .about {
+      position: relative;
+      min-block-size: 100svh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: var(--navy-800);
     }
 
+    /* Decorative top border */
+    .about::before {
+      content: "";
+      position: absolute;
+      inset-block-start: 0;
+      inset-inline: 0;
+      block-size: 1px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        var(--orange-500),
+        transparent
+      );
+      opacity: 0.3;
+    }
+
+    /* Decorative background grid */
+    .about::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(oklch(var(--white-base) / 0.05) 1px, transparent 1px),
+        linear-gradient(
+          90deg,
+          oklch(var(--white-base) / 0.05) 1px,
+          transparent 1px
+        );
+      background-size: 60px 60px;
+      mask-image: radial-gradient(
+        ellipse 80% 80% at 50% 50%,
+        black,
+        transparent
+      );
+      pointer-events: none;
+    }
+
+    /* Contenido principal */
+    .about-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: clamp(3rem, 6vw, 6rem);
+      max-inline-size: var(--container);
+      margin-inline: auto;
+      padding-inline: var(--padding-space-5);
+      inline-size: 100%;
+    }
+
+    /* Titulo de la seccion */
+    .about-eyebrow {
+      display: block;
+      font-family: var(--font-condensed);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--orange-500);
+      margin-block-end: var(--margin-space-3);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    /* Decorativo del titulo de la seccion */
+    .about-eyebrow::before {
+      content: "";
+      inline-size: 32px;
+      block-size: 2px;
+      background: var(--orange-500);
+      box-shadow: var(--glow-sm);
+    }
+
+    /* Titulo principal */
+    .about-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      margin-block-end: var(--margin-space-2);
+    }
+
+    /* Resaltar la palabra Ximo */
+    .about-title .accent {
+      color: var(--orange-500);
+      text-shadow: var(--glow-sm);
+    }
+
+    /* Texto de la seccion */
+    .about-text p {
+      font-size: 1rem;
+      color: var(--white-50);
+      line-height: 1.75;
+      margin-block-end: var(--margin-space-1);
+      text-wrap: pretty;
+    }
+
+    /* Contenedor de estadisticas */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-block-start: var(--margin-space-5);
+    }
+
+    /* tarjeta de estadistica */
+    .stat {
+      text-align: center;
+      padding-block: var(--padding-space-3);
+      padding-inline: var(--padding-space-4);
+      border: 1px solid oklch(var(--orange-500-base) / 0.15);
+      border-radius: var(--r-md);
+      background: oklch(var(--orange-500-base) / 0.04);
+      position: relative;
+      overflow: hidden;
+      transition:
+        border-color var(--dur) var(--ease),
+        box-shadow var(--dur) var(--ease);
+    }
+
+    /* Decorativo de la tarjeta de estadistica */
+    .stat::before {
+      content: "";
+      position: absolute;
+      inset-block-start: 0;
+      inset-inline: 0;
+      block-size: 2px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        var(--orange-500),
+        transparent
+      );
+      opacity: 1;
+      transition: opacity var(--dur) var(--ease);
+    }
+
+    /* Decorativo de la tarjeta de estadistica */
+    .stat::after {
+      content: "";
+      position: absolute;
+      inset-block-end: 0;
+      inset-inline: 0;
+      block-size: 2px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        var(--orange-500),
+        transparent
+      );
+      opacity: 1;
+      transition: opacity var(--dur) var(--ease);
+    }
+
+    /* Hover de la tarjeta de estadistica */
+    .stat:hover {
+      border-color: oklch(var(--orange-500-base) / 0.4);
+      box-shadow: 0 8px 30px oklch(var(--orange-500-base) / 0.1);
+    }
+
+    /* Hover de la tarjeta de estadistica */
+    .stat:hover::before {
+      opacity: 1;
+    }
+
+    /* Hover de la tarjeta de estadistica */
+    .stat:hover::after {
+      opacity: 1;
+    }
+
+    /* Numero de la tarjeta de estadistica */
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      color: var(--orange-500);
+      text-shadow: var(--glow-sm);
+      line-height: 1;
+      margin-block-end: var(--space-3);
+      letter-spacing: 0.02em;
+    }
+
+    /* Etiqueta de la tarjeta de estadistica */
+    .stat-label {
+      font-family: var(--font-condensed);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--white-50);
+      line-height: 1.3;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* Columna de la foto */
     .about-photo {
-      order: -1;
-      justify-content: center;
+      position: relative;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
     }
 
     .about-photo-frame {
-      max-inline-size: 320px;
+      position: relative;
+      max-inline-size: 440px;
+      inline-size: 100%;
+      border-radius: var(--r-lg);
+      overflow: hidden;
     }
 
-    .stats-row {
-      grid-template-columns: repeat(3, 1fr);
+    .about-photo-frame img {
+      inline-size: 100%;
+      block-size: auto;
+      position: relative;
+      z-index: 1;
+      filter: drop-shadow(0 30px 60px oklch(0 0 0 / 0.5));
+      mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    }
+
+    .about-glow {
+      position: absolute;
+      inset-block-end: -40px;
+      inset-inline: 0;
+      block-size: 200px;
+      background: radial-gradient(
+        ellipse,
+        oklch(var(--orange-500-base) / 0.18) 0%,
+        transparent 70%
+      );
+      filter: blur(30px);
+      z-index: 0;
+    }
+
+    @media (max-width: 900px) {
+      .about-inner {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .about-photo {
+        order: -1;
+        justify-content: center;
+      }
+
+      .about-photo-frame {
+        max-inline-size: 320px;
+      }
+
+      .stats-row {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
   }
 </style>

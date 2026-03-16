@@ -53,7 +53,7 @@
   --glow-lg: 0 0 20px var(--orange-glow), 0 0 60px oklch(var(--orange-500-base) / 0.3), 0 0 100px oklch(var(--orange-500-base) / 0.1);
 
   /* Typography */
-  --font-display: 'Bebas Neue', 'Impact', sans-serif;
+  --font-display: 'Trirong', serif;
   --font-condensed: 'Barlow Condensed', sans-serif;
   --font-body: 'Barlow', system-ui, sans-serif;
 
@@ -93,6 +93,18 @@
   /* Transitions */
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --dur: 0.35s;
+
+  /* Mobile gap spacing fluid */
+  --gap-mobile-fluid-1: clamp(1.5rem, calc(-4.15rem + 13.56svh), 3rem);
+
+  /* Mobile margin spacing fluid */
+  --margin-mobile-fluid-1: clamp(2rem, calc(0.12rem + 4.52svh), 2.5rem);
+
+  /* Mobile font-size fluid */
+  --fs-mobile-fluid-1: clamp(11rem, calc(7.23rem + 9.04svh), 12rem);
+  --fs-mobile-fluid-2: clamp(1.8rem, calc(0.67rem + 2.71svh), 2.1rem);
+  --fs-mobile-fluid-3: clamp(0.7rem, calc(-0.43rem + 2.71svh), 1rem);
+  --fs-mobile-fluid-4: clamp(0.9rem, calc(0.52rem + 0.9svh), 1rem);
 
   /* Margin spacing */
   --margin-space-1: 1rem;

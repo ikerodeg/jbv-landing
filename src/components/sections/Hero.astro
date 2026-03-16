@@ -1,13 +1,20 @@
 ---
-import { Image } from "astro:assets";
+import { getImage } from "astro:assets";
 import Icon from "../ui/Icon.astro";
-import bgCrane from "../../assets/images/bg-crane.png";
+import bgCraneMobile from "../../assets/images/bg-crane-mobile2.webp";
+import bgCraneDesktop from "../../assets/images/bg-crane.png";
+
+const mobile = await getImage({ src: bgCraneMobile });
+const desktop = await getImage({ src: bgCraneDesktop });
 ---
 
 <section id="inicio" class="hero" aria-label="Inicio">
   <!-- Background image -->
   <div class="hero-bg" aria-hidden="true">
-    <Image src={bgCrane} alt="" fetchpriority="high" decoding="async" />
+    <picture>
+      <source media="(min-width: 640px)" srcset={desktop.src} />
+      <img src={mobile.src} alt="" fetchpriority="high" decoding="async" />
+    </picture>
   </div>
 
   <!-- Gradient mask -->
@@ -25,9 +32,8 @@ import bgCrane from "../../assets/images/bg-crane.png";
     </div>
 
     <p class="hero-desc">
-      Para empresas que valoran la transparencia, la fiabilidad y el mejor
-      precio en maquinaria de calidad alemana. Conectamos a su empresa
-      directamente con las mejores oportunidades del mercado alemán.
+      Conectamos su empresa con las mejores grúas autopropulsadas del mercado
+      alemán. Transparencia, fiabilidad y el mejor precio.
     </p>
 
     <div class="hero-ctas">
@@ -62,32 +68,159 @@ import bgCrane from "../../assets/images/bg-crane.png";
 </section>
 
 <style>
+  /* ═══════════════════════════════════════════
+     Base / Mobile-first
+     ═══════════════════════════════════════════ */
+
+  .hero {
+    position: relative;
+    min-block-size: 100svh;
+    display: flex;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-bg img {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    object-position: 20% center;
+  }
+
+  .hero-mask {
+    position: absolute;
+    block-size: 100svh;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+      to top,
+      oklch(8.774% 0.03127 257.112 / 0.849) 10%,
+      oklch(8.774% 0.03127 257.112 / 0.925) 20%,
+      oklch(8.774% 0.03127 257.112 / 0.747) 35%,
+      oklch(8.774% 0.03127 257.112 / 0.664) 95%,
+      transparent 100%
+    );
+  }
+
+  /* Bottom fade */
+  .hero-mask::after {
+    content: "";
+    position: absolute;
+    inset-block-end: 0;
+    inset-inline: 0;
+    block-size: 6rem;
+    background: linear-gradient(to top, var(--bg), transparent);
+  }
+
+  .hero-content {
+    inline-size: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--gap-mobile-fluid-1);
+    align-items: center;
+    z-index: 2;
+    padding-inline: var(--padding-space-3);
+    text-align: center;
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: var(--fs-mobile-fluid-1);
+    font-weight: 400;
+    line-height: 0.85;
+    color: white;
+    text-shadow:
+      0 0 10px orange,
+      1px 1px 6px black;
+    animation: fadeUp 0.7s 0.2s var(--ease) both;
+  }
+
+  .hero-subtitle {
+    font-family: var(--font-condensed);
+    font-size: var(--fs-mobile-fluid-2);
+    font-weight: 600;
+    color: rgba(255, 166, 0, 0.712);
+    text-shadow:
+      0 0 2px rgba(255, 255, 255, 0.445),
+      0 0 2px black;
+    line-height: 1.5;
+    animation: fadeUp 0.7s 0.3s var(--ease) both;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--padding-space-2);
+    padding-inline: var(--padding-space-3);
+    padding-block: var(--padding-space-2);
+    border: 1px solid oklch(var(--orange-500-base) / 0.35);
+    border-radius: 100px;
+    background: oklch(0% 0 0 / 0.37);
+    font-family: var(--font-condensed);
+    font-size: var(--fs-mobile-fluid-3);
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--orange-400);
+    animation: fadeUp 0.7s 0.1s var(--ease) both;
+  }
+
+  .hero-badge::before {
+    content: "";
+    inline-size: 6px;
+    block-size: 6px;
+    border-radius: 50%;
+    background: var(--orange-500);
+    box-shadow: var(--glow-sm);
+    animation: pulse 2s infinite;
+  }
+
+  .hero-desc {
+    font-size: var(--fs-mobile-fluid-4);
+    font-weight: 600;
+    color: var(--white-50);
+    line-height: 1.55;
+    max-inline-size: 38ch;
+    margin-block-end: var(--margin-mobile-fluid-1);
+    animation: fadeUp 0.7s 0.4s var(--ease) both;
+  }
+
+  .hero-ctas {
+    margin-inline: auto;
+    inline-size: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap-mobile-fluid-1);
+    animation: fadeUp 0.7s 0.5s var(--ease) both;
+    justify-content: center;
+  }
+
+  /* Scroll indicator — oculto en mobile */
+  .hero-scroll {
+    display: none;
+  }
+
+  /* ═══════════════════════════════════════════
+     Desktop overrides (solo diferencias)
+     ═══════════════════════════════════════════ */
+
   @media (width >= 640px) {
     .hero {
-      position: relative;
-      min-block-size: 100svh;
-      display: flex;
       align-items: center;
-      overflow: hidden;
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
     }
 
     .hero-bg img {
-      inline-size: 100%;
-      block-size: 100%;
-      object-fit: cover;
       object-position: 65% center;
     }
 
     .hero-mask {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
       background: linear-gradient(
         100deg,
         oklch(0.09 0.03 252 / 0.98) 0%,
@@ -99,70 +232,33 @@ import bgCrane from "../../assets/images/bg-crane.png";
       );
     }
 
-    /* Bottom fade */
     .hero-mask::after {
-      content: "";
-      position: absolute;
-      inset-block-end: 0;
-      inset-inline: 0;
       block-size: 12.5rem;
-      background: linear-gradient(to top, var(--bg), transparent);
     }
 
     .hero-content {
-      position: relative;
-      z-index: 2;
       inline-size: fit-content;
+      padding-inline: 0;
+      padding-block: 0;
       margin-inline-start: clamp(4rem, 10vw, 12rem);
     }
 
     .hero-title {
-      font-family: var(--font-display);
       font-size: 20rem;
-      line-height: 0.9;
-      color: var(--orange-500);
-      text-shadow: var(--glow-lg);
-      letter-spacing: 0.02em;
-      animation: fadeUp 0.7s 0.2s var(--ease) both;
     }
 
     .hero-subtitle {
-      font-family: var(--font-condensed);
       font-size: 3rem;
-      font-weight: 600;
       letter-spacing: 0.05em;
-      color: var(--white-80);
       margin-block-end: var(--margin-space-2);
-      animation: fadeUp 0.7s 0.3s var(--ease) both;
     }
 
     .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--padding-space-2);
       padding-inline: var(--padding-space-3);
       padding-block: var(--padding-space-2);
-      border: 1px solid oklch(var(--orange-500-base) / 0.35);
-      border-radius: 100px;
       background: oklch(var(--orange-500-base) / 0.08);
-      font-family: var(--font-condensed);
       font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--orange-400);
       margin-block-end: var(--margin-space-2);
-      animation: fadeUp 0.7s 0.1s var(--ease) both;
-    }
-
-    .hero-badge::before {
-      content: "";
-      inline-size: 6px;
-      block-size: 6px;
-      border-radius: 50%;
-      background: var(--orange-500);
-      box-shadow: var(--glow-sm);
-      animation: pulse 2s infinite;
     }
 
     .hero-desc {
@@ -170,25 +266,20 @@ import bgCrane from "../../assets/images/bg-crane.png";
       color: var(--white-50);
       line-height: 1.7;
       max-inline-size: 520px;
-      text-wrap: balance;
       margin-block-end: var(--margin-space-5);
-      animation: fadeUp 0.7s 0.4s var(--ease) both;
     }
 
     .hero-ctas {
-      display: flex;
       gap: var(--margin-space-3);
-      flex-wrap: wrap;
-      animation: fadeUp 0.7s 0.5s var(--ease) both;
     }
 
     .hero-scroll {
+      display: flex;
       position: absolute;
       inset-block-end: 2.5rem;
       inset-inline-start: 50%;
       transform: translateX(-50%);
       z-index: 2;
-      display: flex;
       flex-direction: column;
       align-items: center;
       gap: 0.5rem;

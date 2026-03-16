@@ -1,5 +1,4 @@
 ---
-import { getImage } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/layout/Navbar.astro";
 import Hero from "../components/sections/Hero.astro";
@@ -9,20 +8,9 @@ import Process from "../components/sections/Process.astro";
 import WhyUs from "../components/sections/WhyUs.astro";
 import Contact from "../components/sections/Contact.astro";
 import Footer from "../components/layout/Footer.astro";
-import bgCrane from "../assets/images/bg-crane.png";
-
-const optimizedBg = await getImage({ src: bgCrane, format: "webp" });
 ---
 
 <Layout>
-  <Fragment slot="head">
-    <link
-      rel="preload"
-      as="image"
-      href={optimizedBg.src}
-      fetchpriority="high"
-    />
-  </Fragment>
   <Navbar />
   <main>
     <Hero />

@@ -3,12 +3,14 @@ import { Image } from "astro:assets";
 import ximoAbout from "../../assets/images/ximo.webp";
 ---
 
-<section id="sobre-mi" class="about" aria-label="Sobre Mí">
-  <div class="about-eyebrow">Sobre Mí</div>
-  <div class="about-inner">
+<section id="sobre-mi" class="about section" aria-label="Sobre Mí">
+  <div class="about-eyebrow section-eyebrow reveal reveal-delay-1">
+    Sobre Mí
+  </div>
+  <div class="about-inner section-inner">
     <!-- Text column -->
     <div class="about-text reveal">
-      <h2 class="about-title">
+      <h2 class="about-title section-title">
         Hola, soy <span class="accent">Ximo</span>
       </h2>
       <p>
@@ -64,114 +66,24 @@ import ximoAbout from "../../assets/images/ximo.webp";
 
   /* Seccion About */
   .about {
-    position: relative;
-    min-block-size: 100svh;
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    overflow: hidden;
-    background: var(--navy-800);
-    padding-block-start: var(--padding-space-6);
+    background: var(--navy-900);
   }
 
-  /* Decorative top border */
-  .about::before {
-    content: "";
-    position: absolute;
-    inset-block-start: 0;
-    inset-inline: 0;
-    block-size: 1px;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      var(--orange-500),
-      transparent
-    );
-    opacity: 0.3;
-  }
-
-  /* Decorative background grid */
-  .about::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    background-image:
-      linear-gradient(oklch(var(--white-base) / 0.05) 1px, transparent 1px),
-      linear-gradient(
-        90deg,
-        oklch(var(--white-base) / 0.05) 1px,
-        transparent 1px
-      );
-    background-size: 60px 60px;
-    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent);
-    pointer-events: none;
-  }
-
-  /* Contenido principal */
   .about-inner {
-    position: relative;
-    z-index: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-inline: var(--padding-space-3);
-    inline-size: 100%;
-  }
-
-  .about-inner div {
-  }
-
-  /* Titulo de la seccion */
-  .about-eyebrow {
-    display: block;
-    font-family: var(--font-condensed);
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--orange-500);
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-block: var(--margin-space-2);
-    padding-inline-start: var(--padding-space-3);
-  }
-
-  /* Decorativo del titulo de la seccion */
-  .about-eyebrow::before {
-    content: "";
-    inline-size: 32px;
-    block-size: 2px;
-    background: var(--orange-500);
-    box-shadow: var(--glow-sm);
-  }
-
-  /* Titulo principal */
-  .about-title {
-    font-family: var(--font-condensed);
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    line-height: 1;
-    letter-spacing: 0.02em;
-    color: var(--white);
-    margin-block-end: var(--margin-space-3);
-  }
-
-  /* Resaltar la palabra Ximo */
-  .about-title .accent {
-    color: var(--orange-500);
-    text-shadow: var(--glow-sm);
   }
 
   .about-text {
     display: flex;
     flex-direction: column;
+    gap: var(--margin-space-2);
   }
 
   /* Texto de la seccion */
   .about-text p {
-    font-size: var(--fs-mobile-fluid-3);
-    margin-block-end: var(--margin-space-5);
+    font-size: var(--fs-mobile-fluid-4);
     color: var(--white-50);
     line-height: 1.75;
     text-wrap: pretty;
@@ -205,7 +117,7 @@ import ximoAbout from "../../assets/images/ximo.webp";
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: var(--space-6);
+    gap: var(--padding-space-2);
   }
 
   /* tarjeta de estadistica */
@@ -231,7 +143,7 @@ import ximoAbout from "../../assets/images/ximo.webp";
     position: absolute;
     inset-block-start: 0;
     inset-inline: 0;
-    block-size: 2px;
+    block-size: 1px;
     background: linear-gradient(
       90deg,
       transparent,
@@ -248,7 +160,7 @@ import ximoAbout from "../../assets/images/ximo.webp";
     position: absolute;
     inset-block-end: 0;
     inset-inline: 0;
-    block-size: 2px;
+    block-size: 1px;
     background: linear-gradient(
       90deg,
       transparent,

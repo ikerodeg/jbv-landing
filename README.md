@@ -1,8 +1,8 @@
-# JBV — Grúas y Esclusas
+# JBV — Intermediación de grúas auto-propulsadas entre Alemania y España
 
 Landing page profesional para **JBV**, servicio de intermediación de grúas autopropulsadas entre Alemania y España. Desarrollada con Astro 5, HTML semántico y CSS moderno. Optimizada para rendimiento, SEO y despliegue en GitHub Pages.
 
-🔗 **Demo en vivo**: [jbv-landing](https://ikerodeg.github.io/jbv-landing/) _(próximamente)_
+🔗 **Demo en vivo**: [jbv-landing](https://ikerodeg.github.io/jbv-landing/)
 
 ---
 

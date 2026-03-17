@@ -2,19 +2,60 @@
    SECTION COMMON
    ============================================================ */
 @layer layout {
+
   .section {
-    padding-block: var(--section-pad);
-    padding-inline: var(--space-8);
+    position: relative;
+    min-block-size: 100svh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding-block-start: var(--padding-space-6);
+    padding-block-end: var(--padding-space-6);
+    padding-inline: var(--padding-space-3);
   }
 
+  /* Decorative top border */
+  .section::before {
+    content: "";
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline: 0;
+    block-size: 1px;
+    background: linear-gradient(90deg,
+        transparent,
+        var(--orange-500),
+        transparent);
+    opacity: 0.3;
+  }
+
+  /* Decorative background grid */
+  .section::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image:
+      linear-gradient(oklch(var(--white-base) / 0.05) 1px, transparent 1px),
+      linear-gradient(90deg,
+        oklch(var(--white-base) / 0.05) 1px,
+        transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent);
+    pointer-events: none;
+  }
+
+  /* Contenido principal */
   .section-inner {
-    max-inline-size: var(--container);
+    position: relative;
     margin-inline: auto;
+    z-index: 1;
+    inline-size: 100%;
   }
 
+  /* Titulo de la seccion */
   .section-eyebrow {
     font-family: var(--font-condensed);
-    font-size: 0.75rem;
+    font-size: 0.65rem;
     font-weight: 700;
     letter-spacing: 0.2em;
     text-transform: uppercase;
@@ -22,9 +63,11 @@
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    margin-block-end: var(--space-5);
+    padding-block: var(--padding-space-4);
+    margin-block-end: var(--margin-space-1);
   }
 
+  /* Decorativo del titulo de la seccion */
   .section-eyebrow::before {
     content: '';
     inline-size: 32px;
@@ -34,24 +77,24 @@
     flex-shrink: 0;
   }
 
+  /* Titulo principal */
   .section-title {
-    font-family: var(--font-display);
-    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-size: clamp(2.9rem, 5.4vw, 4.4rem);
     line-height: 1;
     letter-spacing: 0.02em;
     color: var(--white);
-    margin-block-end: var(--space-5);
+    margin-block-end: var(--margin-space-3);
   }
 
+  /* Resaltar la palabra accent */
   .section-title .accent {
     color: var(--orange-500);
   }
 
+  /* Lead */
   .section-lead {
-    font-size: 1.05rem;
     color: var(--white-50);
-    max-inline-size: 640px;
-    line-height: 1.7;
-    margin-block-end: var(--space-11);
+    margin-block-end: var(--margin-space-3);
   }
+
 }

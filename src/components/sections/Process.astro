@@ -3,95 +3,104 @@ import { steps } from "@data/steps";
 ---
 
 <section id="proceso" class="section process" aria-label="Proceso de compra">
+  <div class="section-eyebrow reveal">Proceso de Compra</div>
   <div class="section-inner">
-    <div class="process-inner">
-      <div class="process-header reveal">
-        <p class="section-eyebrow">Proceso de Compra</p>
-        <h2 class="section-title">
-          Cinco pasos hacia<br />su <span class="accent">grúa ideal</span>
-        </h2>
-        <p class="section-lead">
-          Un proceso sencillo, transparente y diseñado para que usted solo tome
-          la decisión final. Nosotros nos encargamos de todo lo demás.
-        </p>
-        <a href="#contacto" class="btn btn-primary">Iniciar consulta</a>
-      </div>
+    <div class="process-header reveal">
+      <h2 class="section-title">
+        Cinco pasos hacia<br />su <span class="accent">grúa ideal</span>
+      </h2>
+      <p class="section-lead">
+        Un proceso sencillo, transparente y diseñado para que usted solo tome la
+        decisión final. Nosotros nos encargamos de todo lo demás.
+      </p>
+    </div>
 
-      <div class="process-track" role="list">
-        {
-          steps.map((step, i) => (
-            <div
-              class={`process-step reveal reveal-delay-${i + 1}`}
-              role="listitem"
-            >
-              <div class="step-aside" aria-hidden="true">
-                <div class="step-num">{step.num}</div>
-                <div class="step-line" />
-              </div>
-              <div class="step-body">
-                <h3>{step.title}</h3>
-                <p>{step.desc}</p>
-              </div>
+    <div class="process-track reveal" role="list">
+      {
+        steps.map((step, i) => (
+          <div
+            class={`process-step reveal reveal-delay-${i + 1}`}
+            role="listitem"
+          >
+            <div class="step-aside" aria-hidden="true">
+              <div class="step-num">{step.num}</div>
+              <div class="step-line" />
             </div>
-          ))
-        }
-      </div>
+            <div class="step-body">
+              <h3>{step.title}</h3>
+              <p>{step.desc}</p>
+            </div>
+          </div>
+        ))
+      }
     </div>
   </div>
 </section>
 
 <style>
+  /* ═══════════════════════════════════════════
+     Base / Mobile-first
+     ═══════════════════════════════════════════ */
+
+  /* Seccion Process */
   .process {
-    background: var(--navy-800);
+    background: var(--navy-900);
   }
 
-  .process-track {
-    position: relative;
+  .process-inner {
     display: flex;
     flex-direction: column;
-    gap: 0;
+    gap: var(--space-8);
   }
 
+  .process-header {
+    font-size: var(--fs-mobile-fluid-4);
+    color: var(--white-50);
+    line-height: 1.75;
+  }
+
+  /* Track */
+  .process-track {
+    display: flex;
+    flex-direction: column;
+    gap: var(--margin-space-3);
+  }
+
+  /* Step */
   .process-step {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 2rem;
-    align-items: stretch;
-    padding-block-end: var(--space-10);
-  }
-
-  .process-step:last-child {
-    padding-block-end: 0;
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
   }
 
   .step-aside {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0;
+    gap: var(--space-2);
+    flex-shrink: 0;
   }
 
   .step-num {
-    inline-size: 56px;
-    block-size: 56px;
+    inline-size: 48px;
+    block-size: 48px;
     border-radius: 50%;
-    border: 2px solid oklch(var(--orange-500-base) / 0.4);
-    background: oklch(var(--orange-500-base) / 0.08);
+    border: 2px solid oklch(var(--orange-500-base) / 0.2);
+    background: oklch(var(--orange-500-base) / 0.05);
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: var(--font-display);
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     color: var(--orange-500);
     text-shadow: var(--glow-sm);
-    flex-shrink: 0;
     transition: all var(--dur) var(--ease);
   }
 
   .process-step:hover .step-num {
     border-color: var(--orange-500);
     box-shadow: var(--glow-sm);
-    background: oklch(var(--orange-500-base) / 0.15);
+    background: oklch(var(--orange-500-base) / 0.1);
   }
 
   .step-line {
@@ -99,10 +108,10 @@ import { steps } from "@data/steps";
     inline-size: 1px;
     background: linear-gradient(
       to bottom,
-      oklch(var(--orange-500-base) / 0.3),
+      oklch(var(--orange-500-base) / 0.2),
       oklch(var(--orange-500-base) / 0.05)
     );
-    margin-block-start: var(--space-3);
+    margin-block-start: var(--space-2);
   }
 
   .process-step:last-child .step-line {
@@ -110,36 +119,130 @@ import { steps } from "@data/steps";
   }
 
   .step-body {
-    padding-block: var(--space-4) 0;
+    flex: 1;
   }
 
   .step-body h3 {
     font-family: var(--font-condensed);
-    font-size: 1.15rem;
+    font-size: 1rem;
     font-weight: 700;
     letter-spacing: 0.04em;
     text-transform: uppercase;
     color: var(--white);
-    margin-block-end: var(--space-3);
+    margin-block-end: var(--space-2);
   }
 
   .step-body p {
-    font-size: 0.92rem;
+    font-size: 0.85rem;
     color: var(--white-50);
-    line-height: 1.65;
+    line-height: 1.6;
   }
 
-  @media (min-width: 900px) {
-    .process-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: start;
+  /* ═══════════════════════════════════════════
+     Desktop overrides (solo diferencias)
+  ═══════════════════════════════════════════ */
+
+  @media (width >= 640px) {
+    .process {
+      background: var(--navy-800);
     }
 
-    .process-header {
-      position: sticky;
-      inset-block-start: 120px;
+    .process-track {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .process-step {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 2rem;
+      align-items: stretch;
+      padding-block-end: var(--space-10);
+    }
+
+    .process-step:last-child {
+      padding-block-end: 0;
+    }
+
+    .step-aside {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+
+    .step-num {
+      inline-size: 56px;
+      block-size: 56px;
+      border-radius: 50%;
+      border: 2px solid oklch(var(--orange-500-base) / 0.4);
+      background: oklch(var(--orange-500-base) / 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      color: var(--orange-500);
+      text-shadow: var(--glow-sm);
+      flex-shrink: 0;
+      transition: all var(--dur) var(--ease);
+    }
+
+    .process-step:hover .step-num {
+      border-color: var(--orange-500);
+      box-shadow: var(--glow-sm);
+      background: oklch(var(--orange-500-base) / 0.15);
+    }
+
+    .step-line {
+      flex: 1;
+      inline-size: 1px;
+      background: linear-gradient(
+        to bottom,
+        oklch(var(--orange-500-base) / 0.3),
+        oklch(var(--orange-500-base) / 0.05)
+      );
+      margin-block-start: var(--space-3);
+    }
+
+    .process-step:last-child .step-line {
+      display: none;
+    }
+
+    .step-body {
+      padding-block: var(--space-4) 0;
+    }
+
+    .step-body h3 {
+      font-family: var(--font-condensed);
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-block-end: var(--space-3);
+    }
+
+    .step-body p {
+      font-size: 0.92rem;
+      color: var(--white-50);
+      line-height: 1.65;
+    }
+
+    @media (min-width: 900px) {
+      .process-inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        align-items: start;
+      }
+
+      .process-header {
+        position: sticky;
+        inset-block-start: 120px;
+      }
     }
   }
 </style>

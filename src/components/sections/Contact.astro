@@ -3,8 +3,8 @@ import Icon from "../ui/Icon.astro";
 ---
 
 <section id="contacto" class="section contact" aria-label="Contacto">
+  <p class="section-eyebrow reveal">Contacto</p>
   <div class="section-inner">
-    <p class="section-eyebrow reveal">Contacto</p>
     <h2 class="section-title reveal">
       Hablemos de su <span class="accent">próximo proyecto</span>
     </h2>
@@ -169,10 +169,15 @@ import Icon from "../ui/Icon.astro";
 </section>
 
 <script>
-  const form = document.getElementById("contact-form") as HTMLFormElement | null;
+  const form = document.getElementById(
+    "contact-form",
+  ) as HTMLFormElement | null;
   const success = document.getElementById("form-success");
 
-  const showError = (input: HTMLInputElement | HTMLTextAreaElement, message: string) => {
+  const showError = (
+    input: HTMLInputElement | HTMLTextAreaElement,
+    message: string,
+  ) => {
     const parent = input.closest(".form-field, .form-privacy");
     if (!parent) return;
 
@@ -189,11 +194,14 @@ import Icon from "../ui/Icon.astro";
 
   const clearErrors = () => {
     if (!form) return;
-    form.querySelectorAll(".invalid").forEach((el) => el.classList.remove("invalid"));
+    form
+      .querySelectorAll(".invalid")
+      .forEach((el) => el.classList.remove("invalid"));
     form.querySelectorAll(".field-error").forEach((el) => el.remove());
   };
 
-  const isValidEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const isValidEmail = (email: string) =>
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
   form?.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -209,7 +217,9 @@ import Icon from "../ui/Icon.astro";
     const empresa = form.elements.namedItem("empresa") as HTMLInputElement;
     const telefono = form.elements.namedItem("telefono") as HTMLInputElement;
     const email = form.elements.namedItem("email") as HTMLInputElement;
-    const privacidad = form.elements.namedItem("privacidad") as HTMLInputElement;
+    const privacidad = form.elements.namedItem(
+      "privacidad",
+    ) as HTMLInputElement;
 
     if (!nombre.value.trim()) {
       showError(nombre, "El nombre es obligatorio");
@@ -245,14 +255,18 @@ import Icon from "../ui/Icon.astro";
 </script>
 
 <style>
+  /* ═══════════════════════════════════════════
+     Base / Mobile-first
+  ═══════════════════════════════════════════ */
+
   .contact {
-    background: var(--navy-800);
+    background: var(--navy-900);
   }
 
   .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.3fr;
-    gap: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: var(--margin-space-3);
     align-items: start;
   }
 
@@ -274,21 +288,22 @@ import Icon from "../ui/Icon.astro";
 
   .contact-methods {
     display: flex;
-    flex-direction: column;
     gap: 0.85rem;
   }
 
   .contact-cta {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    padding-block: var(--space-5);
-    padding-inline: var(--space-6);
+    justify-content: space-around;
+    inline-size: 50%;
+    padding-block: var(--padding-space-2);
+    padding-inline: var(--padding-space-2);
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--r-md);
     text-decoration: none;
     transition: all var(--dur) var(--ease);
+    gap: var(--padding-space-2);
   }
 
   .contact-cta:hover {
@@ -297,8 +312,8 @@ import Icon from "../ui/Icon.astro";
   }
 
   .cta-ico {
-    inline-size: 44px;
-    block-size: 44px;
+    inline-size: 35px;
+    block-size: 35px;
     border-radius: var(--r-md);
     display: flex;
     align-items: center;
@@ -340,11 +355,12 @@ import Icon from "../ui/Icon.astro";
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    inline-size: 100%;
   }
 
   .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 1rem;
   }
 
@@ -410,15 +426,16 @@ import Icon from "../ui/Icon.astro";
   }
 
   .form-privacy {
+    display: flex;
     font-size: 0.8rem;
     color: var(--white-50);
-    display: flex;
     gap: 0.5rem;
-    align-items: flex-start;
-    flex-wrap: wrap;
+    margin-block-end: var(--margin-space-2);
   }
 
   .form-privacy input[type="checkbox"] {
+    inline-size: 20px;
+
     margin-block-start: 2px;
     accent-color: var(--orange-500);
     flex-shrink: 0;
@@ -449,14 +466,228 @@ import Icon from "../ui/Icon.astro";
     color: var(--white-50);
   }
 
-  @media (max-width: 768px) {
+  .form-submit {
+    margin-inline: auto;
+  }
+
+  /* ═══════════════════════════════════════════
+     Desktop overrides (solo diferencias)
+  ═══════════════════════════════════════════ */
+
+  @media (width >= 640px) {
+    .contact {
+      background: var(--navy-900);
+    }
+
     .contact-grid {
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .contact-info h3 {
+      font-family: var(--font-condensed);
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      margin-block-end: var(--space-5);
+    }
+
+    .contact-info > p {
+      font-size: 0.95rem;
+      color: var(--white-50);
+      line-height: 1.7;
+      margin-block-end: var(--space-8);
+    }
+
+    .contact-methods {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .contact-cta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding-block: var(--space-5);
+      padding-inline: var(--space-6);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      text-decoration: none;
+      transition: all var(--dur) var(--ease);
+    }
+
+    .contact-cta:hover {
+      border-color: oklch(var(--orange-500-base) / 0.3);
+      transform: translateX(4px);
+    }
+
+    .cta-ico {
+      inline-size: 44px;
+      block-size: 44px;
+      border-radius: var(--r-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .cta-ico.wa {
+      background: oklch(var(--green-500-base) / 0.15);
+      color: var(--green-500);
+    }
+
+    .cta-ico.ph {
+      background: oklch(var(--orange-500-base) / 0.15);
+      color: var(--orange-500);
+    }
+
+    .cta-ico svg {
+      inline-size: 22px;
+      block-size: 22px;
+    }
+
+    .cta-label strong {
+      display: block;
+      font-family: var(--font-condensed);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--white);
+      margin-block-end: var(--space-1);
+    }
+
+    .cta-label span {
+      font-size: 0.82rem;
+      color: var(--white-50);
+    }
+
+    /* Form */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
     }
 
     .form-row {
-      grid-template-columns: 1fr;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .form-field label {
+      font-family: var(--font-condensed);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white-50);
+    }
+
+    .form-field input,
+    .form-field textarea {
+      padding-block: var(--space-4);
+      padding-inline: var(--space-5);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      transition:
+        border-color var(--dur) var(--ease),
+        box-shadow var(--dur) var(--ease);
+      outline: none;
+      -webkit-appearance: none;
+    }
+
+    .form-field input::placeholder,
+    .form-field textarea::placeholder {
+      color: var(--navy-400);
+    }
+
+    .form-field input:focus,
+    .form-field textarea:focus {
+      border-color: var(--orange-500);
+      box-shadow: 0 0 0 3px oklch(var(--orange-500-base) / 0.12);
+    }
+
+    .form-field input.invalid,
+    .form-field textarea.invalid {
+      border-color: var(--orange-500);
+      background-color: oklch(var(--orange-500-base) / 0.05);
+    }
+
+    :global(.field-error) {
+      color: var(--orange-500);
+      font-size: 0.82rem;
+      margin-block-start: var(--space-2);
+      flex-basis: 100%;
+    }
+
+    .form-field textarea {
+      min-block-size: 130px;
+      resize: vertical;
+    }
+
+    .form-privacy {
+      font-size: 0.8rem;
+      color: var(--white-50);
+      display: flex;
+      gap: 0.5rem;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .form-privacy input[type="checkbox"] {
+      margin-block-start: 2px;
+      accent-color: var(--orange-500);
+      flex-shrink: 0;
+    }
+
+    .form-privacy a {
+      color: var(--orange-400);
+      text-decoration: underline;
+    }
+
+    .form-success {
+      text-align: center;
+      padding-block: var(--space-10);
+      padding-inline: var(--space-8);
+      background: var(--surface);
+      border: 1px solid oklch(var(--orange-500-base) / 0.2);
+      border-radius: var(--r-lg);
+    }
+
+    .form-success h3 {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      color: var(--orange-500);
+      margin-block-end: var(--space-4);
+    }
+
+    .form-success p {
+      color: var(--white-50);
+    }
+
+    @media (max-width: 768px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
     }
   }
 </style>

@@ -4,11 +4,10 @@ import ximoAbout from "../../assets/images/ximo.webp";
 ---
 
 <section id="sobre-mi" class="about" aria-label="Sobre Mí">
+  <div class="about-eyebrow">Sobre Mí</div>
   <div class="about-inner">
     <!-- Text column -->
     <div class="about-text reveal">
-      <span class="about-eyebrow">Sobre Mí</span>
-
       <h2 class="about-title">
         Hola, soy <span class="accent">Ximo</span>
       </h2>
@@ -25,21 +24,6 @@ import ximoAbout from "../../assets/images/ximo.webp";
         maquinaria de origen alemán con total transparencia y profesionalidad
         durante todo el proceso de compra.
       </p>
-
-      <div class="stats-row">
-        <div class="stat reveal reveal-delay-1">
-          <div class="stat-num">27</div>
-          <div class="stat-label">Años de experiencia en el sector</div>
-        </div>
-        <div class="stat reveal reveal-delay-2">
-          <div class="stat-num">14</div>
-          <div class="stat-label">Años viviendo en Alemania</div>
-        </div>
-        <div class="stat reveal reveal-delay-3">
-          <div class="stat-num">100%</div>
-          <div class="stat-label">Transparencia en cada operación</div>
-        </div>
-      </div>
     </div>
 
     <!-- Photo column -->
@@ -55,6 +39,20 @@ import ximoAbout from "../../assets/images/ximo.webp";
         <!-- Neon border overlay -->
         <div class="about-glow" aria-hidden="true"></div>
       </div>
+      <div class="stats-row">
+        <div class="stat reveal reveal-delay-1">
+          <div class="stat-num">27</div>
+          <div class="stat-label">Años de experiencia en el sector</div>
+        </div>
+        <div class="stat reveal reveal-delay-2">
+          <div class="stat-num">14</div>
+          <div class="stat-label">Años viviendo en Alemania</div>
+        </div>
+        <div class="stat reveal reveal-delay-3">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Transparencia en cada operación</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -69,9 +67,11 @@ import ximoAbout from "../../assets/images/ximo.webp";
     position: relative;
     min-block-size: 100svh;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: left;
     overflow: hidden;
     background: var(--navy-800);
+    padding-block-start: var(--padding-space-6);
   }
 
   /* Decorative top border */
@@ -113,13 +113,13 @@ import ximoAbout from "../../assets/images/ximo.webp";
     position: relative;
     z-index: 1;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: clamp(3rem, 6vw, 6rem);
     padding-inline: var(--padding-space-3);
-    padding-block: var(--padding-space-8) var(--padding-space-3);
     inline-size: 100%;
+  }
+
+  .about-inner div {
   }
 
   /* Titulo de la seccion */
@@ -131,10 +131,11 @@ import ximoAbout from "../../assets/images/ximo.webp";
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--orange-500);
-    margin-block-end: var(--margin-space-3);
     display: flex;
     align-items: center;
     gap: 0.75rem;
+    margin-block: var(--margin-space-2);
+    padding-inline-start: var(--padding-space-3);
   }
 
   /* Decorativo del titulo de la seccion */
@@ -153,7 +154,7 @@ import ximoAbout from "../../assets/images/ximo.webp";
     line-height: 1;
     letter-spacing: 0.02em;
     color: var(--white);
-    margin-block-end: var(--margin-space-2);
+    margin-block-end: var(--margin-space-3);
   }
 
   /* Resaltar la palabra Ximo */
@@ -165,25 +166,46 @@ import ximoAbout from "../../assets/images/ximo.webp";
   .about-text {
     display: flex;
     flex-direction: column;
-    align-content: space-around;
   }
 
   /* Texto de la seccion */
   .about-text p {
     font-size: var(--fs-mobile-fluid-3);
-    margin-block-end: var(--margin-space-2);
+    margin-block-end: var(--margin-space-5);
     color: var(--white-50);
     line-height: 1.75;
     text-wrap: pretty;
+  }
+
+  .about-text p:last-child {
+    margin-block-end: 0;
+  }
+
+  .about-photo {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .about-photo-frame {
+    inline-size: 100%;
+    block-size: 100%;
+  }
+
+  .img-main {
+    block-size: auto;
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(0 30px 60px oklch(0 0 0 / 0.5));
+    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
   }
 
   /* Contenedor de estadisticas */
   .stats-row {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--margin-space-1);
     justify-content: center;
-    margin-block-start: var(--margin-space-1);
+    gap: var(--space-6);
   }
 
   /* tarjeta de estadistica */

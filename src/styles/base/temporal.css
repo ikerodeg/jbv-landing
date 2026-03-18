@@ -1,0 +1,83 @@
+:root {
+  /* Color Palette Oklch */
+  --white-base: 0.98 0 0;
+  /*1*/
+  --black-base: 0.11 0.03 252;
+  /*2*/
+  --orng-base: 0.65 0.18 80;
+  /*2*/
+
+  /* Gap Mobile Fluid */
+  --gap-mob-fld-1: clamp(0.25rem, calc(-0.44rem + 1.66svh), 0.5rem);
+  --gap-mob-fld-2: clamp(0.5rem, calc(-0.88rem + 3.31svh), 1rem);
+  --gap-mob-fld-3: clamp(0.75rem, calc(-1.32rem + 4.97svh), 1.5rem);
+  --gap-mob-fld-4: clamp(1rem, calc(-1.77rem + 6.63svh), 2rem);
+  --gap-mob-fld-5: clamp(1.5rem, calc(-4.15rem + 13.56svh), 3rem);
+  /*1*/
+  --gap-mob-fld-6: clamp(2rem, calc(-3.53rem + 13.27svh), 4rem);
+  --gap-mob-fld-7: clamp(2.5rem, calc(-4.41rem + 16.58svh), 5rem);
+  --gap-mob-fld-8: clamp(3rem, calc(-5.30rem + 19.90svh), 6rem);
+  --gap-mob-fld-9: clamp(4rem, calc(-5.68rem + 23.21svh), 7.5rem);
+  --gap-mob-fld-10: clamp(5rem, calc(-6.07rem + 26.53svh), 9rem);
+
+  /* Padding Mobile Fluid */
+  --pad-mob-fld-1: clamp(0.25rem, calc(-0.69rem + 2.26svh), 0.5rem);
+  --pad-mob-fld-2: clamp(0.5rem, calc(-1.38rem + 4.52svh), 1rem);
+  --pad-mob-fld-3: clamp(0.75rem, calc(-2.07rem + 6.78svh), 1.5rem);
+  --pad-mob-fld-4: clamp(1rem, calc(-2.77rem + 9.04svh), 2rem);
+  /*1*/
+  --pad-mob-fld-5: clamp(1.25rem, calc(-3.46rem + 11.30svh), 2.5rem);
+  --pad-mob-fld-6: clamp(1.5rem, calc(-4.15rem + 13.56svh), 3rem);
+  --pad-mob-fld-7: clamp(1.75rem, calc(-4.84rem + 15.82svh), 3.5rem);
+  --pad-mob-fld-8: clamp(2rem, calc(-5.53rem + 18.08svh), 4rem);
+  --pad-mob-fld-9: clamp(2.25rem, calc(-6.22rem + 20.34svh), 4.5rem);
+  --pad-mob-fld-10: clamp(2.5rem, calc(-6.92rem + 22.60svh), 5rem);
+
+  /* Margin Mobile Fluid */
+  --mar-mob-fld-1: ;
+  --mar-mob-fld-2: ;
+  --mar-mob-fld-3: ;
+  --mar-mob-fld-4: ;
+  --mar-mob-fld-5: ;
+  --mar-mob-fld-6: ;
+  --mar-mob-fld-7: ;
+  --mar-mob-fld-8: ;
+  --mar-mob-fld-9: ;
+  --mar-mob-fld-10: ;
+
+  /* Font Size Title Mobile Fluid */
+  --fs-ttl-mob-fld-1: clamp(9rem, calc(5.92rem + 7.40svh), 9.82rem);
+  --fs-ttl-mob-fld-2: clamp(9.5rem, calc(6.24rem + 7.81svh), 10.36rem);
+  --fs-ttl-mob-fld-3: clamp(10rem, calc(6.57rem + 8.22svh), 10.91rem);
+  --fs-ttl-mob-fld-4: clamp(10.5rem, calc(6.90rem + 8.62svh), 11.45rem);
+  --fs-ttl-mob-fld-5: clamp(11rem, calc(7.23rem + 9.04svh), 12rem);
+  /*1*/
+  --fs-ttl-mob-fld-6: clamp(11.5rem, calc(7.56rem + 9.45svh), 12.55rem);
+  --fs-ttl-mob-fld-7: clamp(12rem, calc(7.89rem + 9.86svh), 13.09rem);
+  --fs-ttl-mob-fld-8: clamp(12.5rem, calc(8.22rem + 10.27svh), 13.64rem);
+  --fs-ttl-mob-fld-9: clamp(13rem, calc(8.55rem + 10.68svh), 14.18rem);
+  --fs-ttl-mob-fld-10: clamp(13.5rem, calc(8.88rem + 11.09svh), 14.73rem);
+
+  /* Font Size Text Mobile Fluid */
+  --fs-txt-mob-fld-1: clamp(0.9rem, calc(0.33rem + 1.36svh), 1.05rem);
+  --fs-txt-mob-fld-2: clamp(1rem, calc(0.37rem + 1.51svh), 1.17rem);
+  --fs-txt-mob-fld-3: clamp(1.1rem, calc(0.41rem + 1.65svh), 1.28rem);
+  --fs-txt-mob-fld-4: clamp(1.2rem, calc(0.45rem + 1.81svh), 1.4rem);
+  --fs-txt-mob-fld-5: clamp(1.3rem, calc(0.48rem + 1.96svh), 1.52rem);
+  --fs-txt-mob-fld-6: clamp(1.4rem, calc(0.52rem + 2.11svh), 1.63rem);
+  --fs-txt-mob-fld-7: clamp(1.5rem, calc(0.56rem + 2.26svh), 1.75rem);
+  --fs-txt-mob-fld-8: clamp(1.6rem, calc(0.60rem + 2.41svh), 1.87rem);
+  --fs-txt-mob-fld-9: clamp(1.7rem, calc(0.63rem + 2.56svh), 1.98rem);
+  --fs-txt-mob-fld-10: clamp(1.8rem, calc(0.67rem + 2.71svh), 2.1rem);
+  /*1*/
+
+  /* Font Weights */
+  --fntWght-light: 300;
+  --fntWght-regular: 400;
+  /*1*/
+  --fntWght-medium: 500;
+  --fntWght-semibold: 600;
+  --fntWght-bold: 700;
+  --fntWght-extrabold: 800;
+  --fntWght-black: 900;
+}

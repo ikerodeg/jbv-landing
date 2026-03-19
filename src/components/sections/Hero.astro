@@ -1,7 +1,7 @@
 ---
 import { getImage } from "astro:assets";
 import Icon from "../ui/Icon.astro";
-import bgCraneMobile from "../../assets/images/bg-crane-mobile3.webp";
+import bgCraneMobile from "../../assets/images/bg-crane-mobile4.webp";
 import bgCraneDesktop from "../../assets/images/bg-crane.png";
 
 const mobile = await getImage({ src: bgCraneMobile });
@@ -88,8 +88,7 @@ const desktop = await getImage({ src: bgCraneDesktop });
   .hero-bg img {
     inline-size: 100%;
     block-size: 100%;
-    object-fit: contain;
-    opacity: 0.6;
+    object-fit: cover;
   }
 
   .hero-mask {
@@ -97,24 +96,16 @@ const desktop = await getImage({ src: bgCraneDesktop });
     block-size: 100svh;
     inset: 0;
     z-index: 1;
-    background: linear-gradient(
-      to top,
-      oklch(8.774% 0.03127 257.112 / 0.849) 10%,
-      oklch(8.774% 0.03127 257.112 / 0.925) 20%,
-      oklch(8.774% 0.03127 257.112 / 0.747) 35%,
-      oklch(8.774% 0.03127 257.112 / 0.664) 95%,
-      transparent 100%
+    background-image: linear-gradient(
+      to bottom,
+      oklch(var(--black-base) / 0.9) 0%,
+      oklch(var(--black-base) / 0.6) 20%,
+      oklch(var(--black-base) / 0.5) 40%,
+      oklch(var(--black-base) / 0.2) 60%,
+      oklch(var(--black-base) / 0.3) 80%,
+      oklch(var(--black-base) / 0.7) 90%,
+      oklch(var(--black-base) / 1) 100%
     );
-  }
-
-  /* Bottom fade */
-  .hero-mask::after {
-    content: "";
-    position: absolute;
-    inset-block-end: 0;
-    inset-inline: 0;
-    block-size: 6rem;
-    background: linear-gradient(to top, var(--bg), transparent);
   }
 
   .hero-content {
@@ -137,18 +128,19 @@ const desktop = await getImage({ src: bgCraneDesktop });
     line-height: 0.85;
     color: oklch(var(--white-accent));
     text-shadow:
-      0px 0px 4px oklch(var(--black-base)),
-      1px 1px 10px oklch(var(--orng-shadow));
+      0px 0px 20px oklch(var(--orng-base)),
+      0px 0px 10px oklch(var(--orng-accent)),
+      1px 1px 5px oklch(var(--black-base));
     animation: fadeUp 0.7s 0.2s var(--ease) both;
   }
 
   .hero-subtitle {
     font-size: var(--fs-txt-mob-fld-10);
     font-weight: var(--fntWght-semibold);
-    color: oklch(var(--orng-base) / 0.812);
+    color: oklch(var(--orng-base));
     text-shadow:
-      0 0 4px oklch(var(--black-base)),
-      0 0 2px oklch(var(--white-shadow) / 0.445);
+      0 0 40px oklch(var(--black-base)),
+      1px 1px 5px oklch(var(--black-base));
     line-height: 1.5;
     animation: fadeUp 0.7s 0.3s var(--ease) both;
   }
@@ -159,14 +151,14 @@ const desktop = await getImage({ src: bgCraneDesktop });
     gap: var(--gap-mob-fld-2);
     padding-inline: var(--pad-mob-fld-2);
     padding-block: var(--pad-mob-fld-1);
-    border: 1px solid oklch(var(--orng-base) / 0.3);
+    border: 1px solid oklch(var(--orng-accent));
     border-radius: 0.8em;
     background: oklch(var(--black-base) / 0.45);
     font-size: var(--fs-txt-mob-fld-1);
     font-weight: var(--fntWght-semibold);
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: oklch(var(--orng-base) / 0.6);
+    color: oklch(var(--orng-accent) / 0.9);
     animation: fadeUp 0.7s 0.1s var(--ease) both;
   }
 
@@ -181,9 +173,11 @@ const desktop = await getImage({ src: bgCraneDesktop });
   }
 
   .hero-desc {
+    filter: drop-shadow(0px 0px 10px oklch(var(--black-base)));
     font-size: var(--fs-txt-mob-fld-2);
     font-weight: var(--fntWght-semibold);
-    color: oklch(var(--white-base) / 0.45);
+    color: oklch(var(--white-base) / 0.9);
+    text-shadow: 1px 1px 5px oklch(var(--black-base));
     line-height: 1.55;
     max-inline-size: 35ch;
     margin-block-end: var(--mar-mob-fld-5);

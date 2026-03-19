@@ -1,6 +1,12 @@
 ---
 import { Image } from "astro:assets";
+import { getImage } from "astro:assets";
 import ximoAbout from "../../assets/images/ximo.webp";
+import ximoAboutDesktop from "../../assets/images/ximo-desktop.webp";
+import ximoAboutMobile from "../../assets/images/ximo-mobile.webp";
+
+const mobile = await getImage({ src: ximoAboutMobile });
+const desktop = await getImage({ src: ximoAboutDesktop });
 ---
 
 <section id="sobre-mi" class="about section" aria-label="Sobre Mí">
@@ -8,36 +14,22 @@ import ximoAbout from "../../assets/images/ximo.webp";
     Sobre Mí
   </div>
   <div class="about-inner section-inner">
-    <!-- Text column -->
-    <div class="about-text reveal">
-      <h2 class="about-title section-title">
-        Hola, soy <span class="accent">Ximo</span>
-      </h2>
-      <p>
-        Conozco el mercado alemán de primera mano: cada fabricante, cada detalle
-        técnico, cada oportunidad.
-      </p>
-      <p>
-        Esa experiencia directa es lo que me permite encontrar para su empresa
-        exactamente lo que necesita, al mejor precio y con total garantía.
-      </p>
-      <p>
-        Nuestra empresa nació con el objetivo de ofrecer grúas autopropulsadas y
-        maquinaria de origen alemán con total transparencia y profesionalidad
-        durante todo el proceso de compra.
-      </p>
-    </div>
+    <h2 class="about-title section-title">
+      Hola, soy <span class="accent">Ximo</span>
+    </h2>
 
-    <!-- Photo column -->
     <div class="about-photo reveal reveal-delay-2">
       <div class="about-photo-frame reveal">
-        <Image
-          src={ximoAbout}
-          alt="Ximo, fundador de JBV"
-          width="600"
-          height="800"
-          class="img-main"
-        />
+        <picture>
+          <source media="(min-width: 640px)" srcset={desktop.src} />
+          <img
+            src={mobile.src}
+            alt="Ximo, fundador de JBV"
+            class="img-main"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </picture>
         <!-- Neon border overlay -->
         <div class="about-glow" aria-hidden="true"></div>
       </div>
@@ -56,6 +48,21 @@ import ximoAbout from "../../assets/images/ximo.webp";
         </div>
       </div>
     </div>
+    <div class="about-text reveal">
+      <p>
+        Conozco el mercado alemán de primera mano: cada fabricante, cada detalle
+        técnico, cada oportunidad.
+      </p>
+      <p>
+        Esa experiencia directa es lo que me permite encontrar para su empresa
+        exactamente lo que necesita, al mejor precio y con total garantía.
+      </p>
+      <p>
+        Nuestra empresa nació con el objetivo de ofrecer grúas autopropulsadas y
+        maquinaria de origen alemán con total transparencia y profesionalidad
+        durante todo el proceso de compra.
+      </p>
+    </div>
   </div>
 </section>
 
@@ -70,23 +77,21 @@ import ximoAbout from "../../assets/images/ximo.webp";
   }
 
   .about-inner {
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
   }
 
   .about-text {
     display: flex;
     flex-direction: column;
-    gap: var(--margin-space-2);
+    gap: clamp(1rem, -2.41rem + 14.55vw, 1.5rem); /* <--- */
   }
 
-  /* Texto de la seccion */
   .about-text p {
-    font-size: var(--fs-mobile-fluid-4);
-    color: var(--white-50);
+    font-size: var(--fs-txt-mob-fld-2);
+    color: oklch(var(--white-base) / 0.7);
     line-height: 1.75;
-    text-wrap: pretty;
   }
 
   .about-text p:last-child {
@@ -95,8 +100,8 @@ import ximoAbout from "../../assets/images/ximo.webp";
 
   .about-photo {
     display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
+    align-items: center;
+    margin-block-end: clamp(1rem, -12.64rem + 58.18vw, 3rem); /* <--- */
   }
 
   .about-photo-frame {
@@ -105,19 +110,24 @@ import ximoAbout from "../../assets/images/ximo.webp";
   }
 
   .img-main {
-    block-size: auto;
+    margin-inline: auto;
+    block-size: 100%;
+    inline-size: 100%;
     position: relative;
     z-index: 1;
-    filter: drop-shadow(0 30px 60px oklch(0 0 0 / 0.5));
-    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    mask-image: linear-gradient(
+      to bottom,
+      oklch(var(--black-base)) 90%,
+      transparent 100%
+    );
   }
 
   /* Contenedor de estadisticas */
   .stats-row {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: var(--padding-space-2);
+    justify-content: space-around;
+    gap: clamp(0.5rem, -6.32rem + 29.09vw, 1.5rem); /* <--- */
   }
 
   /* tarjeta de estadistica */

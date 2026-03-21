@@ -2,26 +2,29 @@
 import { Image } from "astro:assets";
 import { getImage } from "astro:assets";
 import ximoAbout from "../../assets/images/ximo.webp";
-import ximoAboutDesktop from "../../assets/images/ximo-desktop.webp";
 import ximoAboutMobile from "../../assets/images/ximo-mobile.webp";
+import ximoAboutTablet from "../../assets/images/ximo-tablet.webp";
+import ximoAboutDesktop from "../../assets/images/ximo-desktop.webp";
 
 const mobile = await getImage({ src: ximoAboutMobile });
+const tablet = await getImage({ src: ximoAboutTablet });
 const desktop = await getImage({ src: ximoAboutDesktop });
 ---
 
-<section id="sobre-mi" class="about section" aria-label="Sobre Mí">
-  <div class="about-eyebrow section-eyebrow reveal reveal-delay-1">
+<section id="sobre-mi" class="section about" aria-label="Sobre Mí">
+  <div class="section-eyebrow about-eyebrow reveal reveal-delay-1">
     Sobre Mí
   </div>
-  <div class="about-inner section-inner">
-    <h2 class="about-title section-title">
+  <div class="section-inner about-inner">
+    <h2 class="section-title about-title">
       Hola, soy <span class="accent">Ximo</span>
     </h2>
 
     <div class="about-photo reveal reveal-delay-2">
       <div class="about-photo-frame reveal">
         <picture>
-          <source media="(min-width: 640px)" srcset={desktop.src} />
+          <source media="(min-width: 768px)" srcset={tablet.src} />
+          <source media="(min-width: 1024px)" srcset={desktop.src} />
           <img
             src={mobile.src}
             alt="Ximo, fundador de JBV"
@@ -49,37 +52,95 @@ const desktop = await getImage({ src: ximoAboutDesktop });
       </div>
     </div>
     <div class="about-text reveal">
-      <p>
-        Conozco el mercado alemán de primera mano: cada fabricante, cada detalle
-        técnico, cada oportunidad.
-      </p>
-      <p>
-        Esa experiencia directa es lo que me permite encontrar para su empresa
-        exactamente lo que necesita, al mejor precio y con total garantía.
-      </p>
-      <p>
-        Nuestra empresa nació con el objetivo de ofrecer grúas autopropulsadas y
-        maquinaria de origen alemán con total transparencia y profesionalidad
-        durante todo el proceso de compra.
-      </p>
+      <!-- Tarjeta 1: Conocimiento del mercado -->
+      <article class="about-card reveal reveal-delay-1">
+        <div class="about-card-icon" aria-hidden="true">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 16v-4M12 8h.01"></path>
+          </svg>
+        </div>
+        <div class="about-card-body">
+          <h3 class="about-card-title">Conocimiento de primera mano</h3>
+          <p class="about-card-text">
+            Conozco el mercado alemán en profundidad: cada fabricante, cada
+            detalle técnico, cada oportunidad que otros no ven.
+          </p>
+        </div>
+      </article>
+
+      <!-- Tarjeta 2: Experiencia directa -->
+      <article class="about-card reveal reveal-delay-2">
+        <div class="about-card-icon" aria-hidden="true">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+            <path d="M2 17l10 5 10-5"></path>
+            <path d="M2 12l10 5 10-5"></path>
+          </svg>
+        </div>
+        <div class="about-card-body">
+          <h3 class="about-card-title">27 años de experiencia</h3>
+          <p class="about-card-text">
+            Esa trayectoria directa me permite encontrar exactamente lo que su
+            empresa necesita, al mejor precio y con total garantía.
+          </p>
+        </div>
+      </article>
+
+      <!-- Tarjeta 3: La empresa -->
+      <article class="about-card reveal reveal-delay-3">
+        <div class="about-card-icon" aria-hidden="true">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="2" y="7" width="20" height="14" rx="2"></rect>
+            <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"></path>
+            <line x1="12" y1="12" x2="12" y2="12"></line>
+            <path d="M2 12h20"></path>
+          </svg>
+        </div>
+        <div class="about-card-body">
+          <h3 class="about-card-title">Empresa con propósito</h3>
+          <p class="about-card-text">
+            Nacimos para ofrecer maquinaria alemana con transparencia total y
+            profesionalidad durante todo el proceso de compra.
+          </p>
+        </div>
+      </article>
     </div>
   </div>
 </section>
 
 <style>
   /* ═══════════════════════════════════════════
-    Base / Mobile-first
+                    Mobile-first
     ═══════════════════════════════════════════ */
 
   /* Seccion About */
   .about {
-    background: var(--navy-900);
-  }
-
-  .about-inner {
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
+    background: oklch(var(--navy-900-base));
   }
 
   .about-text {
@@ -88,13 +149,94 @@ const desktop = await getImage({ src: ximoAboutDesktop });
     gap: clamp(1rem, -2.41rem + 14.55vw, 1.5rem); /* <--- */
   }
 
-  .about-text p {
-    font-size: var(--fs-txt-mob-fld-2);
-    color: oklch(var(--white-base) / 0.7);
-    line-height: 1.75;
+  /* Tarjeta individual — mobile base */
+  .about-card {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--pad-mob-fld-2);
+    padding-block: var(--pad-mob-fld-2);
+    padding-inline: var(--pad-mob-fld-3);
+    background: oklch(var(--navy-800-base));
+    border: 1px solid oklch(var(--orng-base) / 0.12);
+    border-radius: var(--r-lg);
+    position: relative;
+    overflow: hidden;
+    transition:
+      border-color var(--dur) var(--ease),
+      box-shadow var(--dur) var(--ease);
   }
 
-  .about-text p:last-child {
+  /* Acento izquierdo — mobile */
+  .about-card::before {
+    content: "";
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: 0;
+    inline-size: 2px;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      oklch(var(--orng-base)),
+      transparent
+    );
+    opacity: 0.6;
+    transition: opacity var(--dur) var(--ease);
+  }
+
+  .about-card:hover {
+    border-color: oklch(var(--orng-base) / 0.3);
+    box-shadow: 0 4px 20px oklch(var(--orng-base) / 0.07);
+  }
+
+  .about-card:hover::before {
+    opacity: 1;
+  }
+
+  /* Icono — mobile */
+  .about-card-icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 2.25rem;
+    block-size: 2.25rem;
+    border-radius: var(--r-md);
+    background: oklch(var(--orng-base) / 0.08);
+    border: 1px solid oklch(var(--orng-base) / 0.2);
+    color: oklch(var(--orng-base));
+  }
+
+  .about-card-icon svg {
+    inline-size: 1.1rem;
+    block-size: 1.1rem;
+    filter: drop-shadow(0 0 3px oklch(var(--orng-base) / 0.5));
+  }
+
+  /* Cuerpo — mobile */
+  .about-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-mob-fld-1);
+  }
+
+  /* Título — mobile */
+  .about-card-title {
+    font-family: var(--font-condensed);
+    font-size: var(--fs-txt-mob-fld-3);
+    font-weight: var(--fntWght-semibold);
+    color: oklch(var(--white-base));
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-block-end: 0;
+    line-height: 1.2;
+  }
+
+  /* Texto — mobile */
+  .about-card-text {
+    font-size: var(--fs-txt-mob-fld-2);
+    color: oklch(var(--white-base) / 0.65);
+    line-height: 1.65;
+    text-wrap: pretty;
     margin-block-end: 0;
   }
 
@@ -134,11 +276,11 @@ const desktop = await getImage({ src: ximoAboutDesktop });
   .stat {
     text-align: center;
     inline-size: clamp(100px, 25vw, 200px);
-    padding-block: var(--padding-space-1);
-    padding-inline: var(--padding-space-1);
-    border: 1px solid oklch(var(--orange-500-base) / 0.15);
+    padding-block: var(--pad-mob-fld-1);
+    padding-inline: var(--pad-mob-fld-1);
+    border: 1px solid oklch(var(--orng-base) / 0.15);
     border-radius: var(--r-md);
-    background: oklch(var(--orange-500-base) / 0.04);
+    background: oklch(var(--orng-base) / 0.04);
     position: relative;
     overflow: hidden;
     font-size: 0.8rem;
@@ -157,7 +299,7 @@ const desktop = await getImage({ src: ximoAboutDesktop });
     background: linear-gradient(
       90deg,
       transparent,
-      var(--orange-500),
+      oklch(var(--orng-base)),
       transparent
     );
     opacity: 1;
@@ -174,7 +316,7 @@ const desktop = await getImage({ src: ximoAboutDesktop });
     background: linear-gradient(
       90deg,
       transparent,
-      var(--orange-500),
+      oklch(var(--orng-base)),
       transparent
     );
     opacity: 1;
@@ -183,8 +325,8 @@ const desktop = await getImage({ src: ximoAboutDesktop });
 
   /* Hover de la tarjeta de estadistica */
   .stat:hover {
-    border-color: oklch(var(--orange-500-base) / 0.4);
-    box-shadow: 0 8px 30px oklch(var(--orange-500-base) / 0.1);
+    border-color: oklch(var(--orng-base) / 0.4);
+    box-shadow: 0 8px 30px oklch(var(--orng-base) / 0.1);
   }
 
   /* Hover de la tarjeta de estadistica */
@@ -201,10 +343,10 @@ const desktop = await getImage({ src: ximoAboutDesktop });
   .stat-num {
     font-family: var(--font-condensed);
     font-size: clamp(2rem, 4vw, 2.75rem);
-    color: var(--orange-500);
+    color: oklch(var(--orng-base));
     text-shadow: var(--glow-sm);
     line-height: 1;
-    margin-block-end: var(--space-3);
+    margin-block-end: var(--gap-mob-fld-1);
     letter-spacing: 0.02em;
   }
 
@@ -213,17 +355,143 @@ const desktop = await getImage({ src: ximoAboutDesktop });
     font-family: var(--font-condensed);
     font-size: 0.78rem;
     font-weight: 600;
-    color: var(--white-50);
+    color: oklch(var(--white-base) / 0.6);
     line-height: 1.3;
     letter-spacing: 0.05em;
     text-transform: uppercase;
   }
 
   /* ═══════════════════════════════════════════
-     Desktop overrides (solo diferencias)
-     ═══════════════════════════════════════════ */
+                    Tablet
+  ═══════════════════════════════════════════ */
 
-  @media (width >= 640px) {
+  @media (width >= 768px) {
+    .about {
+      padding-block-start: var(--pad-mob-fld-8);
+    }
+
+    .about-title {
+      margin-block-end: var(--mar-mob-fld-5);
+    }
+
+    .about-photo {
+    }
+
+    .about-photo-frame {
+    }
+
+    .img-main {
+      inline-size: 20vh;
+    }
+
+    .stats-row {
+      align-self: stretch;
+    }
+
+    .stat-num {
+    }
+
+    /* Contenedor de tarjetas about */
+    .about-text {
+      flex-direction: row;
+      gap: var(--pad-mob-fld-4);
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    /* Tarjeta individual */
+    .about-card {
+      display: flex;
+      gap: var(--pad-mob-fld-3);
+      padding-block: var(--pad-mob-fld-1);
+      padding-inline: var(--pad-mob-fld-2);
+      background: oklch(var(--navy-800-base));
+      border: 1px solid oklch(var(--orng-base) / 0.12);
+      border-radius: var(--r-lg);
+      position: relative;
+      overflow: hidden;
+      transition:
+        border-color var(--dur) var(--ease),
+        box-shadow var(--dur) var(--ease);
+      inline-size: 45%;
+    }
+
+    .about-card:last-child {
+      inline-size: 100%;
+    }
+
+    /* Acento izquierdo naranja */
+    .about-card::before {
+      content: "";
+      position: absolute;
+      inset-block: 0;
+      inset-inline-start: 0;
+      inline-size: 2px;
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        oklch(var(--orng-base)),
+        transparent
+      );
+      opacity: 0.6;
+      transition: opacity var(--dur) var(--ease);
+    }
+
+    .about-card:hover {
+      border-color: oklch(var(--orng-base) / 0.3);
+      box-shadow: 0 4px 24px oklch(var(--orng-base) / 0.08);
+    }
+
+    .about-card:hover::before {
+      opacity: 1;
+    }
+
+    /* Icono */
+    .about-card-icon {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      inline-size: 2.5rem;
+      block-size: 2.5rem;
+      border-radius: var(--r-md);
+      background: oklch(var(--orng-base) / 0.08);
+      border: 1px solid oklch(var(--orng-base) / 0.2);
+      color: oklch(var(--orng-base));
+    }
+
+    .about-card-icon svg {
+      inline-size: 1.25rem;
+      block-size: 1.25rem;
+      filter: drop-shadow(0 0 4px oklch(var(--orng-base) / 0.5));
+    }
+
+    /* Título de tarjeta */
+    .about-card-title {
+      font-family: var(--font-condensed);
+      font-size: var(--fs-txt-mob-fld-5);
+      font-weight: var(--fntWght-semibold);
+      color: oklch(var(--white-base));
+      letter-spacing: 0.02em;
+      margin-block-end: var(--gap-mob-fld-1);
+      text-transform: uppercase;
+    }
+
+    /* Texto de tarjeta */
+    .about-card-text {
+      font-size: var(--fs-txt-mob-fld-3);
+      color: oklch(var(--white-base) / 0.65);
+      line-height: 1.6;
+      text-wrap: pretty;
+      margin-block-end: 0;
+    }
+  }
+
+  /* ═══════════════════════════════════════════
+                    Desktop
+  ═══════════════════════════════════════════ */
+
+  @media (width >= 1024px) {
     /* Seccion About */
     .about {
       position: relative;
@@ -325,13 +593,39 @@ const desktop = await getImage({ src: ximoAboutDesktop });
       text-shadow: var(--glow-sm);
     }
 
-    /* Texto de la seccion */
-    .about-text p {
+    /* Tarjetas de la sección about — desktop */
+    .about-text {
+      gap: var(--margin-space-1);
+    }
+
+    .about-card {
+      gap: var(--padding-space-4);
+      padding-block: var(--padding-space-3);
+      padding-inline: var(--padding-space-4);
+    }
+
+    .about-card-icon {
+      inline-size: 2.75rem;
+      block-size: 2.75rem;
+    }
+
+    .about-card-icon svg {
+      inline-size: 1.4rem;
+      block-size: 1.4rem;
+    }
+
+    .about-card-title {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      margin-block-end: var(--space-3);
+    }
+
+    .about-card-text {
       font-size: 1rem;
       color: var(--white-50);
       line-height: 1.75;
-      margin-block-end: var(--margin-space-1);
       text-wrap: pretty;
+      margin-block-end: 0;
     }
 
     /* Contenedor de estadisticas */

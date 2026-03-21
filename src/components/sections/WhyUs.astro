@@ -3,12 +3,12 @@ import { reasons } from "@data/reasons";
 ---
 
 <section id="por-que" class="section why-us" aria-label="Por qué elegirnos">
-  <p class="section-eyebrow reveal">Por Qué Elegirnos</p>
-  <div class="section-inner">
-    <h2 class="section-title reveal">
+  <p class="section-eyebrow why-us-eyebrow reveal">Por Qué Elegirnos</p>
+  <div class="section-inner why-us-inner">
+    <h2 class="section-title why-us-title reveal">
       Su <span class="accent">experto</span><br />de confianza
     </h2>
-    <p class="section-lead reveal">
+    <p class="section-lead why-us-lead reveal">
       No somos un intermediario más. Somos su extensión en Alemania, con la
       experiencia y los contactos para conseguirle la mejor maquinaria al mejor
       precio.
@@ -42,22 +42,22 @@ import { reasons } from "@data/reasons";
 
 <style>
   /* ═══════════════════════════════════════════
-     Base / Mobile-first
+                    Mobile-first
   ═══════════════════════════════════════════ */
 
   .why-grid {
     display: flex;
     flex-direction: column;
-    gap: var(--margin-space-3);
+    gap: var(--mar-mob-fld-5);
   }
 
   .why-card {
     display: flex;
-    gap: 1.25rem;
-    padding-block: var(--space-7);
-    padding-inline: var(--space-7);
-    background: var(--surface);
-    border: 1px solid var(--border);
+    gap: var(--gap-mob-fld-3);
+    padding-block: var(--pad-mob-fld-2);
+    padding-inline: var(--pad-mob-fld-2);
+    background: oklch(var(--navy-800-base));
+    border: 1px solid var(--white-08);
     border-radius: var(--r-lg);
     transition: all var(--dur) var(--ease);
   }
@@ -72,7 +72,7 @@ import { reasons } from "@data/reasons";
     background: linear-gradient(
       90deg,
       transparent,
-      var(--orange-500),
+      oklch(var(--orng-base)),
       transparent
     );
     opacity: 1;
@@ -89,7 +89,7 @@ import { reasons } from "@data/reasons";
     background: linear-gradient(
       90deg,
       transparent,
-      var(--orange-500),
+      oklch(var(--orng-base)),
       transparent
     );
     opacity: 1;
@@ -97,8 +97,8 @@ import { reasons } from "@data/reasons";
   }
 
   .why-card:hover {
-    border-color: oklch(var(--orange-500-base) / 0.2);
-    background: var(--surface-2);
+    border-color: oklch(var(--orng-base) / 0.2);
+    background: oklch(var(--navy-700-base));
     transform: translateY(-2px);
   }
 
@@ -107,39 +107,63 @@ import { reasons } from "@data/reasons";
     inline-size: 44px;
     block-size: 44px;
     border-radius: var(--r-md);
-    background: oklch(var(--orange-500-base) / 0.1);
+    background: oklch(var(--orng-base) / 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--orange-500);
+    color: oklch(var(--orng-base));
   }
 
   .why-icon svg {
-    inline-size: 22px;
-    block-size: 22px;
+    inline-size: var(--fs-txt-mob-fld-7);
+    block-size: var(--fs-txt-mob-fld-7);
   }
 
   .why-card h3 {
-    font-family: var(--font-condensed);
-    font-size: 1rem;
-    font-weight: 700;
+    font-size: var(--fs-txt-mob-fld-1);
+    font-weight: var(--fntWght-bold);
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    color: var(--white);
+    color: oklch(var(--white-base));
     margin-block-end: 0.35rem;
   }
 
   .why-card p {
-    font-size: 0.88rem;
-    color: var(--white-50);
+    font-size: calc(var(--fs-txt-mob-fld-1) - 0.1rem);
+    color: oklch(var(--white-base) / 0.5);
     line-height: 1.6;
   }
 
   /* ═══════════════════════════════════════════
-     Desktop overrides (solo diferencias)
+                    Tablet
   ═══════════════════════════════════════════ */
 
-  @media (width >= 640px) {
+  @media (width >= 768px) {
+    .why-us-title {
+      margin-block-end: var(--pad-mob-fld-4);
+    }
+
+    .why-us-lead {
+      font-size: var(--fs-txt-mob-fld-5);
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--pad-mob-fld-6) var(--pad-mob-fld-5);
+      margin-block-end: var(--mar-mob-fld-6);
+    }
+
+    .why-card p {
+      font-size: var(--fs-txt-mob-fld-3);
+    }
+  }
+
+  /* ═══════════════════════════════════════════
+                    Desktop
+  ═══════════════════════════════════════════ */
+
+  @media (width >= 1024px) {
     .why-us {
       background: var(--navy-900);
     }

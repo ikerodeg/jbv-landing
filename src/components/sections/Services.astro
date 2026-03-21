@@ -3,12 +3,12 @@ import { services } from "@data/services";
 ---
 
 <section id="servicios" class="section services" aria-label="Lo que hacemos">
-  <div class="section-eyebrow reveal">Lo Que Hacemos</div>
-  <div class="section-inner">
-    <h2 class="section-title reveal">
+  <div class="section-eyebrow reveal services-eyebrow">Lo Que Hacemos</div>
+  <div class="section-inner services-inner">
+    <h2 class="section-title reveal services-title">
       Intermediación <span class="accent">profesional</span>
     </h2>
-    <p class="section-lead reveal">
+    <p class="section-lead services-lead reveal">
       Facilitamos la compra de grúas autopropulsadas de origen alemán para
       empresas españolas. Un servicio integral basado en la confianza, la
       experiencia y el trato directo.
@@ -43,7 +43,7 @@ import { services } from "@data/services";
 
 <style>
   /* ═══════════════════════════════════════════
-    Base / Mobile-first
+                    Mobile-first
   ═══════════════════════════════════════════ */
 
   .services {
@@ -154,10 +154,39 @@ import { services } from "@data/services";
   }
 
   /* ═══════════════════════════════════════════
-    Desktop overrides (solo diferencias)
+                    Tablet
   ═══════════════════════════════════════════ */
 
-  @media (width >= 640px) {
+  @media (width >= 768px) {
+    .services-title {
+      margin-block-end: var(--pad-mob-fld-4);
+    }
+
+    .services-lead {
+      font-size: var(--fs-txt-mob-fld-5);
+      margin-block-end: var(--mar-mob-fld-6);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--pad-mob-fld-8) var(--pad-mob-fld-5);
+      margin-block-end: var(--mar-mob-fld-6);
+      /* reset de los valores mobile */
+      max-inline-size: none;
+      margin-inline: 0;
+    }
+
+    .service-card p {
+      font-size: var(--fs-txt-mob-fld-3);
+    }
+  }
+
+  /* ═══════════════════════════════════════════
+                    Desktop
+  ═══════════════════════════════════════════ */
+
+  @media (width >= 1024px) {
     .services {
       background: var(--navy-900);
     }

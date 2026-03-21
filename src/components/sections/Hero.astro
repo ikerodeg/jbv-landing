@@ -2,9 +2,11 @@
 import { getImage } from "astro:assets";
 import Icon from "../ui/Icon.astro";
 import bgCraneMobile from "../../assets/images/bg-crane-mobile4.webp";
-import bgCraneDesktop from "../../assets/images/bg-crane.png";
+import bgCraneTablet from "../../assets/images/bg-crane-tablet1.webp";
+import bgCraneDesktop from "../../assets/images/bg-crane-desk4.webp";
 
 const mobile = await getImage({ src: bgCraneMobile });
+const tablet = await getImage({ src: bgCraneTablet });
 const desktop = await getImage({ src: bgCraneDesktop });
 ---
 
@@ -12,7 +14,8 @@ const desktop = await getImage({ src: bgCraneDesktop });
   <!-- Background image -->
   <div class="hero-bg" aria-hidden="true">
     <picture>
-      <source media="(min-width: 640px)" srcset={desktop.src} />
+      <source media="(min-width: 920px)" srcset={desktop.src} />
+      <source media="(min-width: 640px)" srcset={tablet.src} />
       <img src={mobile.src} alt="" fetchpriority="high" decoding="async" />
     </picture>
   </div>
@@ -194,16 +197,94 @@ const desktop = await getImage({ src: bgCraneDesktop });
     justify-content: center;
   }
 
+  .btn-whatsapp {
+    background: oklch(var(--green-500-base));
+    color: oklch(var(--navy-900-base));
+    box-shadow: 0 4px 20px oklch(var(--green-500-base) / 0.35);
+  }
+
+  .btn-whatsapp:hover {
+    background: oklch(0.68 0.18 155);
+    box-shadow:
+      0 0 20px oklch(var(--green-500-base) / 0.4),
+      0 0 60px oklch(var(--green-500-base) / 0.3),
+      0 0 100px oklch(var(--green-500-base) / 0.1);
+    transform: translateY(-2px);
+  }
+
   /* Scroll indicator — oculto en mobile */
   .hero-scroll {
     display: none;
   }
 
   /* ═══════════════════════════════════════════
-     Desktop overrides (solo diferencias)
+                  Tablet
+  ═══════════════════════════════════════════ */
+
+  @media (width >= 768px) {
+    .hero-title {
+      font-size: var(--fs-ttl-mob-fld-10);
+      filter: drop-shadow(0px 0px 10px oklch(var(--black-base)));
+    }
+
+    .hero-subtitle {
+      font-size: calc(var(--fs-txt-mob-fld-10) * 1.3);
+      filter: drop-shadow(0px 0px 10px oklch(var(--black-base)));
+    }
+
+    .hero-desc {
+      background-color: oklch(var(--black-base) / 0.2);
+      font-size: calc(var(--fs-txt-mob-fld-10) * 0.8);
+    }
+
+    .hero-badge {
+      font-size: var(--fs-txt-mob-fld-3);
+    }
+
+    .hero-badge::before {
+      inline-size: 8px;
+      block-size: 8px;
+    }
+
+    .hero-ctas {
+      gap: var(--mar-mob-fld-10);
+    }
+
+    .btn {
+      font-size: var(--fs-txt-mob-fld-4);
+    }
+
+    .hero-scroll {
+      display: flex;
+      position: absolute;
+      inset-block-end: 2.5rem;
+      inset-inline-start: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--white-50);
+      font-family: var(--font-condensed);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      animation: fadeIn 1s 1.2s both;
+    }
+
+    .scroll-line {
+      inline-size: 1px;
+      block-size: 30px;
+      background: linear-gradient(to bottom, var(--orange-500), transparent);
+      animation: scrollLine 1.5s ease-in-out infinite;
+    }
+  }
+
+  /* ═══════════════════════════════════════════
+                    Desktop
      ═══════════════════════════════════════════ */
 
-  @media (width >= 640px) {
+  @media (width >= 1024px) {
     .hero {
       align-items: center;
     }

@@ -46,22 +46,6 @@
     transform: translateY(-2px);
   }
 
-  .btn-whatsapp {
-    background: var(--green-500);
-    color: var(--navy-900);
-    box-shadow: 0 4px 20px oklch(var(--green-500-base) / 0.35);
-  }
-
-  .btn-whatsapp:hover {
-    background: oklch(0.68 0.18 155);
-    box-shadow:
-      0 0 20px oklch(var(--green-500-base) / 0.4),
-      0 0 60px oklch(var(--green-500-base) / 0.3),
-      0 0 100px oklch(var(--green-500-base) / 0.1);
-    transform: translateY(-2px);
-  }
-
-
   .btn svg {
     inline-size: 18px;
     block-size: 18px;

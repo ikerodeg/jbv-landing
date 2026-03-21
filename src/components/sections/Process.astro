@@ -3,13 +3,13 @@ import { steps } from "@data/steps";
 ---
 
 <section id="proceso" class="section process" aria-label="Proceso de compra">
-  <div class="section-eyebrow reveal">Proceso de Compra</div>
-  <div class="section-inner">
-    <div class="process-header reveal">
-      <h2 class="section-title">
+  <div class="section-eyebrow process-eyebrow reveal">Proceso de Compra</div>
+  <div class="section-inner process-inner">
+    <div class="section-header process-header reveal">
+      <h2 class="section-title process-title">
         Cinco pasos hacia<br />su <span class="accent">grúa ideal</span>
       </h2>
-      <p class="section-lead">
+      <p class="section-lead process-lead">
         Un proceso sencillo, transparente y diseñado para que usted solo tome la
         decisión final. Nosotros nos encargamos de todo lo demás.
       </p>
@@ -24,7 +24,6 @@ import { steps } from "@data/steps";
           >
             <div class="step-aside" aria-hidden="true">
               <div class="step-num">{step.num}</div>
-              <div class="step-line" />
             </div>
             <div class="step-body">
               <h3>{step.title}</h3>
@@ -39,110 +38,133 @@ import { steps } from "@data/steps";
 
 <style>
   /* ═══════════════════════════════════════════
-     Base / Mobile-first
-     ═══════════════════════════════════════════ */
+                    Mobile-first
+    ═══════════════════════════════════════════ */
 
   /* Seccion Process */
-  .process {
-    background: var(--navy-900);
-  }
-
   .process-inner {
     display: flex;
     flex-direction: column;
-    gap: var(--space-8);
   }
 
-  .process-header {
-    font-size: var(--fs-mobile-fluid-4);
-    color: var(--white-50);
-    line-height: 1.75;
+  .process-lead {
+    color: oklch(var(--white-base) / 0.7);
   }
 
   /* Track */
   .process-track {
     display: flex;
     flex-direction: column;
-    gap: var(--pad-mob-fld-5);
+    gap: var(--pad-mob-fld-6);
   }
 
   /* Step */
   .process-step {
     display: flex;
     align-items: flex-start;
-    gap: var(--space-4);
+    gap: var(--pad-mob-fld-3);
+    padding-block: var(--pad-mob-fld-1);
+    padding-inline: var(--pad-mob-fld-2);
+    background: oklch(var(--navy-800-base));
+    border: 1px solid oklch(var(--orng-base) / 0.12);
+    border-radius: var(--r-lg);
+    position: relative;
+    overflow: hidden;
+    transition:
+      border-color var(--dur) var(--ease),
+      box-shadow var(--dur) var(--ease);
+  }
+
+  .process-step::before {
+    content: "";
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: 0;
+    inline-size: 2px;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      oklch(var(--orng-base)),
+      transparent
+    );
+    opacity: 0.6;
+    transition: opacity var(--dur) var(--ease);
   }
 
   .step-aside {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-2);
-    flex-shrink: 0;
+    padding-block-start: 0.5vh;
   }
 
   .step-num {
     inline-size: 48px;
     block-size: 48px;
     border-radius: 50%;
-    border: 2px solid oklch(var(--orange-500-base) / 0.2);
-    background: oklch(var(--orange-500-base) / 0.05);
+    border: 2px solid oklch(var(--orng-base) / 0.5);
+    background: oklch(var(--orng-base) / 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: var(--font-display);
-    font-size: 1.2rem;
-    color: var(--orange-500);
+    font-size: var(--fs-txt-mob-fld-6);
+    color: oklch(var(--orng-base));
     text-shadow: var(--glow-sm);
     transition: all var(--dur) var(--ease);
   }
 
+  .process-step:hover {
+    border-color: oklch(var(--orng-base) / 0.3);
+    box-shadow: 0 4px 24px oklch(var(--orng-base) / 0.08);
+  }
+
   .process-step:hover .step-num {
-    border-color: var(--orange-500);
+    border-color: var(--orng-base);
     box-shadow: var(--glow-sm);
-    background: oklch(var(--orange-500-base) / 0.1);
-  }
-
-  .step-line {
-    flex: 1;
-    inline-size: 1px;
-    background: linear-gradient(
-      to bottom,
-      oklch(var(--orange-500-base) / 0.2),
-      oklch(var(--orange-500-base) / 0.05)
-    );
-    margin-block-start: var(--space-2);
-  }
-
-  .process-step:last-child .step-line {
-    display: none;
-  }
-
-  .step-body {
-    flex: 1;
+    background: oklch(var(--orng-base) / 0.1);
   }
 
   .step-body h3 {
-    font-family: var(--font-condensed);
-    font-size: 1rem;
-    font-weight: 700;
+    font-size: var(--fs-txt-mob-fld-1);
+    font-weight: var(--fntWght-bold);
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    color: var(--white);
-    margin-block-end: var(--space-2);
+    color: oklch(var(--white-base));
+    margin-block-end: calc(var(--gap-mob-fld-1) - 0.6rem);
   }
 
   .step-body p {
     font-size: 0.85rem;
-    color: var(--white-50);
+    color: oklch(var(--white-base) / 0.6);
     line-height: 1.6;
+  }
+
+  /* ═══════════════════════════════════════════
+                    Tablet
+  ═══════════════════════════════════════════ */
+
+  @media (width >= 768px) {
+    .process-title {
+      margin-block-end: var(--pad-mob-fld-4);
+    }
+
+    .process-lead {
+      font-size: var(--fs-txt-mob-fld-5);
+    }
+
+    .step-body h3 {
+      font-size: var(--fs-txt-mob-fld-3);
+    }
+
+    .step-body p {
+      font-size: var(--fs-txt-mob-fld-3);
+      color: oklch(var(--white-base) / 0.6);
+      line-height: 1.6;
+    }
   }
 
   /* ═══════════════════════════════════════════
      Desktop overrides (solo diferencias)
   ═══════════════════════════════════════════ */
 
-  @media (width >= 640px) {
+  @media (width >= 1024px) {
     .process {
       background: var(--navy-800);
     }

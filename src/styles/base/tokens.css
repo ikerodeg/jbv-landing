@@ -2,9 +2,9 @@
 :root {
   color-scheme: dark;
   /* OKLCH Color Palette Bases */
-  --navy-900-base: 0.11 0.03 252;
-  --navy-800-base: 0.16 0.04 252;
-  --navy-700-base: 0.20 0.04 252;
+
+
+
   --navy-600-base: 0.26 0.05 252;
   --navy-500-base: 0.34 0.04 252;
   --navy-400-base: 0.45 0.04 252;
@@ -13,8 +13,7 @@
   --orange-400-base: 0.79 0.20 52;
   --orange-300-base: 0.85 0.16 52;
 
-  --white-base: 0.98 0 0;
-  --green-500-base: 0.63 0.18 155;
+
 
   /* OKLCH Color Palette */
   --navy-900: oklch(var(--navy-900-base));
@@ -33,7 +32,7 @@
   --white-80: oklch(var(--white-base) / 0.8);
   --white-50: oklch(var(--white-base) / 0.5);
   --white-20: oklch(var(--white-base) / 0.2);
-  --white-08: oklch(var(--white-base) / 0.08);
+
 
   --green-500: oklch(var(--green-500-base));
 
@@ -49,10 +48,7 @@
 
 
 
-  /* Typography */
-  --font-display: 'Trirong', serif;
-  --font-condensed: 'Barlow Condensed', sans-serif;
-  --font-body: 'Barlow', system-ui, sans-serif;
+
 
   /* Spacing Scale */
   --space-1: 0.15rem;
@@ -82,14 +78,9 @@
   --section-pad: clamp(5rem, 10vw, 9rem);
   --container: min(1200px, 100% - var(--space-1));
 
-  /* Radius */
-  --r-sm: 4px;
-  --r-md: 8px;
-  --r-lg: 16px;
 
-  /* Transitions */
-  --ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --dur: 0.35s;
+
+
 
   /* Mobile gap spacing fluid */
   --gap-mobile-fluid-1: clamp(1.5rem, calc(-4.15rem + 13.56svh), 3rem);
@@ -133,22 +124,41 @@
 
 
   /* ---------------------------------- NUEVAS VARIABLES ---------------------------------- */
+  /* Typography */
+  --font-display: 'Trirong', serif;
+  --font-condensed: 'Barlow Condensed', sans-serif;
+  --font-body: 'Barlow', system-ui, sans-serif;
+
   /* Color Palette Oklch */
   --white-accent: 1 0 0;
   --white-base: 90 0 0;
   --white-shadow: 1 0 271.152;
+  --white-08: oklch(var(--white-base) / 0.08);
+
   --black-base: 0 0 0;
   --black-shadow: ;
   --black-accent: ;
+
   --orng-accent: 0.79 0.17 71;
   --orng-base: 0.73 0.19 52;
   --orng-shadow: 0.65 0.14 70;
+
+  --navy-900-base: 0.11 0.03 252;
+  --navy-800-base: 0.16 0.04 252;
+  --navy-700-base: 0.20 0.04 252;
+
+  --green-500-base: 0.63 0.18 155;
 
   /* Neon Glows */
   --orange-glow: oklch(var(--orng-base) / 0.4);
   --glow-sm: 0 0 8px var(--orange-glow);
   --glow-md: 0 0 16px var(--orange-glow), 0 0 40px oklch(var(--orng-base) / 0.2);
   --glow-lg: 0 0 20px var(--orange-glow), 0 0 60px oklch(var(--orng-base) / 0.3), 0 0 100px oklch(var(--orng-base) / 0.1);
+
+  /* Radius */
+  --r-sm: 4px;
+  --r-md: 8px;
+  --r-lg: 16px;
 
   /* Font Size Title Mobile Fluid */
   --fs-ttl-mob-fld-1: clamp(9rem, calc(5.92rem + 7.40svh), 9.82rem);
@@ -208,15 +218,18 @@
   --pad-mob-fld-10: clamp(2.5rem, calc(-6.92rem + 22.60svh), 5rem);
 
   /* Margin Mobile Fluid */
-  --mar-mob-fld-1: ;
-  --mar-mob-fld-2: ;
-  --mar-mob-fld-3: ;
-  --mar-mob-fld-4: ;
+  --mar-mob-fld-1: clamp(0.25rem, calc(-0.69rem + 2.26svh), 0.5rem);
+  --mar-mob-fld-2: clamp(0.5rem, calc(-1.38rem + 4.52svh), 1rem);
+  --mar-mob-fld-3: clamp(1rem, calc(-0.88rem + 4.52svh), 1.5rem);
+  --mar-mob-fld-4: clamp(1.5rem, calc(-0.38rem + 4.52svh), 2rem);
   --mar-mob-fld-5: clamp(2rem, calc(0.12rem + 4.52svh), 2.5rem);
-  --mar-mob-fld-6: ;
-  --mar-mob-fld-7: ;
-  --mar-mob-fld-8: ;
-  --mar-mob-fld-9: ;
-  --mar-mob-fld-10: ;
+  --mar-mob-fld-6: clamp(2.5rem, calc(0.62rem + 4.52svh), 3rem);
+  --mar-mob-fld-7: clamp(3rem, calc(1.12rem + 4.52svh), 3.5rem);
+  --mar-mob-fld-8: clamp(3.5rem, calc(1.62rem + 4.52svh), 4rem);
+  --mar-mob-fld-9: clamp(4rem, calc(2.12rem + 4.52svh), 4.5rem);
+  --mar-mob-fld-10: clamp(4.5rem, calc(2.62rem + 4.52svh), 5rem);
 
+  /* Transitions */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur: 0.35s;
 }

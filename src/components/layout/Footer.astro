@@ -68,7 +68,7 @@ const year = new Date().getFullYear();
 
 <style>
   /* ═══════════════════════════════════════════
-     Base / Mobile-first
+                  Mobile-first
   ═══════════════════════════════════════════ */
   .footer {
     position: relative;
@@ -175,11 +175,40 @@ const year = new Date().getFullYear();
   .footer-legal a:hover {
     color: var(--orange-400);
   }
+
   /* ═══════════════════════════════════════════
-     Desktop overrides (solo diferencias)
+                    Tablet
   ═══════════════════════════════════════════ */
 
-  @media (width >= 640px) {
+  @media (width >= 768px) {
+    .footer-inner {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+
+    .footer-brand .logo {
+      font-size: 5rem;
+    }
+
+    .footer-brand p {
+      font-size: 1.2rem;
+      text-wrap: balance;
+    }
+
+    .footer-col h4 {
+      font-size: 1.2rem;
+    }
+
+    .footer-col a {
+      font-size: 1.2rem;
+    }
+  }
+  /* ═══════════════════════════════════════════
+                      Desktop
+  ═══════════════════════════════════════════ */
+
+  @media (width >= 1024px) {
     .footer {
       background: oklch(0.09 0.02 252);
       border-block-start: 1px solid var(--border);

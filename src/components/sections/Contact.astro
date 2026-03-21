@@ -3,12 +3,12 @@ import Icon from "../ui/Icon.astro";
 ---
 
 <section id="contacto" class="section contact" aria-label="Contacto">
-  <p class="section-eyebrow reveal">Contacto</p>
-  <div class="section-inner">
-    <h2 class="section-title reveal">
+  <p class="section-eyebrow contact-eyebrow reveal">Contacto</p>
+  <div class="section-inner contact-inner">
+    <h2 class="section-title contact-title reveal">
       Hablemos de su <span class="accent">próximo proyecto</span>
     </h2>
-    <p class="section-lead reveal">
+    <p class="section-lead contact-lead reveal">
       Cuéntenos qué necesita y le asesoraremos sin compromiso. La mejor grúa
       para su empresa puede estar en Alemania esperándole.
     </p>
@@ -57,8 +57,7 @@ import Icon from "../ui/Icon.astro";
         </div>
       </div>
 
-      <!-- Right: Form -->
-      <div class="reveal reveal-delay-2">
+      <div class="contact-form-container reveal reveal-delay-2">
         <form
           class="contact-form"
           id="contact-form"
@@ -256,39 +255,33 @@ import Icon from "../ui/Icon.astro";
 
 <style>
   /* ═══════════════════════════════════════════
-     Base / Mobile-first
+                  Mobile-first
   ═══════════════════════════════════════════ */
-
-  .contact {
-    background: var(--navy-900);
-  }
 
   .contact-grid {
     display: flex;
     flex-direction: column;
-    gap: var(--margin-space-3);
+    gap: var(--mar-mob-fld-7);
     align-items: start;
   }
 
   .contact-info h3 {
-    font-family: var(--font-condensed);
-    font-size: 1.3rem;
-    font-weight: 700;
+    font-size: var(--fs-txt-mob-fld-1);
+    font-weight: var(--fntWght-bold);
     letter-spacing: 0.04em;
-    color: var(--white);
-    margin-block-end: var(--space-5);
+    margin-block-end: var(--mar-mob-fld-3);
   }
 
   .contact-info > p {
-    font-size: 0.95rem;
-    color: var(--white-50);
+    font-size: var(--fs-txt-mob-fld-1);
+    color: oklch(var(--white-base) / 0.5);
     line-height: 1.7;
-    margin-block-end: var(--space-8);
+    margin-block-end: var(--mar-mob-fld-3);
   }
 
   .contact-methods {
     display: flex;
-    gap: 0.85rem;
+    gap: var(--gap-mob-fld-3);
   }
 
   .contact-cta {
@@ -304,6 +297,14 @@ import Icon from "../ui/Icon.astro";
     text-decoration: none;
     transition: all var(--dur) var(--ease);
     gap: var(--padding-space-2);
+  }
+
+  .contact-cta:nth-child(1) {
+    border: 1px solid oklch(var(--green-500-base));
+  }
+
+  .contact-cta:nth-child(2) {
+    border: 1px solid oklch(var(--orange-500-base));
   }
 
   .contact-cta:hover {
@@ -471,10 +472,76 @@ import Icon from "../ui/Icon.astro";
   }
 
   /* ═══════════════════════════════════════════
-     Desktop overrides (solo diferencias)
+                    Tablet
   ═══════════════════════════════════════════ */
 
-  @media (width >= 640px) {
+  @media (width >= 768px) {
+    .contact-title {
+      margin-block-end: var(--pad-mob-fld-4);
+    }
+
+    .contact-lead {
+      font-size: var(--fs-txt-mob-fld-5);
+      margin-block-end: var(--mar-mob-fld-6);
+    }
+
+    .contact-info h3 {
+      font-size: var(--fs-txt-mob-fld-6);
+    }
+
+    .contact-info > p {
+      font-size: var(--fs-txt-mob-fld-4);
+      margin-block-end: var(--mar-mob-fld-5);
+    }
+
+    .contact-methods {
+      display: flex;
+      flex-direction: row;
+      gap: var(--gap-mob-fld-5);
+      justify-content: space-evenly;
+    }
+
+    .contact-cta {
+      display: flex;
+      inline-size: 250px;
+      justify-content: center;
+      gap: var(--gap-mob-fld-3);
+    }
+
+    .cta-ico {
+      inline-size: 44px;
+      block-size: 44px;
+      border-radius: var(--r-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .cta-label strong {
+      font-size: var(--fs-txt-mob-fld-6);
+    }
+
+    .cta-label span {
+      font-size: var(--fs-txt-mob-fld-3);
+    }
+
+    .contact-form-container {
+      inline-size: 100%;
+      padding-block: var(--padding-space-3);
+      padding-inline: var(--padding-space-3);
+    }
+
+    .contact-form {
+      inline-size: 100%;
+    }
+  }
+
+  /* ═══════════════════════════════════════════
+                      Desktop
+  ═══════════════════════════════════════════ */
+
+  @media (width >= 1024px) {
     .contact {
       background: var(--navy-900);
     }

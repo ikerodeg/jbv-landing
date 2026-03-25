@@ -31,7 +31,7 @@ const desktop = await getImage({ src: bgCraneDesktop });
     </h2>
 
     <div class="hero-badge">
-      <span>Alemania · España</span>
+      <span>🇩🇪 Alemania <span class="dot"></span> España 🇪🇦</span>
     </div>
 
     <p class="hero-desc">
@@ -54,7 +54,7 @@ const desktop = await getImage({ src: bgCraneDesktop });
 
       <a
         href="tel:+34600000000"
-        class="btn btn-outline"
+        class="btn btn-llamar"
         aria-label="Llamar por teléfono"
       >
         <Icon name="phone" />
@@ -117,7 +117,7 @@ const desktop = await getImage({ src: bgCraneDesktop });
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: var(--gap-mob-fld-5);
+    gap: var(--gap-mob-fld-7);
     align-items: center;
     z-index: 2;
     padding-inline: var(--pad-mob-fld-3);
@@ -126,8 +126,8 @@ const desktop = await getImage({ src: bgCraneDesktop });
 
   .hero-title {
     font-family: var(--font-display);
-    font-size: var(--fs-ttl-mob-fld-5);
-    font-weight: var(--fntWght-regular);
+    font-size: var(--fs-ttl-mob-fld-1);
+    font-weight: var(--fntWght-light);
     line-height: 0.85;
     color: oklch(var(--white-accent));
     text-shadow:
@@ -145,6 +145,7 @@ const desktop = await getImage({ src: bgCraneDesktop });
       0 0 40px oklch(var(--black-base)),
       1px 1px 5px oklch(var(--black-base));
     line-height: 1.5;
+    margin-block-start: calc(var(--gap-mob-fld-8) * -0.75);
     animation: fadeUp 0.7s 0.3s var(--ease) both;
   }
 
@@ -156,7 +157,7 @@ const desktop = await getImage({ src: bgCraneDesktop });
     padding-block: var(--pad-mob-fld-1);
     border: 1px solid oklch(var(--orng-accent));
     border-radius: 0.8em;
-    background: oklch(var(--black-base) / 0.45);
+    background: oklch(var(--black-base) / 0.7);
     font-size: var(--fs-txt-mob-fld-1);
     font-weight: var(--fntWght-semibold);
     letter-spacing: 0.15em;
@@ -165,8 +166,9 @@ const desktop = await getImage({ src: bgCraneDesktop });
     animation: fadeUp 0.7s 0.1s var(--ease) both;
   }
 
-  .hero-badge::before {
-    content: "";
+  .dot {
+    display: inline-block;
+    margin-inline: var(--mar-mob-fld-1);
     inline-size: 6px;
     block-size: 6px;
     border-radius: 50%;
@@ -177,10 +179,10 @@ const desktop = await getImage({ src: bgCraneDesktop });
 
   .hero-desc {
     filter: drop-shadow(0px 0px 10px oklch(var(--black-base)));
-    font-size: var(--fs-txt-mob-fld-2);
-    font-weight: var(--fntWght-semibold);
-    color: oklch(var(--white-base) / 0.9);
-    text-shadow: 1px 1px 5px oklch(var(--black-base));
+    font-size: var(--fs-txt-mob-fld-3);
+    font-weight: var(--fntWght-medium);
+    color: oklch(var(--white-base) / 0.8);
+    text-shadow: 1px 1px 2px oklch(var(--black-base));
     line-height: 1.55;
     max-inline-size: 35ch;
     margin-block-end: var(--mar-mob-fld-5);
@@ -197,10 +199,19 @@ const desktop = await getImage({ src: bgCraneDesktop });
     justify-content: center;
   }
 
+  .btn {
+    inline-size: 150px;
+  }
+
   .btn-whatsapp {
-    background: oklch(var(--green-500-base));
-    color: oklch(var(--navy-900-base));
-    box-shadow: 0 4px 20px oklch(var(--green-500-base) / 0.35);
+    color: oklch(var(--green-500-base));
+    box-shadow: 0 0 10px oklch(var(--green-500-base) / 0.35);
+    border: 1px solid oklch(var(--green-500-base) / 0.5);
+  }
+
+  .btn-whatsapp::before {
+    background: conic-gradient(from 0deg, #34a500, #51ff00, #267700);
+    animation: rotate 4s linear infinite;
   }
 
   .btn-whatsapp:hover {
@@ -209,6 +220,21 @@ const desktop = await getImage({ src: bgCraneDesktop });
       0 0 20px oklch(var(--green-500-base) / 0.4),
       0 0 60px oklch(var(--green-500-base) / 0.3),
       0 0 100px oklch(var(--green-500-base) / 0.1);
+    transform: translateY(-2px);
+  }
+
+  .btn-llamar {
+    color: oklch(var(--orng-accent));
+    box-shadow: 0 0 10px oklch(var(--orng-accent) / 0.35);
+    border: 1px solid oklch(var(--orng-accent));
+  }
+
+  .btn-llamar:hover {
+    background: var(--orng-base);
+    box-shadow:
+      0 0 20px oklch(var(--orng-accent) / 0.4),
+      0 0 60px oklch(var(--orng-accent) / 0.3),
+      0 0 100px oklch(var(--orng-accent) / 0.1);
     transform: translateY(-2px);
   }
 
@@ -221,7 +247,7 @@ const desktop = await getImage({ src: bgCraneDesktop });
                   Tablet
   ═══════════════════════════════════════════ */
 
-  @media (width >= 768px) {
+  @media (width >= 640px) {
     .hero-title {
       font-size: var(--fs-ttl-mob-fld-10);
       filter: drop-shadow(0px 0px 10px oklch(var(--black-base)));
@@ -251,6 +277,7 @@ const desktop = await getImage({ src: bgCraneDesktop });
     }
 
     .btn {
+      inline-size: 250px;
       font-size: var(--fs-txt-mob-fld-4);
     }
 
@@ -284,91 +311,62 @@ const desktop = await getImage({ src: bgCraneDesktop });
                     Desktop
      ═══════════════════════════════════════════ */
 
-  @media (width >= 1024px) {
+  @media (width >= 920px) {
     .hero {
+      position: relative;
+      padding-inline: var(--pad-mob-fld-3);
+      padding-block-start: var(--pad-mob-fld-8);
       align-items: center;
+      justify-content: flex-start;
     }
-
     .hero-bg img {
+      margin-inline: auto;
       object-position: 65% center;
     }
 
     .hero-mask {
-      background: linear-gradient(
-        100deg,
-        oklch(0.09 0.03 252 / 0.98) 0%,
-        oklch(0.09 0.03 252 / 0.92) 25%,
-        oklch(0.09 0.03 252 / 0.65) 45%,
-        oklch(0.09 0.03 252 / 0.25) 65%,
-        oklch(0.09 0.03 252 / 0.05) 80%,
-        transparent 100%
-      );
+      position: absolute;
+      block-size: 100svh;
+      inset: 0;
+      z-index: 1;
     }
 
     .hero-mask::after {
-      block-size: 12.5rem;
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 5;
+      background-image: linear-gradient(to right, black 8%, transparent 60%);
     }
 
     .hero-content {
-      inline-size: fit-content;
-      padding-inline: 0;
+      max-inline-size: 55vw;
+      padding-inline-start: var(--pad-mob-fld-9);
       padding-block: 0;
-      margin-inline-start: clamp(4rem, 10vw, 12rem);
-    }
-
-    .hero-title {
-      font-size: 20rem;
-    }
-
-    .hero-subtitle {
-      font-size: 3rem;
-      letter-spacing: 0.05em;
-      margin-block-end: var(--margin-space-2);
-    }
-
-    .hero-badge {
-      padding-inline: var(--padding-space-3);
-      padding-block: var(--padding-space-2);
-      background: oklch(var(--orange-500-base) / 0.08);
-      font-size: 0.75rem;
-      margin-block-end: var(--margin-space-2);
-    }
-
-    .hero-desc {
-      font-size: clamp(0.9rem, 1.5vw, 1rem);
-      color: var(--white-50);
-      line-height: 1.7;
-      max-inline-size: 520px;
-      margin-block-end: var(--margin-space-5);
+      justify-content: center;
+      align-items: center;
+      gap: var(--gap-mob-fld-6);
     }
 
     .hero-ctas {
-      gap: var(--margin-space-3);
+      inline-size: 40vw;
+      block-size: 100%;
+      padding-block: var(--pad-mob-fld-7);
+      position: absolute;
+      inset-inline-start: 100%;
+      align-items: center;
+      align-content: space-between;
+      justify-content: center;
+      transform: none;
+    }
+
+    .btn {
+      block-size: 80px;
     }
 
     .hero-scroll {
-      display: flex;
-      position: absolute;
-      inset-block-end: 2.5rem;
-      inset-inline-start: 50%;
-      transform: translateX(-50%);
-      z-index: 2;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--white-50);
-      font-family: var(--font-condensed);
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      animation: fadeIn 1s 1.2s both;
-    }
-
-    .scroll-line {
-      inline-size: 1px;
-      block-size: 50px;
-      background: linear-gradient(to bottom, var(--orange-500), transparent);
-      animation: scrollLine 1.5s ease-in-out infinite;
+      inset-block-end: 1.5rem;
+      inset-inline-start: 55%;
     }
   }
 </style>

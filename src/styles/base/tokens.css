@@ -172,6 +172,18 @@
   --fs-ttl-mob-fld-9: clamp(13rem, calc(8.55rem + 10.68svh), 14.18rem);
   --fs-ttl-mob-fld-10: clamp(13.5rem, calc(8.88rem + 11.09svh), 14.73rem);
 
+  /* Font Size Title Desktop Fluid */
+  --fs-ttl-dtp-fld-1: clamp(15rem, 12vw, 16rem);
+  --fs-ttl-dtp-fld-2: clamp(15.75rem, 13vw, 16.75rem);
+  --fs-ttl-dtp-fld-3: clamp(16.5rem, 14vw, 17.5rem);
+  --fs-ttl-dtp-fld-4: clamp(17.25rem, 15vw, 18.25rem);
+  --fs-ttl-dtp-fld-5: clamp(18rem, 16vw, 19rem);
+  --fs-ttl-dtp-fld-6: clamp(18.75rem, 17vw, 19.75rem);
+  --fs-ttl-dtp-fld-7: clamp(19.5rem, 18vw, 20.5rem);
+  --fs-ttl-dtp-fld-8: clamp(20.25rem, 19vw, 21.25rem);
+  --fs-ttl-dtp-fld-9: clamp(21rem, 20vw, 22rem);
+  --fs-ttl-dtp-fld-10: clamp(21.75rem, 21vw, 22.75rem);
+
   /* Font Size Text Mobile Fluid */
   --fs-txt-mob-fld-1: clamp(0.7rem, calc(-0.43rem + 2.71svh), 1rem);
   --fs-txt-mob-fld-2: clamp(0.9rem, calc(0.33rem + 1.36svh), 1.05rem);
@@ -183,6 +195,18 @@
   --fs-txt-mob-fld-8: clamp(1.5rem, calc(0.56rem + 2.26svh), 1.75rem);
   --fs-txt-mob-fld-9: clamp(1.6rem, calc(0.60rem + 2.41svh), 1.87rem);
   --fs-txt-mob-fld-10: clamp(1.7rem, calc(0.63rem + 2.56svh), 1.98rem);
+
+  /* Font Size Text Desktop Fluid */
+  --fs-txt-dtp-fld-1:  clamp(1.9rem, 1.4vw, 2rem);
+  --fs-txt-dtp-fld-2:  clamp(2rem, 1.6vw, 2.15rem);
+  --fs-txt-dtp-fld-3:  clamp(2.1rem, 1.7vw, 2.3rem);
+  --fs-txt-dtp-fld-4:  clamp(2.2rem, 1.8vw, 2.45rem);
+  --fs-txt-dtp-fld-5:  clamp(2.3rem, 1.9vw, 2.6rem);
+  --fs-txt-dtp-fld-6:  clamp(2.4rem, 2vw,   2.75rem);
+  --fs-txt-dtp-fld-7:  clamp(2.5rem, 2.1vw, 2.9rem);
+  --fs-txt-dtp-fld-8:  clamp(2.6rem, 2.2vw, 3.05rem);
+  --fs-txt-dtp-fld-9:  clamp(2.7rem, 2.3vw, 3.2rem);
+  --fs-txt-dtp-fld-10: clamp(2.8rem, 2.4vw, 3.35rem);
 
   /* Font Weights */
   --fntWght-light: 300;

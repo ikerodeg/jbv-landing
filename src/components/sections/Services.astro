@@ -192,6 +192,7 @@ import { services } from "@data/services";
     }
 
     .services-lead {
+      inline-size: 50%;
       font-size: var(--fs-txt-mob-fld-6);
       margin-block-end: var(--mar-mob-fld-10);
     }
@@ -203,15 +204,15 @@ import { services } from "@data/services";
     }
 
     .service-card {
-      padding: var(--pad-mob-fld-4);
+      position: relative;
       display: flex;
       flex-direction: column;
+      padding: var(--pad-mob-fld-4);
       justify-content: space-between;
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--r-lg);
       transition: all var(--dur) var(--ease);
-      position: relative;
       overflow: hidden;
     }
 

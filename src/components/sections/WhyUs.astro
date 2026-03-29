@@ -6,7 +6,7 @@ import { reasons } from "@data/reasons";
   <p class="section-eyebrow why-us-eyebrow reveal">Por Qué Elegirnos</p>
   <div class="section-inner why-us-inner">
     <h2 class="section-title why-us-title reveal">
-      Su <span class="accent">experto</span><br />de confianza
+      Su <span class="accent">experto</span> de confianza
     </h2>
     <p class="section-lead why-us-lead reveal">
       No somos un intermediario más. Somos su extensión en Alemania, con la
@@ -138,7 +138,7 @@ import { reasons } from "@data/reasons";
                     Tablet
   ═══════════════════════════════════════════ */
 
-  @media (width >= 768px) {
+  @media (width >= 640px) {
     .why-us-title {
       margin-block-end: var(--pad-mob-fld-4);
     }
@@ -163,18 +163,24 @@ import { reasons } from "@data/reasons";
                     Desktop
   ═══════════════════════════════════════════ */
 
-  @media (width >= 1024px) {
-    .why-us {
-      background: var(--navy-900);
+  @media (width >= 920px) {
+    .why-us-title {
+    }
+
+    .why-us-lead {
+      max-inline-size: 50%;
+      margin-block-end: var(--mar-mob-fld-6);
     }
 
     .why-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1rem;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 5rem;
     }
 
     .why-card {
+      max-inline-size: 30%;
       display: flex;
       gap: 1.25rem;
       padding-block: var(--space-7);
@@ -210,7 +216,7 @@ import { reasons } from "@data/reasons";
 
     .why-card h3 {
       font-family: var(--font-condensed);
-      font-size: 1rem;
+      font-size: 1.75rem;
       font-weight: 700;
       letter-spacing: 0.04em;
       text-transform: uppercase;
@@ -219,7 +225,7 @@ import { reasons } from "@data/reasons";
     }
 
     .why-card p {
-      font-size: 0.88rem;
+      font-size: 1.25rem;
       color: var(--white-50);
       line-height: 1.6;
     }

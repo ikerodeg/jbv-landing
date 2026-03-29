@@ -91,6 +91,22 @@ import { steps } from "@data/steps";
     transition: opacity var(--dur) var(--ease);
   }
 
+  .process-step::after {
+    content: "";
+    position: absolute;
+    inset-block: 0;
+    inset-inline-end: 0;
+    inline-size: 2px;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      oklch(var(--orng-base)),
+      transparent
+    );
+    opacity: 0.6;
+    transition: opacity var(--dur) var(--ease);
+  }
+
   .step-aside {
     padding-block-start: 0.5vh;
   }
@@ -161,12 +177,28 @@ import { steps } from "@data/steps";
   }
 
   /* ═══════════════════════════════════════════
-     Desktop overrides
+                      Desktop
   ═══════════════════════════════════════════ */
 
   @media (width >= 920px) {
     .process {
       background: var(--navy-800);
+    }
+
+    .process-inner {
+      margin-block-end: var(--mar-mob-fld-6);
+    }
+
+    .process-header {
+    }
+
+    .process-track {
+      inline-size: fit-content;
+      margin-inline: auto;
+      justify-content: center;
+      align-items: center;
+      overflow: visible;
+      gap: var(--gap-mob-fld-8);
     }
 
     .process-lead {
@@ -184,15 +216,15 @@ import { steps } from "@data/steps";
     }
 
     .process-step {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 2rem;
-      align-items: stretch;
-      padding-block-end: var(--space-10);
+      max-inline-size: 70%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding-block: var(--pad-mob-fld-5);
+      padding-inline: var(--pad-mob-fld-3);
     }
 
     .process-step:last-child {
-      padding-block-end: 0;
     }
 
     .step-aside {
@@ -258,20 +290,6 @@ import { steps } from "@data/steps";
       font-size: 1.25rem;
       color: var(--white-50);
       line-height: 1.65;
-    }
-
-    @media (min-width: 900px) {
-      .process-inner {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 5rem;
-        align-items: start;
-      }
-
-      .process-header {
-        position: sticky;
-        inset-block-start: 120px;
-      }
     }
   }
 </style>

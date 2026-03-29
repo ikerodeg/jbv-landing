@@ -15,27 +15,24 @@ const desktop = await getImage({ src: ximoAboutDesktop });
   <div class="section-eyebrow about-eyebrow reveal reveal-delay-1">
     Sobre Mí
   </div>
+  <h2 class="section-title about-title">
+    Hola, soy <span class="accent">Ximo</span>
+  </h2>
   <div class="section-inner about-inner">
-    <h2 class="section-title about-title">
-      Hola, soy <span class="accent">Ximo</span>
-    </h2>
-
     <div class="about-photo reveal reveal-delay-2">
-      <div class="about-photo-frame reveal">
-        <picture>
-          <source media="(min-width: 768px)" srcset={tablet.src} />
-          <source media="(min-width: 1024px)" srcset={desktop.src} />
-          <img
-            src={mobile.src}
-            alt="Ximo, fundador de JBV"
-            class="img-main"
-            fetchpriority="high"
-            decoding="async"
-          />
-        </picture>
+      <picture class="about-photo-frame reveal">
+        <source media="(min-width: 920px)" srcset={desktop.src} />
+        <source media="(min-width: 640px)" srcset={tablet.src} />
+        <img
+          src={mobile.src}
+          alt="Ximo, fundador de JBV"
+          class="img-main"
+          fetchpriority="high"
+          decoding="async"
+        />
         <!-- Neon border overlay -->
         <div class="about-glow" aria-hidden="true"></div>
-      </div>
+      </picture>
       <div class="stats-row">
         <div class="stat reveal reveal-delay-1">
           <div class="stat-num">27</div>
@@ -149,7 +146,6 @@ const desktop = await getImage({ src: ximoAboutDesktop });
     gap: clamp(1rem, -2.41rem + 14.55vw, 1.5rem); /* <--- */
   }
 
-  /* Tarjeta individual — mobile base */
   .about-card {
     display: flex;
     align-items: flex-start;
@@ -166,7 +162,6 @@ const desktop = await getImage({ src: ximoAboutDesktop });
       box-shadow var(--dur) var(--ease);
   }
 
-  /* Acento izquierdo — mobile */
   .about-card::before {
     content: "";
     position: absolute;
@@ -254,7 +249,7 @@ const desktop = await getImage({ src: ximoAboutDesktop });
   .img-main {
     margin-inline: auto;
     block-size: 100%;
-    inline-size: 100%;
+    max-inline-size: 100%;
     position: relative;
     z-index: 1;
     mask-image: linear-gradient(
@@ -365,9 +360,12 @@ const desktop = await getImage({ src: ximoAboutDesktop });
                     Tablet
   ═══════════════════════════════════════════ */
 
-  @media (width >= 768px) {
+  @media (width >= 640px) {
     .about {
       padding-block-start: var(--pad-mob-fld-8);
+    }
+
+    .about-inner {
     }
 
     .about-title {
@@ -381,7 +379,9 @@ const desktop = await getImage({ src: ximoAboutDesktop });
     }
 
     .img-main {
-      inline-size: 20vh;
+      inline-size: auto;
+      block-size: auto;
+      max-block-size: 40vh;
     }
 
     .stats-row {
@@ -393,8 +393,8 @@ const desktop = await getImage({ src: ximoAboutDesktop });
 
     /* Contenedor de tarjetas about */
     .about-text {
-      flex-direction: row;
-      gap: var(--pad-mob-fld-4);
+      flex-direction: column;
+      gap: var(--pad-mob-fld-3);
       justify-content: space-between;
       flex-wrap: wrap;
     }
@@ -413,7 +413,6 @@ const desktop = await getImage({ src: ximoAboutDesktop });
       transition:
         border-color var(--dur) var(--ease),
         box-shadow var(--dur) var(--ease);
-      inline-size: 45%;
     }
 
     .about-card:last-child {
@@ -491,295 +490,74 @@ const desktop = await getImage({ src: ximoAboutDesktop });
                     Desktop
   ═══════════════════════════════════════════ */
 
-  @media (width >= 1024px) {
-    /* Seccion About */
-    .about {
-      position: relative;
-      min-block-size: 100svh;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-      background: var(--navy-800);
-    }
-
-    /* Decorative top border */
-    .about::before {
-      content: "";
-      position: absolute;
-      inset-block-start: 0;
-      inset-inline: 0;
-      block-size: 1px;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        var(--orange-500),
-        transparent
-      );
-      opacity: 0.3;
-    }
-
-    /* Decorative background grid */
-    .about::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(oklch(var(--white-base) / 0.05) 1px, transparent 1px),
-        linear-gradient(
-          90deg,
-          oklch(var(--white-base) / 0.05) 1px,
-          transparent 1px
-        );
-      background-size: 60px 60px;
-      mask-image: radial-gradient(
-        ellipse 80% 80% at 50% 50%,
-        black,
-        transparent
-      );
-      pointer-events: none;
-    }
-
+  @media (width >= 920px) {
     /* Contenido principal */
     .about-inner {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      gap: clamp(3rem, 6vw, 6rem);
-      max-inline-size: var(--container);
-      margin-inline: auto;
-      padding-inline: var(--padding-space-5);
-      inline-size: 100%;
-    }
-
-    /* Titulo de la seccion */
-    .about-eyebrow {
-      display: block;
-      font-family: var(--font-condensed);
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--orange-500);
-      margin-block-end: var(--margin-space-3);
       display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    /* Decorativo del titulo de la seccion */
-    .about-eyebrow::before {
-      content: "";
-      inline-size: 32px;
-      block-size: 2px;
-      background: var(--orange-500);
-      box-shadow: var(--glow-sm);
+      flex-direction: row;
+      justify-content: center;
     }
 
     /* Titulo principal */
     .about-title {
-      font-family: var(--font-display);
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      line-height: 1;
-      letter-spacing: 0.02em;
-      color: var(--white);
-      margin-block-end: var(--margin-space-2);
     }
 
-    /* Resaltar la palabra Ximo */
-    .about-title .accent {
-      color: var(--orange-500);
-      text-shadow: var(--glow-sm);
-    }
-
-    /* Tarjetas de la sección about — desktop */
-    .about-text {
-      gap: var(--margin-space-1);
-    }
-
-    .about-card {
-      gap: var(--padding-space-4);
-      padding-block: var(--padding-space-3);
-      padding-inline: var(--padding-space-4);
-    }
-
-    .about-card-icon {
-      inline-size: 2.75rem;
-      block-size: 2.75rem;
-    }
-
-    .about-card-icon svg {
-      inline-size: 1.4rem;
-      block-size: 1.4rem;
-    }
-
-    .about-card-title {
-      font-size: 0.78rem;
-      letter-spacing: 0.1em;
-      margin-block-end: var(--space-3);
-    }
-
-    .about-card-text {
-      font-size: 1rem;
-      color: var(--white-50);
-      line-height: 1.75;
-      text-wrap: pretty;
-      margin-block-end: 0;
-    }
-
-    /* Contenedor de estadisticas */
-    .stats-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      margin-block-start: var(--margin-space-5);
-    }
-
-    /* tarjeta de estadistica */
-    .stat {
-      text-align: center;
-      padding-block: var(--padding-space-3);
-      padding-inline: var(--padding-space-4);
-      border: 1px solid oklch(var(--orange-500-base) / 0.15);
-      border-radius: var(--r-md);
-      background: oklch(var(--orange-500-base) / 0.04);
-      position: relative;
-      overflow: hidden;
-      transition:
-        border-color var(--dur) var(--ease),
-        box-shadow var(--dur) var(--ease);
-    }
-
-    /* Decorativo de la tarjeta de estadistica */
-    .stat::before {
-      content: "";
-      position: absolute;
-      inset-block-start: 0;
-      inset-inline: 0;
-      block-size: 2px;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        var(--orange-500),
-        transparent
-      );
-      opacity: 1;
-      transition: opacity var(--dur) var(--ease);
-    }
-
-    /* Decorativo de la tarjeta de estadistica */
-    .stat::after {
-      content: "";
-      position: absolute;
-      inset-block-end: 0;
-      inset-inline: 0;
-      block-size: 2px;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        var(--orange-500),
-        transparent
-      );
-      opacity: 1;
-      transition: opacity var(--dur) var(--ease);
-    }
-
-    /* Hover de la tarjeta de estadistica */
-    .stat:hover {
-      border-color: oklch(var(--orange-500-base) / 0.4);
-      box-shadow: 0 8px 30px oklch(var(--orange-500-base) / 0.1);
-    }
-
-    /* Hover de la tarjeta de estadistica */
-    .stat:hover::before {
-      opacity: 1;
-    }
-
-    /* Hover de la tarjeta de estadistica */
-    .stat:hover::after {
-      opacity: 1;
-    }
-
-    /* Numero de la tarjeta de estadistica */
-    .stat-num {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 4vw, 2.75rem);
-      color: var(--orange-500);
-      text-shadow: var(--glow-sm);
-      line-height: 1;
-      margin-block-end: var(--space-3);
-      letter-spacing: 0.02em;
-    }
-
-    /* Etiqueta de la tarjeta de estadistica */
-    .stat-label {
-      font-family: var(--font-condensed);
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: var(--white-50);
-      line-height: 1.3;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
-
-    /* Columna de la foto */
     .about-photo {
-      position: relative;
-      display: flex;
-      justify-content: flex-end;
-      align-items: flex-end;
+      block-size: 100%;
+      align-self: stretch;
+      margin: 0;
     }
 
     .about-photo-frame {
-      position: relative;
-      max-inline-size: 440px;
-      inline-size: 100%;
-      border-radius: var(--r-lg);
-      overflow: hidden;
     }
 
-    .about-photo-frame img {
-      inline-size: 100%;
-      block-size: auto;
-      position: relative;
-      z-index: 1;
-      filter: drop-shadow(0 30px 60px oklch(0 0 0 / 0.5));
-      mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    .img-main {
+      max-inline-size: 100%;
+      max-block-size: 100%;
     }
 
-    .about-glow {
-      position: absolute;
-      inset-block-end: -40px;
-      inset-inline: 0;
-      block-size: 200px;
-      background: radial-gradient(
-        ellipse,
-        oklch(var(--orange-500-base) / 0.18) 0%,
-        transparent 70%
-      );
-      filter: blur(30px);
-      z-index: 0;
+    .stats-row {
     }
 
-    @media (max-width: 900px) {
-      .about-inner {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-      }
+    .stat {
+      max-inline-size: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
 
-      .about-photo {
-        order: -1;
-        justify-content: center;
-      }
+    .stat-num {
+      font-size: 3rem;
+    }
 
-      .about-photo-frame {
-        max-inline-size: 320px;
-      }
+    .stat-label {
+      font-size: 1.2rem;
+    }
 
-      .stats-row {
-        grid-template-columns: repeat(3, 1fr);
-      }
+    .about-text {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: space-evenly;
+      padding: 0;
+      margin: 0;
+      gap: 1rem;
+      max-inline-size: 500px;
+    }
+
+    .about-card {
+      margin: 0;
+    }
+
+    .about-card-title {
+      font-size: var(--fs-txt-mob-fld-7);
+    }
+
+    .about-card-text {
+      font-size: var(--fs-txt-mob-fld-5);
+      text-wrap: balance;
     }
   }
 </style>

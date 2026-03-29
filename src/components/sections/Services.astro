@@ -157,7 +157,7 @@ import { services } from "@data/services";
                     Tablet
   ═══════════════════════════════════════════ */
 
-  @media (width >= 768px) {
+  @media (width >= 640px) {
     .services-title {
       margin-block-end: var(--pad-mob-fld-4);
     }
@@ -186,20 +186,27 @@ import { services } from "@data/services";
                     Desktop
   ═══════════════════════════════════════════ */
 
-  @media (width >= 1024px) {
+  @media (width >= 920px) {
     .services {
       background: var(--navy-900);
     }
 
+    .services-lead {
+      font-size: var(--fs-txt-mob-fld-6);
+      margin-block-end: var(--mar-mob-fld-10);
+    }
+
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.25rem;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 3rem;
     }
 
     .service-card {
-      padding-block: var(--space-8);
-      padding-inline: 1.75rem;
+      padding: var(--pad-mob-fld-4);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--r-lg);
@@ -252,6 +259,10 @@ import { services } from "@data/services";
       box-shadow: var(--glow-sm);
     }
 
+    .service-card-header {
+      margin-block-end: var(--mar-mob-fld-4);
+    }
+
     .service-icon svg {
       inline-size: 24px;
       block-size: 24px;
@@ -259,16 +270,15 @@ import { services } from "@data/services";
 
     .service-card h3 {
       font-family: var(--font-condensed);
-      font-size: 1.15rem;
+      font-size: 1.75rem;
       font-weight: 700;
       letter-spacing: 0.04em;
       color: var(--white);
-      margin-block-end: var(--space-4);
       text-transform: uppercase;
     }
 
     .service-card p {
-      font-size: 0.92rem;
+      font-size: 1.5rem;
       color: var(--white-50);
       line-height: 1.65;
     }

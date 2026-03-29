@@ -57,9 +57,9 @@
   }
 
   .btn-primary {
-    background: var(--orange-500);
-    color: var(--navy-900);
-    box-shadow: 0 4px 20px oklch(var(--orange-500-base) / 0.35);
+    background: oklch(var(--orng-base));
+    color: oklch(var(--orng-accent));
+    box-shadow: 0 4px 20px oklch(var(--orng-base) / 0.35);
   }
 
   .btn-primary:hover {

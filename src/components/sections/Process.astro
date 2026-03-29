@@ -140,7 +140,7 @@ import { steps } from "@data/steps";
                     Tablet
   ═══════════════════════════════════════════ */
 
-  @media (width >= 768px) {
+  @media (width >= 640px) {
     .process-title {
       margin-block-end: var(--pad-mob-fld-4);
     }
@@ -161,19 +161,26 @@ import { steps } from "@data/steps";
   }
 
   /* ═══════════════════════════════════════════
-     Desktop overrides (solo diferencias)
+     Desktop overrides
   ═══════════════════════════════════════════ */
 
-  @media (width >= 1024px) {
+  @media (width >= 920px) {
     .process {
       background: var(--navy-800);
+    }
+
+    .process-lead {
+      font-size: var(--fs-txt-mob-fld-5);
+      color: var(--white-50);
+      max-inline-size: 60%;
+      margin-block-end: var(--mar-mob-fld-10);
     }
 
     .process-track {
       position: relative;
       display: flex;
       flex-direction: column;
-      gap: 0;
+      gap: 1rem;
     }
 
     .process-step {
@@ -239,7 +246,7 @@ import { steps } from "@data/steps";
 
     .step-body h3 {
       font-family: var(--font-condensed);
-      font-size: 1.15rem;
+      font-size: 1.75rem;
       font-weight: 700;
       letter-spacing: 0.04em;
       text-transform: uppercase;
@@ -248,7 +255,7 @@ import { steps } from "@data/steps";
     }
 
     .step-body p {
-      font-size: 0.92rem;
+      font-size: 1.25rem;
       color: var(--white-50);
       line-height: 1.65;
     }

@@ -19,15 +19,15 @@ import { steps } from "@data/steps";
       {
         steps.map((step, i) => (
           <div
-            class={`process-step reveal reveal-delay-${i + 1}`}
+            class={`process-step sides reveal reveal-delay-${i + 1}`}
             role="listitem"
           >
             <div class="step-aside" aria-hidden="true">
               <div class="step-num">{step.num}</div>
             </div>
             <div class="step-body">
-              <h3>{step.title}</h3>
-              <p>{step.desc}</p>
+              <h3 class="card-title">{step.title}</h3>
+              <p class="card-text">{step.desc}</p>
             </div>
           </div>
         ))
@@ -45,10 +45,6 @@ import { steps } from "@data/steps";
   .process-inner {
     display: flex;
     flex-direction: column;
-  }
-
-  .process-lead {
-    color: oklch(var(--white-base) / 0.7);
   }
 
   /* Track */
@@ -73,38 +69,6 @@ import { steps } from "@data/steps";
     transition:
       border-color var(--dur) var(--ease),
       box-shadow var(--dur) var(--ease);
-  }
-
-  .process-step::before {
-    content: "";
-    position: absolute;
-    inset-block: 0;
-    inset-inline-start: 0;
-    inline-size: 2px;
-    background: linear-gradient(
-      to bottom,
-      transparent,
-      oklch(var(--orng-base)),
-      transparent
-    );
-    opacity: 0.6;
-    transition: opacity var(--dur) var(--ease);
-  }
-
-  .process-step::after {
-    content: "";
-    position: absolute;
-    inset-block: 0;
-    inset-inline-end: 0;
-    inline-size: 2px;
-    background: linear-gradient(
-      to bottom,
-      transparent,
-      oklch(var(--orng-base)),
-      transparent
-    );
-    opacity: 0.6;
-    transition: opacity var(--dur) var(--ease);
   }
 
   .step-aside {
@@ -137,19 +101,8 @@ import { steps } from "@data/steps";
     background: oklch(var(--orng-base) / 0.1);
   }
 
-  .step-body h3 {
-    font-size: var(--fs-txt-mob-fld-1);
-    font-weight: var(--fntWght-bold);
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: oklch(var(--white-base));
-    margin-block-end: calc(var(--gap-mob-fld-1) - 0.6rem);
-  }
-
-  .step-body p {
-    font-size: 0.85rem;
-    color: oklch(var(--white-base) / 0.6);
-    line-height: 1.6;
+  .card-title {
+    margin-block-end: var(--mar-mob-fld-1);
   }
 
   /* ═══════════════════════════════════════════

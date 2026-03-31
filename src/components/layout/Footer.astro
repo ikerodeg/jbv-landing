@@ -180,7 +180,7 @@ const year = new Date().getFullYear();
                     Tablet
   ═══════════════════════════════════════════ */
 
-  @media (width >= 768px) {
+  @media (width >= 640px) {
     .footer-inner {
       display: flex;
       flex-direction: row;
@@ -208,109 +208,17 @@ const year = new Date().getFullYear();
                       Desktop
   ═══════════════════════════════════════════ */
 
-  @media (width >= 1024px) {
+  @media (width >= 920px) {
     .footer {
-      background: oklch(0.09 0.02 252);
-      border-block-start: 1px solid var(--border);
-      padding-block: var(--space-12) var(--space-8);
-      padding-inline: var(--space-8);
     }
 
     .footer-inner {
-      max-inline-size: var(--container);
-      margin-inline: auto;
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 3rem;
-      margin-block-end: var(--space-10);
     }
 
-    .footer-brand .logo {
-      font-family: var(--font-display);
-      font-size: 2.2rem;
-      letter-spacing: 0.1em;
-      color: var(--orange-500);
-      text-shadow: var(--glow-sm);
-      text-decoration: none;
-      display: inline-block;
-      margin-block-end: var(--space-5);
-    }
-
-    .footer-brand p {
-      font-size: 0.88rem;
-      color: var(--white-50);
-      line-height: 1.65;
-      max-inline-size: 300px;
-    }
-
-    .footer-col h4 {
-      font-family: var(--font-condensed);
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--white);
-      margin-block-end: var(--space-6);
-    }
-
-    .footer-col ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
-    }
-
-    .footer-col a {
-      font-size: 0.88rem;
-      color: var(--white-50);
-      text-decoration: none;
-      transition: color var(--dur) var(--ease);
-    }
-
-    .footer-col a:hover {
-      color: var(--orange-400);
-    }
-
-    .footer-bottom {
-      max-inline-size: var(--container);
-      margin-inline: auto;
-      padding-block-start: var(--space-8);
-      border-block-start: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-      font-size: 0.8rem;
-      color: var(--navy-500);
-    }
-
-    .footer-legal {
-      display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-
+    .footer-bottom,
     .footer-legal a {
-      color: var(--navy-500);
-      text-decoration: none;
-      transition: color var(--dur) var(--ease);
-    }
-
-    .footer-legal a:hover {
-      color: var(--orange-400);
-    }
-
-    @media (max-width: 768px) {
-      .footer-inner {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-
-      .footer-bottom {
-        flex-direction: column;
-        text-align: center;
-      }
+      font-size: var(--fs-txt-mob-fld-2);
+      color: oklch(var(--white-base) / 0.3);
     }
   }
 </style>

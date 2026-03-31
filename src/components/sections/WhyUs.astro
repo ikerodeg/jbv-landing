@@ -17,22 +17,22 @@ import { reasons } from "@data/reasons";
     <div class="why-grid">
       {
         reasons.map((r, i) => (
-          <article class={`why-card reveal reveal-delay-${(i % 3) + 1}`}>
-            <div class="why-icon" aria-hidden="true">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="1.8"
-              >
-                <Fragment set:html={r.icon} />
-              </svg>
-            </div>
-            <div>
-              <h3>{r.title}</h3>
-              <p>{r.desc}</p>
-            </div>
+          <article class={`card updown reveal reveal-delay-${(i % 3) + 1}`}>
+            <header class="card-header">
+              <div class="card-icon" aria-hidden="true">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                >
+                  <Fragment set:html={r.icon} />
+                </svg>
+              </div>
+              <h3 class="card-title">{r.title}</h3>
+            </header>
+            <p class="card-text">{r.desc}</p>
           </article>
         ))
       }
@@ -49,89 +49,6 @@ import { reasons } from "@data/reasons";
     display: flex;
     flex-direction: column;
     gap: var(--mar-mob-fld-5);
-  }
-
-  .why-card {
-    display: flex;
-    gap: var(--gap-mob-fld-3);
-    padding-block: var(--pad-mob-fld-2);
-    padding-inline: var(--pad-mob-fld-2);
-    background: oklch(var(--navy-800-base));
-    border: 1px solid var(--white-08);
-    border-radius: var(--r-lg);
-    transition: all var(--dur) var(--ease);
-  }
-
-  /* Decorativo de la tarjeta de estadistica */
-  .why-card::before {
-    content: "";
-    position: absolute;
-    inset-block-start: 0;
-    inset-inline: 0;
-    block-size: 1px;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      oklch(var(--orng-base)),
-      transparent
-    );
-    opacity: 1;
-    transition: opacity var(--dur) var(--ease);
-  }
-
-  /* Decorativo de la tarjeta de estadistica */
-  .why-card::after {
-    content: "";
-    position: absolute;
-    inset-block-end: 0;
-    inset-inline: 0;
-    block-size: 1px;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      oklch(var(--orng-base)),
-      transparent
-    );
-    opacity: 1;
-    transition: opacity var(--dur) var(--ease);
-  }
-
-  .why-card:hover {
-    border-color: oklch(var(--orng-base) / 0.2);
-    background: oklch(var(--navy-700-base));
-    transform: translateY(-2px);
-  }
-
-  .why-icon {
-    flex-shrink: 0;
-    inline-size: 44px;
-    block-size: 44px;
-    border-radius: var(--r-md);
-    background: oklch(var(--orng-base) / 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: oklch(var(--orng-base));
-  }
-
-  .why-icon svg {
-    inline-size: var(--fs-txt-mob-fld-7);
-    block-size: var(--fs-txt-mob-fld-7);
-  }
-
-  .why-card h3 {
-    font-size: var(--fs-txt-mob-fld-1);
-    font-weight: var(--fntWght-bold);
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: oklch(var(--white-base));
-    margin-block-end: 0.35rem;
-  }
-
-  .why-card p {
-    font-size: calc(var(--fs-txt-mob-fld-1) - 0.1rem);
-    color: oklch(var(--white-base) / 0.5);
-    line-height: 1.6;
   }
 
   /* ═══════════════════════════════════════════
@@ -168,66 +85,32 @@ import { reasons } from "@data/reasons";
     }
 
     .why-us-lead {
-      max-inline-size: 50%;
-      margin-block-end: var(--mar-mob-fld-6);
     }
 
     .why-grid {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      gap: 5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--gap-mob-fld-5);
     }
 
-    .why-card {
-      max-inline-size: 30%;
-      display: flex;
-      gap: 1.25rem;
-      padding-block: var(--space-7);
-      padding-inline: var(--space-7);
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--r-lg);
-      transition: all var(--dur) var(--ease);
+    .card-title {
+      font-size: var(--fs-txt-mob-fld-6);
+      margin-block-end: var(--gap-mob-fld-1);
     }
 
-    .why-card:hover {
-      border-color: oklch(var(--orange-500-base) / 0.2);
-      background: var(--surface-2);
-      transform: translateY(-2px);
+    .card-text {
+      font-size: var(--fs-txt-mob-fld-4);
+      text-wrap: pretty;
     }
 
-    .why-icon {
-      flex-shrink: 0;
+    .card-icon {
       inline-size: 44px;
       block-size: 44px;
-      border-radius: var(--r-md);
-      background: oklch(var(--orange-500-base) / 0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--orange-500);
     }
 
-    .why-icon svg {
-      inline-size: 22px;
-      block-size: 22px;
-    }
-
-    .why-card h3 {
-      font-family: var(--font-condensed);
-      font-size: 1.75rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--white);
-      margin-block-end: 0.35rem;
-    }
-
-    .why-card p {
-      font-size: 1.25rem;
-      color: var(--white-50);
-      line-height: 1.6;
-    }
+    .card-icon svg {
+      inline-size: 36px;
+      block-size: 36px;
+    } */
   }
 </style>

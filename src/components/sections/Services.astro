@@ -17,9 +17,9 @@ import { services } from "@data/services";
     <div class="services-grid">
       {
         services.map((s, i) => (
-          <article class={`service-card reveal reveal-delay-${(i % 3) + 1}`}>
-            <header class="service-card-header">
-              <div class="service-icon" aria-hidden="true">
+          <article class={`card updown reveal reveal-delay-${(i % 3) + 1}`}>
+            <header class="card-header">
+              <div class="card-icon" aria-hidden="true">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -31,9 +31,9 @@ import { services } from "@data/services";
                   <Fragment set:html={s.icon} />
                 </svg>
               </div>
-              <h3>{s.title}</h3>
+              <h3 class="card-title">{s.title}</h3>
             </header>
-            <p>{s.desc}</p>
+            <p class="card-text">{s.desc}</p>
           </article>
         ))
       }
@@ -56,101 +56,6 @@ import { services } from "@data/services";
     margin-inline: auto;
     max-inline-size: 85vw;
     gap: var(--gap-mobile-fluid-1);
-  }
-
-  .service-card-header {
-    display: flex;
-    align-items: center;
-    gap: var(--margin-space-1);
-    margin-block-end: var(--margin-space-1);
-  }
-
-  .service-card {
-    padding: var(--padding-space-3);
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--r-lg);
-    transition: all var(--dur) var(--ease);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .service-card::before {
-    content: "";
-    position: absolute;
-    inset-block-start: 0;
-    inset-inline: 0;
-    block-size: 1px;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      var(--orange-500),
-      transparent
-    );
-    opacity: 1;
-    transition: opacity var(--dur) var(--ease);
-  }
-
-  .service-card::after {
-    content: "";
-    position: absolute;
-    inset-block-end: 0;
-    inset-inline: 0;
-    block-size: 1px;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      var(--orange-500),
-      transparent
-    );
-    opacity: 1;
-    transition: opacity var(--dur) var(--ease);
-  }
-
-  .service-card:hover {
-    border-color: oklch(var(--orange-500-base) / 0.25);
-    transform: translateY(-5px);
-    box-shadow: 0 20px 50px oklch(0 0 0 / 0.3);
-  }
-
-  .service-card:hover::before {
-    opacity: 1;
-  }
-
-  .service-icon {
-    border-radius: var(--r-md);
-    background: oklch(var(--orange-500-base) / 0.1);
-    border: 1px solid oklch(var(--orange-500-base) / 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: var(--padding-space-1);
-    color: var(--orange-500);
-    transition: box-shadow var(--dur) var(--ease);
-  }
-
-  .service-card:hover .service-icon {
-    box-shadow: var(--glow-sm);
-  }
-
-  .service-icon svg {
-    inline-size: 24px;
-    block-size: 24px;
-  }
-
-  .service-card h3 {
-    font-family: var(--font-condensed);
-    font-size: 1.15rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    color: var(--white);
-    text-transform: uppercase;
-  }
-
-  .service-card p {
-    font-size: 0.92rem;
-    color: var(--white-50);
-    line-height: 1.65;
   }
 
   /* ═══════════════════════════════════════════
@@ -192,96 +97,35 @@ import { services } from "@data/services";
     }
 
     .services-lead {
-      inline-size: 50%;
+      inline-size: 80ch;
       font-size: var(--fs-txt-mob-fld-6);
-      margin-block-end: var(--mar-mob-fld-10);
+      margin-block-end: var(--mar-mob-fld-6);
     }
 
     .services-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 3rem;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--gap-mob-fld-5);
     }
 
-    .service-card {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      padding: var(--pad-mob-fld-4);
-      justify-content: space-between;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--r-lg);
-      transition: all var(--dur) var(--ease);
-      overflow: hidden;
+    .card-title {
+      font-size: var(--fs-txt-mob-fld-6);
+      margin-block-end: var(--gap-mob-fld-1);
     }
 
-    .service-card::before {
-      content: "";
-      position: absolute;
-      inset-block-start: 0;
-      inset-inline: 0;
-      block-size: 2px;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        var(--orange-500),
-        transparent
-      );
-      opacity: 0;
-      transition: opacity var(--dur) var(--ease);
+    .card-text {
+      font-size: var(--fs-txt-mob-fld-4);
+      text-wrap: balance;
     }
 
-    .service-card:hover {
-      border-color: oklch(var(--orange-500-base) / 0.25);
-      transform: translateY(-5px);
-      box-shadow: 0 20px 50px oklch(0 0 0 / 0.3);
+    .card-icon {
+      inline-size: 44px;
+      block-size: 44px;
     }
 
-    .service-card:hover::before {
-      opacity: 1;
-    }
-
-    .service-icon {
-      inline-size: 50px;
-      block-size: 50px;
-      border-radius: var(--r-md);
-      background: oklch(var(--orange-500-base) / 0.1);
-      border: 1px solid oklch(var(--orange-500-base) / 0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-block-end: var(--space-6);
-      color: var(--orange-500);
-      transition: box-shadow var(--dur) var(--ease);
-    }
-
-    .service-card:hover .service-icon {
-      box-shadow: var(--glow-sm);
-    }
-
-    .service-card-header {
-      margin-block-end: var(--mar-mob-fld-4);
-    }
-
-    .service-icon svg {
-      inline-size: 24px;
-      block-size: 24px;
-    }
-
-    .service-card h3 {
-      font-family: var(--font-condensed);
-      font-size: 1.75rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      color: var(--white);
-      text-transform: uppercase;
-    }
-
-    .service-card p {
-      font-size: 1.5rem;
-      color: var(--white-50);
-      line-height: 1.65;
+    .card-icon svg {
+      inline-size: 36px;
+      block-size: 36px;
     }
   }
 </style>

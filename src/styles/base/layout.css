@@ -108,8 +108,8 @@
 
   /* Lead */
   .section-lead {
-    color: var(--white-50);
-    margin-block-end: var(--margin-space-3);
+    color: oklch(var(--white-base) / 0.7);
+    margin-block-end: var(--mar-mob-fld-5);
   }
 
 }

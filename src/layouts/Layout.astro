@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { contact } from "@data/contact";
 
 export interface Props {
   title?: string;
@@ -11,8 +12,8 @@ export interface Props {
 const {
   title = "JBV | Intermediario de Grúas Autopropulsadas Alemania–España",
   description = "Intermediación profesional de grúas autopropulsadas entre Alemania y España. 27 años de experiencia, transparencia total y los mejores precios en maquinaria de calidad alemana.",
-  canonical = "https://www.jbv.com",
-  image = "/images/bg-crane.webp",
+  canonical = "https://jbvgruas.es",
+  image = "/images/og-image.webp",
 } = Astro.props;
 
 const ogImage = new URL(image, canonical).toString();
@@ -23,8 +24,7 @@ const structuredData = JSON.stringify({
   name: "JBV",
   description: description,
   url: canonical,
-  // TODO: Reemplazar datos ficticios (+34600000000) por datos reales
-  telephone: "+34600000000",
+  telephone: contact.phone,
   areaServed: ["ES", "DE"],
   serviceType: "Intermediación de Grúas Autopropulsadas",
   founder: {
@@ -47,7 +47,6 @@ const structuredData = JSON.stringify({
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -64,7 +63,6 @@ const structuredData = JSON.stringify({
     <!-- SEO -->
     <meta name="author" content="JBV" />
     <meta name="robots" content="index, follow" />
-    <meta name="language" content="es" />
     <meta name="geo.region" content="ES" />
     <meta name="geo.placename" content="España" />
 
@@ -93,7 +91,7 @@ const structuredData = JSON.stringify({
     <link
       rel="icon"
       type="image/svg+xml"
-      href={`${import.meta.env.BASE_URL}/favicon.svg`}
+      href="/favicon.svg"
     />
 
     <!-- Extra Head Tags -->
@@ -102,7 +100,6 @@ const structuredData = JSON.stringify({
 
   <body>
     <slot />
-    <script src="../scripts/smooth-scroll.ts"></script>
   </body>
 </html>
 

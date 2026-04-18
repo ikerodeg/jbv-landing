@@ -11,7 +11,7 @@ const links = navigationLinks;
     aria-label="Navegación principal"
   >
     <a
-      href={`${import.meta.env.BASE_URL}#inicio`}
+      href="/#inicio"
       class="navbar-logo"
       aria-label="JBV – Inicio">JBV</a
     >
@@ -47,10 +47,13 @@ const links = navigationLinks;
   </nav>
 </header>
 
+<div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+
 <script>
   const navbar = document.getElementById("navbar");
   const toggle = document.getElementById("nav-toggle");
   const menu = document.getElementById("nav-menu");
+  const overlay = document.getElementById("nav-overlay");
   const navLinks = document.querySelectorAll<HTMLAnchorElement>(".nav-link");
 
   // Scroll opacity
@@ -86,19 +89,38 @@ const links = navigationLinks;
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
+  // Shared close helper
+  const closeMenu = () => {
+    toggle?.setAttribute("aria-expanded", "false");
+    menu?.classList.remove("open");
+    overlay?.classList.remove("open");
+    overlay?.setAttribute("aria-hidden", "true");
+  };
+
   // Mobile toggle
   toggle?.addEventListener("click", () => {
     const open = toggle.getAttribute("aria-expanded") === "true";
-    toggle.setAttribute("aria-expanded", String(!open));
-    menu?.classList.toggle("open", !open);
+    const next = !open;
+    toggle.setAttribute("aria-expanded", String(next));
+    menu?.classList.toggle("open", next);
+    overlay?.classList.toggle("open", next);
+    overlay?.setAttribute("aria-hidden", String(!next));
   });
 
   // Close on link click
   navLinks.forEach((a) => {
-    a.addEventListener("click", () => {
-      toggle?.setAttribute("aria-expanded", "false");
-      menu?.classList.remove("open");
-    });
+    a.addEventListener("click", closeMenu);
+  });
+
+  // Close on overlay click
+  overlay?.addEventListener("click", closeMenu);
+
+  // Close on Escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && toggle?.getAttribute("aria-expanded") === "true") {
+      closeMenu();
+      toggle?.focus();
+    }
   });
 </script>
 
@@ -265,5 +287,22 @@ const links = navigationLinks;
     .nav-links a {
       font-size: 1.2rem;
     }
+  }
+
+  /* Overlay mobile */
+  .nav-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    background: oklch(0 0 0 / 0.55);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s var(--ease);
+    backdrop-filter: blur(2px);
+  }
+
+  .nav-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
   }
 </style>

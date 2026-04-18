@@ -1,9 +1,10 @@
 ---
 import { getImage } from "astro:assets";
 import Icon from "../ui/Icon.astro";
-import bgCraneMobile from "../../assets/images/bg-crane-mobile4.webp";
-import bgCraneTablet from "../../assets/images/bg-crane-tablet1.webp";
-import bgCraneDesktop from "../../assets/images/bg-crane-desk4.webp";
+import { contact } from "@data/contact";
+import bgCraneMobile from "../../assets/images/bg-crane-mobile.webp";
+import bgCraneTablet from "../../assets/images/bg-crane-tablet.webp";
+import bgCraneDesktop from "../../assets/images/bg-crane-desk.webp";
 
 const mobile = await getImage({ src: bgCraneMobile });
 const tablet = await getImage({ src: bgCraneTablet });
@@ -20,7 +21,6 @@ const desktop = await getImage({ src: bgCraneDesktop });
         src={mobile.src}
         alt="Grua auto-propulsada de imagen de fondo"
         fetchpriority="high"
-        decoding="async"
       />
     </picture>
   </div>
@@ -30,24 +30,26 @@ const desktop = await getImage({ src: bgCraneDesktop });
 
   <!-- Content -->
   <div class="hero-content">
-    <h1 class="hero-title">JBV</h1>
-    <h2 class="hero-subtitle">
-      Intermediación Profesional<br />de Grúas Autopropulsadas
-    </h2>
-
     <div class="hero-badge">
-      <span>🇩🇪 Alemania <span class="dot"></span> España 🇪🇦</span>
+      <span>🇩🇪 Alemania <span class="dot">⟹</span> España 🇪🇦</span>
     </div>
-
-    <p class="hero-desc">
-      Conectamos su empresa con las mejores grúas autopropulsadas del mercado
-      alemán. Transparencia, fiabilidad y el mejor precio.
-    </p>
-
+    <h2 class="hero-subtitle">
+      Adquiera su <span class="accent">grúa autopropulsada</span> al <br />
+      mejor precio del <br />
+      <span class="accent">mercado alemán</span>
+    </h2>
+    <div class="hero-desc">
+      <p>Sin intermediarios innecesarios.</p>
+      <p>Conexión directa con proveedores fiables.</p>
+      <ul>
+        <li>Mejor precio</li>
+        <li>Proveedores verificados</li>
+        <li>Gestión completa</li>
+      </ul>
+    </div>
     <div class="hero-ctas">
-      <!-- TODO: Reemplazar el número de teléfono y WhatsApp ficticio (+34600000000) por los reales -->
       <a
-        href="https://wa.me/34600000000"
+        href={contact.whatsapp}
         class="btn btn-whatsapp"
         target="_blank"
         rel="noopener noreferrer"
@@ -58,7 +60,7 @@ const desktop = await getImage({ src: bgCraneDesktop });
       </a>
 
       <a
-        href="tel:+34600000000"
+        href={contact.phoneTel}
         class="btn btn-llamar"
         aria-label="Llamar por teléfono"
       >
@@ -84,114 +86,218 @@ const desktop = await getImage({ src: bgCraneDesktop });
     position: relative;
     min-block-size: 100svh;
     display: flex;
-    overflow: hidden;
+    flex-direction: column;
+    justify-content: center;
   }
-
   .hero-bg {
     position: absolute;
     inset: 0;
     z-index: 0;
+    background-color: oklch(var(--black-base));
+  }
+
+  .hero-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(
+      to bottom,
+      black 0%,
+      transparent 30%,
+      transparent 70%,
+      black 100%
+    );
   }
 
   .hero-bg img {
     inline-size: 100%;
     block-size: 100%;
-    object-fit: cover;
-  }
-
-  .hero-mask {
-    position: absolute;
-    block-size: 100svh;
-    inset: 0;
-    z-index: 1;
-    background-image: linear-gradient(
-      to bottom,
-      oklch(var(--black-base) / 0.9) 0%,
-      oklch(var(--black-base) / 0.6) 20%,
-      oklch(var(--black-base) / 0.5) 40%,
-      oklch(var(--black-base) / 0.2) 60%,
-      oklch(var(--black-base) / 0.3) 80%,
-      oklch(var(--black-base) / 0.7) 90%,
-      oklch(var(--black-base) / 1) 100%
-    );
+    object-fit: contain;
   }
 
   .hero-content {
-    inline-size: 100%;
-    position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: var(--gap-mob-fld-7);
-    align-items: center;
-    z-index: 2;
-    padding-inline: var(--pad-mob-fld-3);
-    text-align: center;
-  }
-
-  .hero-title {
-    font-family: var(--font-display);
-    font-size: var(--fs-ttl-mob-fld-1);
-    font-weight: var(--fntWght-light);
-    line-height: 0.85;
-    color: oklch(var(--white-accent));
-    text-shadow:
-      0px 0px 20px oklch(var(--orng-base)),
-      0px 0px 10px oklch(var(--orng-accent)),
-      1px 1px 5px oklch(var(--black-base));
-    animation: fadeUp 0.7s 0.2s var(--ease) both;
-  }
-
-  .hero-subtitle {
-    font-size: var(--fs-txt-mob-fld-10);
-    font-weight: var(--fntWght-semibold);
-    color: oklch(var(--orng-base));
-    text-shadow:
-      0 0 40px oklch(var(--black-base)),
-      1px 1px 5px oklch(var(--black-base));
-    line-height: 1.5;
-    margin-block-start: calc(var(--gap-mob-fld-8) * -0.75);
-    animation: fadeUp 0.7s 0.3s var(--ease) both;
+    justify-content: space-between;
+    position: relative;
+    block-size: 100%;
+    z-index: 1;
+    padding-inline: var(--pad-mob-fld-2);
+    gap: var(--gap-mob-fld-5);
+    background-image: radial-gradient(
+      circle at 50% 50%,
+      oklch(var(--black-base) / 0.4) 0%,
+      transparent 100%
+    );
   }
 
   .hero-badge {
+    inline-size: fit-content;
+    position: relative;
     display: inline-flex;
     align-items: center;
-    gap: var(--gap-mob-fld-2);
-    padding-inline: var(--pad-mob-fld-2);
+    padding-inline: var(--pad-mob-fld-1);
     padding-block: var(--pad-mob-fld-1);
-    border: 1px solid oklch(var(--orng-accent));
+    margin-inline: auto;
+    margin-block-end: var(--mar-mob-fld-5);
+    border: 1px solid transparent;
     border-radius: 0.8em;
-    background: oklch(var(--black-base) / 0.7);
+    background:
+      radial-gradient(
+        ellipse 80% 80% at top,
+        transparent 0%,
+        oklch(71.303% 0.1945 47.872 / 0.089) 100%
+      ),
+      linear-gradient(
+        180deg,
+        oklch(81.852% 0.12993 62.792 / 0.1) 0%,
+        transparent 5%,
+        transparent 90%,
+        oklch(71.303% 0.1945 47.872) 105%
+      );
     font-size: var(--fs-txt-mob-fld-1);
     font-weight: var(--fntWght-semibold);
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: oklch(var(--orng-accent) / 0.9);
     animation: fadeUp 0.7s 0.1s var(--ease) both;
+    backdrop-filter: blur(4px);
+  }
+
+  .hero-badge::before {
+    border: 1px solid oklch(62.793% 0.25768 29.223);
+    content: "";
+    position: absolute;
+    inset-block-start: -2px;
+    inset-inline-start: 50%;
+    transform: translateX(-50%);
+    inline-size: 100% !important;
+    block-size: 6px !important;
+    background: radial-gradient(
+      circle at center,
+      oklch(var(--orng-base)) 0%,
+      oklch(var(--orng-accent)) 50%,
+      transparent 90%
+    );
+    filter: blur(4px);
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .hero-badge::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background:
+      radial-gradient(
+        ellipse 80% 100% at top,
+        oklch(79.316% 0.15578 64.959) 0%,
+        transparent 100%
+      ),
+      radial-gradient(
+        ellipse 50% 100% at bottom,
+        oklch(78.343% 0.15381 59.873) 0%,
+        transparent 20%
+      ),
+      linear-gradient(
+        90deg,
+        oklch(81.852% 0.12993 62.792) 0%,
+        oklch(72.445% 0.18897 50.929) 100%
+      );
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
   }
 
   .dot {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     margin-inline: var(--mar-mob-fld-1);
-    inline-size: 6px;
-    block-size: 6px;
-    border-radius: 50%;
     background: oklch(var(--orng-base));
+    border-radius: 50%;
+    inline-size: 4px;
+    block-size: 2px;
     box-shadow: var(--glow-sm);
     animation: pulse 2s infinite;
   }
 
+  .hero-subtitle {
+    inline-size: 16ch;
+    margin-inline: auto;
+    margin-block-end: var(--mar-mob-fld-5);
+    font-weight: var(--fntWght-semibold);
+    font-size: var(--fs-txt-dtp-fld-9);
+    line-height: 1.3;
+    filter: drop-shadow(0px 0px 2px oklch(var(--black-base)));
+    text-shadow: 1px 1px 3px oklch(var(--black-base));
+    text-align: center;
+    animation: fadeUp 0.7s 0.3s var(--ease) both;
+    background-image: radial-gradient(
+      circle at center,
+      oklch(var(--black-base) / 0.6) 0%,
+      transparent 100%
+    );
+  }
+
+  .hero-subtitle .accent {
+    color: oklch(var(--orng-base));
+    text-shadow: 0px 0px 1px oklch(var(--orng-accent) / 0.9);
+    filter: drop-shadow(1px 1px 3px oklch(var(--black-base) / 0.8));
+  }
+
   .hero-desc {
-    filter: drop-shadow(0px 0px 10px oklch(var(--black-base)));
+    margin-inline: auto;
+    margin-block-end: var(--mar-mob-fld-5);
+    background-image: radial-gradient(
+      ellipse at top,
+      oklch(var(--black-base) / 0.4) 0%,
+      transparent 100%
+    );
+  }
+
+  .hero-desc p {
+    filter: drop-shadow(0px 0px 5px oklch(var(--black-base)));
     font-size: var(--fs-txt-mob-fld-3);
     font-weight: var(--fntWght-medium);
-    color: oklch(var(--white-base) / 0.8);
+    color: oklch(var(--white-base));
     text-shadow: 1px 1px 2px oklch(var(--black-base));
     line-height: 1.55;
-    max-inline-size: 35ch;
-    margin-block-end: var(--mar-mob-fld-5);
     animation: fadeUp 0.7s 0.4s var(--ease) both;
+  }
+
+  .hero-desc p:nth-of-type(2) {
+    margin-block-end: var(--mar-mob-fld-1);
+  }
+
+  .hero-desc ul {
+    list-style: none;
+    animation: fadeUp 0.7s 0.4s var(--ease) both;
+  }
+
+  .hero-desc li {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5em;
+    color: oklch(var(--white-accent));
+    font-weight: var(--fntWght-semibold);
+    font-size: var(--fs-txt-mob-fld-3);
+    line-height: 1.5;
+    text-shadow: 1px 1px 3px oklch(var(--black-base));
+    filter: drop-shadow(0px 0px 2px oklch(var(--black-base)));
+  }
+
+  .hero-desc li::before {
+    content: "✔";
+    color: oklch(var(--green-500-base));
+    flex-shrink: 0;
   }
 
   .hero-ctas {
@@ -211,12 +317,16 @@ const desktop = await getImage({ src: bgCraneDesktop });
   .btn-whatsapp {
     color: oklch(var(--green-500-base));
     box-shadow: 0 0 10px oklch(var(--green-500-base) / 0.35);
-    border: 1px solid oklch(var(--green-500-base) / 0.5);
+    border: 1px solid oklch(var(--green-500-base));
   }
 
   .btn-whatsapp::before {
-    background: conic-gradient(from 0deg, #34a500, #51ff00, #267700);
-    animation: rotate 4s linear infinite;
+    background: linear-gradient(180deg, #a9ff81, #51ff00, #267700);
+    animation: rotate 6s alternate-reverse infinite;
+  }
+
+  .btn-whatsapp::after {
+    box-shadow: 0 0 15px #51ff00;
   }
 
   .btn-whatsapp:hover {
@@ -253,28 +363,26 @@ const desktop = await getImage({ src: bgCraneDesktop });
   ═══════════════════════════════════════════ */
 
   @media (width >= 640px) {
-    .hero-title {
-      font-size: var(--fs-ttl-mob-fld-10);
-      filter: drop-shadow(0px 0px 10px oklch(var(--black-base)));
+    .hero-bg img {
+      object-fit: cover;
     }
 
     .hero-subtitle {
-      font-size: calc(var(--fs-txt-mob-fld-10) * 1.3);
+      font-size: calc(var(--fs-txt-dtp-fld-10) * 1.2);
       filter: drop-shadow(0px 0px 10px oklch(var(--black-base)));
     }
 
-    .hero-desc {
-      background-color: oklch(var(--black-base) / 0.2);
-      font-size: calc(var(--fs-txt-mob-fld-10) * 0.8);
-    }
-
     .hero-badge {
-      font-size: var(--fs-txt-mob-fld-3);
+      font-size: calc(var(--fs-txt-dtp-fld-1) * 0.8);
     }
 
     .hero-badge::before {
       inline-size: 8px;
       block-size: 8px;
+    }
+
+    .hero-desc p {
+      font-size: calc(var(--fs-txt-dtp-fld-1) * 0.7);
     }
 
     .hero-ctas {
@@ -319,14 +427,14 @@ const desktop = await getImage({ src: bgCraneDesktop });
   @media (width >= 920px) {
     .hero {
       position: relative;
-      padding-inline: var(--pad-mob-fld-3);
-      padding-block-start: var(--pad-mob-fld-8);
+      padding-block-start: var(--gap-mob-fld-8);
       align-items: center;
-      justify-content: flex-start;
+      justify-content: center;
     }
     .hero-bg img {
-      margin-inline: auto;
-      object-position: 65% center;
+      object-position: 100% 35%;
+      image-rendering: optimizeSpeed;
+      object-fit: contain;
     }
 
     .hero-mask {
@@ -345,34 +453,44 @@ const desktop = await getImage({ src: bgCraneDesktop });
     }
 
     .hero-content {
-      max-inline-size: 55vw;
-      padding-inline-start: var(--pad-mob-fld-9);
+      inline-size: 100%;
+      max-inline-size: 1280px;
+      margin-inline: auto;
       padding-block: 0;
-      justify-content: center;
-      align-items: center;
-      gap: var(--gap-mob-fld-6);
+      padding-inline: var(--pad-mob-fld-10);
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: var(--gap-mob-fld-1);
+    }
+
+    .hero-badge {
+      margin-inline: 0;
+      font-size: calc(var(--fs-txt-dtp-fld-1) * 0.65);
+    }
+
+    .hero-subtitle {
+      text-align: start;
+      margin-inline: 0;
+    }
+
+    .hero-desc {
+      text-align: start;
+      margin-inline: 0;
     }
 
     .hero-ctas {
       display: flex;
-      flex-direction: column;
-      flex-wrap: nowrap;
-      inline-size: fit-content;
       block-size: 100%;
-      padding-block: var(--pad-mob-fld-7);
-      position: absolute;
-      inset-inline-start: 100%;
       align-items: center;
       justify-content: space-between;
     }
 
     .btn {
-      block-size: 80px;
     }
 
     .hero-scroll {
       inset-block-end: 1.5rem;
-      inset-inline-start: 55%;
+      inset-inline-start: 50%;
     }
   }
 </style>

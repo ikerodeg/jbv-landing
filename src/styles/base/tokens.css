@@ -1,21 +1,33 @@
 /* ---- Design Tokens ---- */
 :root {
   color-scheme: dark;
-  /* OKLCH Color Palette Bases */
 
+  /* ---- OKLCH Color Palette ---- */
+  --white-accent: 1 0 0;
+  --white-base: 90 0 0;
+  --white-shadow: 1 0 271.152;
+  --white-08: oklch(var(--white-base) / 0.08);
 
+  --black-base: 0 0 0;
 
+  --orng-lighter: 0.85 0.16 52;
+  --orng-light: 0.79 0.20 52;
+  --orng-accent: 0.79 0.17 71;
+  --orng-base: 0.73 0.19 52;
+  --orng-shadow: 0.65 0.14 70;
+
+  --navy-900-base: 0.11 0.03 252;
+  --navy-800-base: 0.16 0.04 252;
+  --navy-700-base: 0.20 0.04 252;
   --navy-600-base: 0.26 0.05 252;
   --navy-500-base: 0.34 0.04 252;
   --navy-400-base: 0.45 0.04 252;
 
-  --orange-500-base: 0.73 0.19 52;
-  --orange-400-base: 0.79 0.20 52;
-  --orange-300-base: 0.85 0.16 52;
+  --green-500-base: 0.63 0.18 155;
+  --green-400-base: 0.69 0.19 155;
+  --green-300-base: 0.75 0.20 155;
 
-
-
-  /* OKLCH Color Palette */
+  /* ---- Aliases de paleta ---- */
   --navy-900: oklch(var(--navy-900-base));
   --navy-800: oklch(var(--navy-800-base));
   --navy-700: oklch(var(--navy-700-base));
@@ -23,20 +35,18 @@
   --navy-500: oklch(var(--navy-500-base));
   --navy-400: oklch(var(--navy-400-base));
 
-  --orange-500: oklch(var(--orange-500-base));
-  --orange-400: oklch(var(--orange-400-base));
-  --orange-300: oklch(var(--orange-300-base));
-
+  --orange-500: oklch(var(--orng-base));
+  --orange-400: oklch(var(--orng-light));
+  --orange-300: oklch(var(--orng-lighter));
 
   --white: oklch(var(--white-base));
   --white-80: oklch(var(--white-base) / 0.8);
   --white-50: oklch(var(--white-base) / 0.5);
   --white-20: oklch(var(--white-base) / 0.2);
 
-
   --green-500: oklch(var(--green-500-base));
 
-  /* Semantic */
+  /* Tokens semánticos */
   --bg: var(--navy-900);
   --surface: var(--navy-800);
   --surface-2: var(--navy-700);
@@ -45,10 +55,6 @@
   --text-muted: var(--white-50);
   --accent: var(--orange-500);
   --accent-bright: var(--orange-400);
-
-
-
-
 
   /* Spacing Scale */
   --space-1: 0.15rem;
@@ -77,10 +83,6 @@
   /* 64px */
   --section-pad: clamp(5rem, 10vw, 9rem);
   --container: min(1200px, 100% - var(--space-1));
-
-
-
-
 
   /* Mobile gap spacing fluid */
   --gap-mobile-fluid-1: clamp(1.5rem, calc(-4.15rem + 13.56svh), 3rem);
@@ -118,38 +120,10 @@
   --padding-space-9: 4.5rem;
   --padding-space-10: 5rem;
 
-
-
-
-
-
-  /* ---------------------------------- NUEVAS VARIABLES ---------------------------------- */
   /* Typography */
   --font-display: 'Trirong', serif;
   --font-condensed: 'Barlow Condensed', sans-serif;
   --font-body: 'Barlow', system-ui, sans-serif;
-
-  /* Color Palette Oklch */
-  --white-accent: 1 0 0;
-  --white-base: 90 0 0;
-  --white-shadow: 1 0 271.152;
-  --white-08: oklch(var(--white-base) / 0.08);
-
-  --black-base: 0 0 0;
-  --black-shadow: ;
-  --black-accent: ;
-
-  --orng-accent: 0.79 0.17 71;
-  --orng-base: 0.73 0.19 52;
-  --orng-shadow: 0.65 0.14 70;
-
-  --navy-900-base: 0.11 0.03 252;
-  --navy-800-base: 0.16 0.04 252;
-  --navy-700-base: 0.20 0.04 252;
-
-  --green-500-base: 0.63 0.18 155;
-  --green-400-base: 0.69 0.19 155;
-  --green-300-base: 0.75 0.20 155;
 
   /* Neon Glows */
   --orange-glow: oklch(var(--orng-base) / 0.4);

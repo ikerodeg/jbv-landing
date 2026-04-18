@@ -3,6 +3,9 @@
    Tokens · OKLCH · Logical Properties · Modern CSS
    ============================================================ */
 
+/* tokens.css — sin @layer intencionalmente: las Custom Properties en :root
+   deben tener prioridad de cascade máxima para ser consumibles desde
+   cualquier @layer sin riesgo de colisión. */
 @import './base/tokens.css';
 @import './base/reset.css';
 @import './base/layout.css';

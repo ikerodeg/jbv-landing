@@ -1,5 +1,6 @@
 ---
 import LegalLayout from "../layouts/LegalLayout.astro";
+import { contact } from "@data/contact";
 ---
 
 <LegalLayout
@@ -10,9 +11,8 @@ import LegalLayout from "../layouts/LegalLayout.astro";
 
   <h2>1. Responsable del Tratamiento</h2>
   <p>
-    <!-- TODO: Reemplazar el número de teléfono y email ficticio por los reales -->
     <strong>Identidad:</strong> JBV<br />
-    <strong>Contacto:</strong> info@jbv.com | +34 600 000 000
+    <strong>Contacto:</strong> {contact.email} | {contact.phoneDisplay}
   </p>
 
   <h2>2. Finalidad del Tratamiento</h2>
@@ -40,7 +40,7 @@ import LegalLayout from "../layouts/LegalLayout.astro";
   <h2>5. Derechos</h2>
   <p>
     Puede ejercer sus derechos de acceso, rectificación, supresión, oposición,
-    limitación y portabilidad enviando un correo a info@jbv.com, adjuntando
+    limitación y portabilidad enviando un correo a {contact.email}, adjuntando
     copia de su DNI.
   </p>
 

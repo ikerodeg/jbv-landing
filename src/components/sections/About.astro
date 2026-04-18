@@ -1,7 +1,5 @@
 ---
-import { Image } from "astro:assets";
 import { getImage } from "astro:assets";
-import ximoAbout from "../../assets/images/ximo.webp";
 import ximoAboutMobile from "../../assets/images/ximo-mobile.webp";
 import ximoAboutTablet from "../../assets/images/ximo-tablet.webp";
 import ximoAboutDesktop from "../../assets/images/ximo-desktop.webp";
@@ -28,7 +26,6 @@ const desktop = await getImage({ src: ximoAboutDesktop });
           alt="Ximo, fundador de JBV"
           class="img-main"
           fetchpriority="high"
-          decoding="async"
         />
         <!-- Neon border overlay -->
         <div class="about-glow" aria-hidden="true"></div>
@@ -74,7 +71,7 @@ const desktop = await getImage({ src: ximoAboutDesktop });
         </p>
       </article>
 
-      <!-- Tarjeta 2: Experiencia directa AQUI -->
+      <!-- Tarjeta 2: Experiencia directa -->
       <article class="card sides about-card reveal reveal-delay-2">
         <header class="card-header">
           <div class="card-icon" aria-hidden="true">
@@ -150,6 +147,18 @@ const desktop = await getImage({ src: ximoAboutDesktop });
     display: flex;
     align-items: center;
     margin-block-end: clamp(1rem, -12.64rem + 58.18vw, 3rem); /* <--- */
+  }
+
+  .about-glow {
+    position: absolute;
+    inset-block-start: 0;
+    inline-size: 100%;
+    block-size: 100%;
+    background: radial-gradient(
+      ellipse 80% 70% at center,
+      oklch(var(--orng-base)) 0%,
+      transparent 70%
+    );
   }
 
   .about-photo-frame {
@@ -313,12 +322,13 @@ const desktop = await getImage({ src: ximoAboutDesktop });
       flex-direction: row;
       justify-content: center;
       align-items: center;
-      gap: var(--pad-mob-fld-2);
+      gap: var(--gap-mob-fld-10);
     }
 
     .about-photo {
       margin: 0;
       padding: 0;
+      gap: var(--gap-mob-fld-10);
     }
 
     .img-main {

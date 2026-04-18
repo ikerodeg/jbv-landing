@@ -1,5 +1,6 @@
 ---
 import LegalLayout from "../layouts/LegalLayout.astro";
+import { contact } from "@data/contact";
 ---
 
 <LegalLayout
@@ -15,12 +16,10 @@ import LegalLayout from "../layouts/LegalLayout.astro";
     informamos que el titular del presente sitio web es:
   </p>
   <p>
-    <!-- TODO: Reemplazar el número de teléfono y email ficticio por los reales -->
     <strong>Denominación:</strong> JBV<br />
-    <strong>Actividad:</strong> Intermediación profesional de grúas autopropulsadas<br
-    />
-    <strong>Teléfono:</strong> +34 600 000 000<br />
-    <strong>Email:</strong> info@jbv.com
+    <strong>Actividad:</strong> Intermediación profesional de grúas autopropulsadas<br />
+    <strong>Teléfono:</strong> {contact.phoneDisplay}<br />
+    <strong>Email:</strong> {contact.email}
   </p>
 
   <h2>2. Objeto</h2>

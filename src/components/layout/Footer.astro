@@ -1,5 +1,6 @@
 ---
 import { navigationLinks } from "@data/navigation";
+import { contact } from "@data/contact";
 const year = new Date().getFullYear();
 ---
 
@@ -7,7 +8,7 @@ const year = new Date().getFullYear();
   <div class="footer-inner">
     <div class="footer-brand">
       <a
-        href={`${import.meta.env.BASE_URL}#inicio`}
+        href="/#inicio"
         class="logo"
         aria-label="JBV – Inicio">JBV</a
       >
@@ -33,14 +34,13 @@ const year = new Date().getFullYear();
 
     <div class="footer-col">
       <h4>Contacto</h4>
-      <!-- TODO: Reemplazar el número de teléfono, WhatsApp y email ficticio por los reales -->
       <ul>
         <li>
-          <a href="tel:+34600000000">+34 600 000 000</a>
+          <a href={contact.phoneTel}>{contact.phoneDisplay}</a>
         </li>
         <li>
           <a
-            href="https://wa.me/34600000000"
+            href={contact.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -48,7 +48,7 @@ const year = new Date().getFullYear();
           </a>
         </li>
         <li>
-          <a href="mailto:info@jbv.com">info@jbv.com</a>
+          <a href={contact.emailHref}>{contact.email}</a>
         </li>
       </ul>
     </div>
@@ -57,11 +57,11 @@ const year = new Date().getFullYear();
   <div class="footer-bottom">
     <span>&copy; {year} JBV. Todos los derechos reservados.</span>
     <nav class="footer-legal" aria-label="Legal">
-      <a href={`${import.meta.env.BASE_URL}/aviso-legal/`}>Aviso Legal</a>
-      <a href={`${import.meta.env.BASE_URL}/privacidad/`}
+      <a href="/aviso-legal/">Aviso Legal</a>
+      <a href="/privacidad/"
         >Política de Privacidad</a
       >
-      <a href={`${import.meta.env.BASE_URL}/cookies/`}>Política de Cookies</a>
+      <a href="/cookies/">Política de Cookies</a>
     </nav>
   </div>
 </footer>
@@ -209,12 +209,6 @@ const year = new Date().getFullYear();
   ═══════════════════════════════════════════ */
 
   @media (width >= 920px) {
-    .footer {
-    }
-
-    .footer-inner {
-    }
-
     .footer-bottom,
     .footer-legal a {
       font-size: var(--fs-txt-mob-fld-2);

@@ -9,6 +9,9 @@ coverage/
 # Astro
 .astro/
 
+# Local docs (keep locally, don't push)
+.brain/
+
 # Output
 dist/
 dist-ssr/

@@ -34,17 +34,21 @@ const desktop = await getImage({ src: bgCraneDesktop });
       <span>🇩🇪 Alemania <span class="dot">⟹</span> España 🇪🇦</span>
     </div>
     <h2 class="hero-subtitle">
-      Adquiera su <span class="accent">grúa autopropulsada</span> al <br />
-      mejor precio del <br />
-      <span class="accent">mercado alemán</span>
+      Nos encargamos de
+      <span class="accent">encontrar y gestionar</span>
+      la compra de su
+      <span class="accent">grúa autopropulsada</span>
+      al mejor precio del <span class="accent">mercado alemán</span>
     </h2>
     <div class="hero-desc">
-      <p>Sin intermediarios innecesarios.</p>
-      <p>Conexión directa con proveedores fiables.</p>
+      <p>
+        Trabajamos con empresas españolas que buscan la mejor opción en el
+        mercado alemán sin asumir riesgos
+      </p>
       <ul>
-        <li>Mejor precio</li>
-        <li>Proveedores verificados</li>
-        <li>Gestión completa</li>
+        <li>Nos indica qué grúa necesita</li>
+        <li>Buscamos y negociamos en Alemania</li>
+        <li>Gestionamos toda la compra por usted</li>
       </ul>
     </div>
     <div class="hero-ctas">
@@ -125,7 +129,7 @@ const desktop = await getImage({ src: bgCraneDesktop });
     block-size: 100%;
     z-index: 1;
     padding-inline: var(--pad-mob-fld-2);
-    gap: var(--gap-mob-fld-5);
+    gap: var(--gap-mob-fld-2);
     background-image: radial-gradient(
       circle at 50% 50%,
       oklch(var(--black-base) / 0.4) 0%,
@@ -141,7 +145,7 @@ const desktop = await getImage({ src: bgCraneDesktop });
     padding-inline: var(--pad-mob-fld-1);
     padding-block: var(--pad-mob-fld-1);
     margin-inline: auto;
-    margin-block-end: var(--mar-mob-fld-5);
+    margin-block-end: var(--mar-mob-fld-2);
     border: 1px solid transparent;
     border-radius: 0.8em;
     background:
@@ -230,7 +234,7 @@ const desktop = await getImage({ src: bgCraneDesktop });
   }
 
   .hero-subtitle {
-    inline-size: 16ch;
+    inline-size: 18ch;
     margin-inline: auto;
     margin-block-end: var(--mar-mob-fld-5);
     font-weight: var(--fntWght-semibold);
@@ -270,6 +274,7 @@ const desktop = await getImage({ src: bgCraneDesktop });
     color: oklch(var(--white-base));
     text-shadow: 1px 1px 2px oklch(var(--black-base));
     line-height: 1.55;
+    margin-block-end: var(--mar-mob-fld-2);
     animation: fadeUp 0.7s 0.4s var(--ease) both;
   }
 
@@ -367,7 +372,12 @@ const desktop = await getImage({ src: bgCraneDesktop });
       object-fit: cover;
     }
 
+    .hero-content {
+      gap: var(--gap-mob-fld-5);
+    }
+
     .hero-subtitle {
+      inline-size: 26ch;
       font-size: calc(var(--fs-txt-dtp-fld-10) * 1.2);
       filter: drop-shadow(0px 0px 10px oklch(var(--black-base)));
     }
@@ -382,6 +392,7 @@ const desktop = await getImage({ src: bgCraneDesktop });
     }
 
     .hero-desc p {
+      inline-size: 48ch;
       font-size: calc(var(--fs-txt-dtp-fld-1) * 0.7);
     }
 

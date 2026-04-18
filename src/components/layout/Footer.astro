@@ -8,7 +8,7 @@ const year = new Date().getFullYear();
   <div class="footer-inner">
     <div class="footer-brand">
       <a
-        href="/#inicio"
+        href={`${import.meta.env.BASE_URL}#inicio`}
         class="logo"
         aria-label="JBV – Inicio">JBV</a
       >
@@ -57,11 +57,11 @@ const year = new Date().getFullYear();
   <div class="footer-bottom">
     <span>&copy; {year} JBV. Todos los derechos reservados.</span>
     <nav class="footer-legal" aria-label="Legal">
-      <a href="/aviso-legal/">Aviso Legal</a>
-      <a href="/privacidad/"
+      <a href={`${import.meta.env.BASE_URL}aviso-legal/`}>Aviso Legal</a>
+      <a href={`${import.meta.env.BASE_URL}privacidad/`}
         >Política de Privacidad</a
       >
-      <a href="/cookies/">Política de Cookies</a>
+      <a href={`${import.meta.env.BASE_URL}cookies/`}>Política de Cookies</a>
     </nav>
   </div>
 </footer>

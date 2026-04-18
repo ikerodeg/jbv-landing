@@ -1,8 +1,10 @@
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
 export const navigationLinks = [
-  { href: '/#inicio', label: 'Inicio' },
-  { href: '/#sobre-mi', label: 'Sobre Mí' },
-  { href: '/#servicios', label: 'Servicios' },
-  { href: '/#proceso', label: 'Proceso' },
-  { href: '/#por-que', label: 'Por Qué' },
-  { href: '/#contacto', label: 'Contacto' },
+  { href: `${base}/#inicio`, label: 'Inicio' },
+  { href: `${base}/#sobre-mi`, label: 'Sobre Mí' },
+  { href: `${base}/#servicios`, label: 'Servicios' },
+  { href: `${base}/#proceso`, label: 'Proceso' },
+  { href: `${base}/#por-que`, label: 'Por Qué' },
+  { href: `${base}/#contacto`, label: 'Contacto' },
 ];

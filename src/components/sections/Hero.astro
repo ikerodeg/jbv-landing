@@ -38,7 +38,7 @@ const desktop = await getImage({ src: bgCraneDesktop });
       <span class="accent">encontrar y gestionar</span>
       la compra de su
       <span class="accent">grúa autopropulsada</span>
-      al mejor precio del <span class="accent">mercado alemán</span>
+      al mejor precio del <span class="accent">mercado alemán</span> 🇩🇪
     </h2>
     <div class="hero-desc">
       <p>
@@ -221,15 +221,11 @@ const desktop = await getImage({ src: bgCraneDesktop });
   }
 
   .dot {
+    color: oklch(var(--orng-base));
     display: inline-flex;
     align-items: center;
     justify-content: center;
     margin-inline: var(--mar-mob-fld-1);
-    background: oklch(var(--orng-base));
-    border-radius: 50%;
-    inline-size: 4px;
-    block-size: 2px;
-    box-shadow: var(--glow-sm);
     animation: pulse 2s infinite;
   }
 
@@ -438,10 +434,10 @@ const desktop = await getImage({ src: bgCraneDesktop });
   @media (width >= 920px) {
     .hero {
       position: relative;
-      padding-block-start: var(--gap-mob-fld-8);
-      align-items: center;
       justify-content: center;
+      padding-inline: 7vw;
     }
+
     .hero-bg img {
       object-position: 100% 35%;
       image-rendering: optimizeSpeed;
@@ -465,13 +461,10 @@ const desktop = await getImage({ src: bgCraneDesktop });
 
     .hero-content {
       inline-size: 100%;
-      max-inline-size: 1280px;
-      margin-inline: auto;
       padding-block: 0;
-      padding-inline: var(--pad-mob-fld-10);
       align-items: flex-start;
       justify-content: flex-start;
-      gap: var(--gap-mob-fld-1);
+      gap: var(--gap-mob-fld-4);
     }
 
     .hero-badge {

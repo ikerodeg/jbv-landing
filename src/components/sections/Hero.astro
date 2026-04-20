@@ -30,16 +30,18 @@ const desktop = await getImage({ src: bgCraneDesktop });
 
   <!-- Content -->
   <div class="hero-content">
-    <div class="hero-badge">
-      <span>🇩🇪 Alemania <span class="dot">⟹</span> España 🇪🇦</span>
-    </div>
     <h2 class="hero-subtitle">
       Nos encargamos de
-      <span class="accent">encontrar y gestionar</span>
+      <span class="accent">encontrar</span> y <span class="accent"
+        >gestionar</span
+      >
       la compra de su
       <span class="accent">grúa autopropulsada</span>
       al mejor precio del <span class="accent">mercado alemán</span> 🇩🇪
     </h2>
+    <div class="hero-badge">
+      <span>🇩🇪 Alemania <span class="dot">⟹</span> España 🇪🇦</span>
+    </div>
     <div class="hero-desc">
       <p>
         Trabajamos con empresas españolas que buscan la mejor opción en el
@@ -145,7 +147,7 @@ const desktop = await getImage({ src: bgCraneDesktop });
     padding-inline: var(--pad-mob-fld-1);
     padding-block: var(--pad-mob-fld-1);
     margin-inline: auto;
-    margin-block-end: var(--mar-mob-fld-2);
+    margin-block-end: var(--mar-mob-fld-4);
     border: 1px solid transparent;
     border-radius: 0.8em;
     background:
@@ -264,13 +266,15 @@ const desktop = await getImage({ src: bgCraneDesktop });
   }
 
   .hero-desc p {
-    filter: drop-shadow(0px 0px 5px oklch(var(--black-base)));
+    inline-size: 46ch;
     font-size: var(--fs-txt-mob-fld-3);
-    font-weight: var(--fntWght-medium);
-    color: oklch(var(--white-base));
+    font-weight: var(--fntWght-semibold);
+    letter-spacing: 1px;
+    color: oklch(var(--white-base) / 0.7);
     text-shadow: 1px 1px 2px oklch(var(--black-base));
     line-height: 1.55;
     margin-block-end: var(--mar-mob-fld-2);
+    filter: drop-shadow(0px 0px 5px oklch(var(--black-base)));
     animation: fadeUp 0.7s 0.4s var(--ease) both;
   }
 
@@ -287,7 +291,8 @@ const desktop = await getImage({ src: bgCraneDesktop });
     display: flex;
     align-items: baseline;
     gap: 0.5em;
-    color: oklch(var(--white-accent));
+    letter-spacing: 1px;
+    color: oklch(var(--white-base) / 0.7);
     font-weight: var(--fntWght-semibold);
     font-size: var(--fs-txt-mob-fld-3);
     line-height: 1.5;
@@ -441,7 +446,7 @@ const desktop = await getImage({ src: bgCraneDesktop });
     .hero-bg img {
       object-position: 100% 35%;
       image-rendering: optimizeSpeed;
-      object-fit: contain;
+      object-fit: cover;
     }
 
     .hero-mask {
@@ -464,7 +469,7 @@ const desktop = await getImage({ src: bgCraneDesktop });
       padding-block: 0;
       align-items: flex-start;
       justify-content: flex-start;
-      gap: var(--gap-mob-fld-4);
+      gap: var(--gap-mob-fld-2);
     }
 
     .hero-badge {
@@ -473,6 +478,7 @@ const desktop = await getImage({ src: bgCraneDesktop });
     }
 
     .hero-subtitle {
+      inline-size: 35ch;
       text-align: start;
       margin-inline: 0;
     }
@@ -480,6 +486,17 @@ const desktop = await getImage({ src: bgCraneDesktop });
     .hero-desc {
       text-align: start;
       margin-inline: 0;
+    }
+
+    .hero-desc p {
+      inline-size: 48ch;
+      font-size: var(--fs-txt-dtp-fld-4);
+      margin-block-end: var(--mar-mob-fld-5);
+    }
+
+    .hero-desc li {
+      font-size: var(--fs-txt-dtp-fld-1);
+      font-weight: var(--fntWght-semibold);
     }
 
     .hero-ctas {

@@ -2,18 +2,13 @@
    BUTTONS
    ============================================================ */
 @layer components {
+
+
   .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: var(--gap-mob-fld-2);
-    padding-inline: var(--pad-mob-fld-1);
-    padding-block: var(--pad-mob-fld-2);
     border-radius: var(--r-md);
-    font-family: var(--font-condensed);
-    font-size: 0.95rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
     text-transform: uppercase;
     text-decoration: none;
     cursor: pointer;
@@ -26,6 +21,7 @@
     border: 1px solid rgba(255, 255, 255, 0.2);
     position: relative;
   }
+
 
   .btn::before {
     content: "";
@@ -40,7 +36,7 @@
   .btn::after {
     content: "";
     position: absolute;
-    inset: 0.9px;
+    inset: 0.5px;
     background: #000000;
     border-radius: inherit;
     z-index: -1;

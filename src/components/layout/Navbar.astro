@@ -13,8 +13,14 @@ const links = navigationLinks;
     <a
       href={`${import.meta.env.BASE_URL}#inicio`}
       class="navbar-logo"
-      aria-label="JBV – Inicio">JBV</a
+      aria-label="JBV Grúas – Inicio"
     >
+      <span class="logo-hook" aria-hidden="true">🪝</span>
+      <span class="logo-text">
+        <span class="logo-title"><span class="logo-jbv">JBV</span> <span class="logo-gruas">GRÚAS</span></span>
+        <span class="logo-subtitle">INTERMEDIACIÓN PROFESIONAL</span>
+      </span>
+    </a>
 
     <button
       class="nav-toggle"
@@ -117,7 +123,10 @@ const links = navigationLinks;
 
   // Close on Escape key
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && toggle?.getAttribute("aria-expanded") === "true") {
+    if (
+      e.key === "Escape" &&
+      toggle?.getAttribute("aria-expanded") === "true"
+    ) {
       closeMenu();
       toggle?.focus();
     }
@@ -130,7 +139,7 @@ const links = navigationLinks;
     inset-block-start: 0;
     inset-inline: 0;
     z-index: 100;
-    padding-block: 0;
+    padding-block: 0.3rem;
     padding-inline: clamp(1.5rem, 4vw, 3rem);
     display: flex;
     align-items: center;
@@ -153,19 +162,16 @@ const links = navigationLinks;
   }
 
   .navbar-logo {
-    font-family: var(--font-display);
-    font-size: 2rem;
-    letter-spacing: 0.1em;
-    color: var(--orange-500);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
     text-decoration: none;
-    text-shadow: var(--glow-sm);
     opacity: 0;
     translate: 0 -0.5rem;
     pointer-events: none;
     transition:
       opacity 0.4s var(--ease),
-      translate 0.4s var(--ease),
-      text-shadow var(--dur) var(--ease);
+      translate 0.4s var(--ease);
   }
 
   .navbar.scrolled .navbar-logo {
@@ -174,8 +180,41 @@ const links = navigationLinks;
     pointer-events: auto;
   }
 
-  .navbar-logo:hover {
-    text-shadow: var(--glow-md);
+  .logo-hook {
+    font-size: 1.6rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+  }
+
+  .logo-title {
+    font-family: var(--font-body), sans-serif;
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .logo-jbv {
+    color: var(--white);
+  }
+
+  .logo-gruas {
+    color: var(--orange-500);
+  }
+
+  .logo-subtitle {
+    font-family: var(--font-condensed), sans-serif;
+    font-size: 0.55rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--white-80);
+    text-transform: uppercase;
   }
 
   .nav-links {
@@ -305,4 +344,5 @@ const links = navigationLinks;
     opacity: 1;
     pointer-events: auto;
   }
+  */
 </style>

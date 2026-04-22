@@ -184,6 +184,10 @@
   --fs-txt-dtp-fld-9: clamp(2.7rem, 2.3vw, 3.2rem);
   --fs-txt-dtp-fld-10: clamp(2.8rem, 2.4vw, 3.35rem);
 
+  /* Font size especial Fluids */
+  --fs-spcl-dtp-1: clamp(4rem, 1.53rem + 2.89vw, 5rem);
+  --fs-spcl-dtp-2: clamp(1.3rem, 0.31rem + 1.155vw, 1.7rem);
+
   /* Font Weights */
   --fntWght-light: 300;
   --fntWght-regular: 400;

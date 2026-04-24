@@ -4,16 +4,15 @@
 
   /* ---- OKLCH Color Palette ---- */
   --white-accent: 1 0 0;
-  --white-base: 90 0 0;
+
   --white-shadow: 1 0 271.152;
   --white-08: oklch(var(--white-base) / 0.08);
 
-  --black-base: 0 0 0;
+
 
   --orng-lighter: 0.85 0.16 52;
   --orng-light: 0.79 0.20 52;
-  --orng-accent: 0.79 0.17 71;
-  --orng-base: 0.73 0.19 52;
+
   --orng-shadow: 0.65 0.14 70;
 
   --navy-900-base: 0.11 0.03 252;
@@ -188,15 +187,6 @@
   --fs-spcl-dtp-1: clamp(4rem, 1.53rem + 2.89vw, 5rem);
   --fs-spcl-dtp-2: clamp(1.3rem, 0.31rem + 1.155vw, 1.7rem);
 
-  /* Font Weights */
-  --fntWght-light: 300;
-  --fntWght-regular: 400;
-  --fntWght-medium: 500;
-  --fntWght-semibold: 600;
-  --fntWght-bold: 700;
-  --fntWght-extrabold: 800;
-  --fntWght-black: 900;
-
   /* Gap Mobile Fluid */
   --gap-mob-fld-1: clamp(0.25rem, calc(-0.44rem + 1.66svh), 0.5rem);
   --gap-mob-fld-2: clamp(0.5rem, calc(-0.02rem + 1.07svh), 0.6rem);
@@ -236,4 +226,77 @@
   /* Transitions */
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --dur: 0.35s;
+
+  /* ---------------------------------------------- */
+
+  /* Nuevas Variables */
+
+  /* Generales */
+
+  /* Colores */
+  --black-base: 0 0 0;
+  --white-base: 90 0 0;
+  --orng-accent: 0.79 0.17 71;
+  --orng-base: 0.73 0.19 52;
+  --green-base: 0.63 0.18 155;
+
+
+  /* Pesos fuentes */
+  --fntWght-light: 300;
+  --fntWght-regular: 400;
+  --fntWght-medium: 500;
+  --fntWght-semibold: 600;
+  --fntWght-bold: 700;
+  --fntWght-extrabold: 800;
+  --fntWght-black: 900;
+
+  /* MOBILE */
+
+  /* Paddings verticales */
+  --padV-mob-0: 0.8svh;
+  --padV-mob-1: 1svh;
+  --padV-mob-2: 2svh;
+  --padV-mob-3: 3svh;
+  --padV-mob-4: 4svh;
+  --padV-mob-5: 5svh;
+  --padV-mob-6: 6svh;
+  --padV-mob-7: 7svh;
+  --padV-mob-8: 8svh;
+  --padV-mob-9: 9svh;
+  --padV-mob-10: 10svh;
+
+  /* Paddings horizontales */
+  --padH-mob-0: 0.8svw;
+  --padH-mob-1: 1svw;
+  --padH-mob-2: 1.5svw;
+  --padH-mob-3: 2svw;
+  --padH-mob-4: 2.5svw;
+  --padH-mob-5: 3svw;
+  --padH-mob-6: 3.5svw;
+
+  /* Margin verticales */
+  --marV-mob-1: 1svh;
+  --marV-mob-2: 2svh;
+  --marV-mob-3: 3svh;
+  --marV-mob-4: 4svh;
+  --marV-mob-5: 5svh;
+  --marV-mob-6: 6svh;
+
+  /* Margin horizontales */
+  --marH-mob-1: 1svw;
+  --marH-mob-2: 1.5svw;
+  --marH-mob-3: 2svw;
+  --marH-mob-4: 2.5svw;
+
+  /* Tamaño fuentes */
+  --fntSz-ttl-mob-1: clamp(1rem, calc(-0.07rem + 2.19svh), 1.2rem);
+  --fntSz-ttl-mob-5: clamp(2.2rem, -0.9765rem + 14.1176vw, 2.8rem);
+  --fntSz-txt-mob-1: clamp(0.7rem, calc(-0.43rem + 2.71svh), 1rem);
+  --fntSz-txt-mob-2: clamp(0.9rem, calc(0.33rem + 1.36svh), 1.05rem);
+  --fntSz-txt-mob-3: clamp(1rem, -0.0588rem + 4.7059vw, 1.2rem);
+
+  /* Tamaños de botones en mobile  */
+  --btH-mob: clamp(8.75rem, -2.8309rem + 51.4706vw, 10.9375rem);
+  --btV-mob: clamp(2.5rem, -0.8088rem + 14.7059vw, 3.125rem);
+
 }

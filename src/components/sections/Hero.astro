@@ -431,7 +431,7 @@ const desktop = await getImage({ src: bgCraneDesktop });
       }
 
       .hero-content {
-        gap: var(--gap-mob-fld-2);
+        gap: var(--padV-mob-1);
         justify-content: space-evenly;
         align-items: center;
       }
@@ -441,7 +441,7 @@ const desktop = await getImage({ src: bgCraneDesktop });
         text-wrap: balance;
         text-align: center;
         margin-inline: auto;
-        font-size: calc(var(--fs-txt-dtp-fld-10) * 1.5);
+        font-size: calc(var(--fntSz-ttl-mob-5) * 1.5);
         filter: drop-shadow(0px 0px 10px oklch(var(--black-base)));
       }
 
@@ -449,30 +449,31 @@ const desktop = await getImage({ src: bgCraneDesktop });
         inline-size: 80%;
         text-wrap: balance;
         text-align: center;
-        font-size: var(--fs-txt-dtp-fld-1);
+        font-size: calc(var(--fntSz-txt-mob-3) * 1.6);
       }
 
       .hero-badge {
-        font-size: calc(var(--fs-txt-dtp-fld-1) * 0.8);
-      }
-
-      .hero-badge::before {
-        inline-size: 8px;
-        block-size: 8px;
+        font-size: calc(var(--fntSz-txt-mob-3) * 1.3);
       }
 
       .hero-list li {
-        font-size: var(--fs-txt-dtp-fld-1);
+        font-size: calc(var(--fntSz-txt-mob-3) * 1.4);
       }
 
       .hero-ctas {
-        justify-content: space-evenly;
-        gap: var(--mar-mob-fld-5);
+        justify-content: space-around;
       }
 
       .btn {
-        inline-size: 250px;
-        font-size: var(--fs-txt-mob-fld-4);
+        inline-size: calc(var(--btH-mob) * 1.4);
+        block-size: calc(var(--btV-mob) * 1.1);
+        font-size: calc(var(--fntSz-txt-mob-3) * 1.3);
+      }
+
+      .hero-ctas-whatsapp span,
+      .hero-ctas-llamar span {
+        font-size: calc(var(--fntSz-txt-mob-3) * 1);
+        color: oklch(var(--gray-base));
       }
 
       .hero-scroll {
@@ -485,8 +486,7 @@ const desktop = await getImage({ src: bgCraneDesktop });
         flex-direction: column;
         align-items: center;
         gap: 0.5rem;
-        color: var(--white-50);
-        font-family: var(--font-condensed);
+        color: oklch(var(--gray-base));
         font-size: 0.7rem;
         letter-spacing: 0.15em;
         text-transform: uppercase;
@@ -496,7 +496,11 @@ const desktop = await getImage({ src: bgCraneDesktop });
       .scroll-line {
         inline-size: 1px;
         block-size: 30px;
-        background: linear-gradient(to bottom, var(--orange-500), transparent);
+        background: linear-gradient(
+          to bottom,
+          oklch(var(--orng-accent)),
+          transparent
+        );
         animation: scrollLine 1.5s ease-in-out infinite;
       }
     }
@@ -518,26 +522,23 @@ const desktop = await getImage({ src: bgCraneDesktop });
       }
 
       .hero-content {
-        inline-size: fit-content;
+        inline-size: 65vw;
         margin-inline: initial;
-        margin: 0;
-        padding-inline: var(--gap-mob-fld-8);
-        justify-content: center;
+        padding-inline-start: var(--padH-dtp-10);
         align-items: start;
-        gap: var(--gap-mob-fld-4);
+        gap: var(--padV-dtp-1);
       }
 
       .hero-title {
         text-align: start;
-        inline-size: 50%;
-        margin: 0;
-        font-size: var(--fs-spcl-dtp-1);
+        inline-size: 18ch;
+        margin-inline: initial;
+        font-size: var(--fntSz-ttl-dtp-5);
       }
 
       .hero-desc {
-        text-wrap: initial;
         inline-size: 45ch;
-        font-size: var(--fs-spcl-dtp-2);
+        font-size: var(--fntSz-txt-dtp-3);
         text-align: start;
         margin: 0;
         color: oklch(var(--white-base) / 0.6);
@@ -545,32 +546,40 @@ const desktop = await getImage({ src: bgCraneDesktop });
 
       .hero-badge {
         align-self: start;
-        margin: 0;
-        font-size: var(--fs-spcl-dtp-2);
+        margin-inline: initial;
+        padding-inline: var(--padH-dtp-1);
+        padding-block-start: var(--padV-dtp-0);
+        padding-block-end: var(--padV-dtp-1);
+        font-size: var(--fntSz-txt-dtp-2);
+      }
+
+      .hero-list {
+        gap: var(--padV-dtp-0);
       }
 
       .hero-list li {
-        font-size: calc(var(--fs-txt-mob-fld-3));
-        padding-inline-start: var(--gap-mob-fld-6);
+        font-size: var(--fntSz-txt-dtp-2);
+        padding-inline-start: var(-padH-dtp-3);
       }
 
       .hero-ctas {
-        inline-size: auto;
+        z-index: 5;
+        inline-size: 55svw;
         align-self: start;
         margin: 0;
         padding: 0;
-        justify-content: space-around;
+        justify-content: space-between;
       }
 
       .btn {
-        inline-size: 200px;
-        block-size: 50px;
+        inline-size: var(--btH-dtp);
+        block-size: var(--btV-dtp);
         font-size: var(--fs-txt-mob-fld-5);
       }
 
       .hero-ctas-whatsapp span,
       .hero-ctas-llamar span {
-        font-size: calc(var(--fs-txt-mob-fld-1));
+        font-size: 1.15rem;
       }
     }
   </style>

@@ -236,6 +236,7 @@
   /* Colores */
   --black-base: 0 0 0;
   --white-base: 90 0 0;
+  --gray-base: 0.68 0 0;
   --orng-accent: 0.79 0.17 71;
   --orng-base: 0.73 0.19 52;
   --green-base: 0.63 0.18 155;
@@ -295,8 +296,49 @@
   --fntSz-txt-mob-2: clamp(0.9rem, calc(0.33rem + 1.36svh), 1.05rem);
   --fntSz-txt-mob-3: clamp(1rem, -0.0588rem + 4.7059vw, 1.2rem);
 
-  /* Tamaños de botones en mobile  */
+  /* Tamaños de botones  */
   --btH-mob: clamp(8.75rem, -2.8309rem + 51.4706vw, 10.9375rem);
   --btV-mob: clamp(2.5rem, -0.8088rem + 14.7059vw, 3.125rem);
+
+
+  /* DESKTOP */
+
+  /* Paddings horizontales */
+  --padH-dtp-1: 1svw;
+  --padH-dtp-2: 1.5svw;
+  --padH-dtp-3: 2svw;
+  --padH-dtp-4: 2.5svw;
+  --padH-dtp-5: 3svw;
+  --padH-dtp-6: 3.5svw;
+  --padH-dtp-7: 4svw;
+  --padH-dtp-8: 4.5svw;
+  --padH-dtp-9: 5svw;
+  --padH-dtp-10: 5.5svw;
+
+  /* Paddings verticales */
+  --padV-dtp-0: 0.8svh;
+  --padV-dtp-1: 1svh;
+  --padV-dtp-2: 1.5svh;
+  --padV-dtp-3: 2svh;
+  --padV-dtp-4: 2.5svh;
+  --padV-dtp-5: 3svh;
+  --padV-dtp-6: 3.5svh;
+  --padV-dtp-7: 4svh;
+  --padV-dtp-8: 4.5svh;
+  --padV-dtp-9: 5svh;
+  --padV-dtp-10: 5.5svh;
+
+  /* Tamaño fuentes */
+  --fntSz-ttl-dtp-1: ;
+  --fntSz-ttl-dtp-5: clamp(3rem, 1.2857rem + 2.6786vw, 4.5rem);
+  --fntSz-txt-dtp-1: ;
+  --fntSz-txt-dtp-2: clamp(1rem, 0.3143rem + 1.0714vw, 1.6rem);
+  --fntSz-txt-dtp-3: clamp(1.3rem, 0.9571rem + 0.5357vw, 1.6rem);
+
+  /* Tamaños de botones  */
+  --btH-dtp: clamp(10.75rem, -2.4018rem + 50.4464vw, 13.4375rem);
+  --btV-dtp: clamp(3.125rem, 0.2679rem + 12.0536vw, 3.9063rem);
+
+
 
 }

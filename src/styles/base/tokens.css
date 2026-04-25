@@ -329,7 +329,7 @@
   --padV-dtp-10: 5.5svh;
 
   /* Tamaño fuentes */
-  --fntSz-ttl-dtp-1: ;
+  --fntSz-ttl-dtp-4: clamp(2.8rem, 1.41rem + 1.36vw, 4rem);
   --fntSz-ttl-dtp-5: clamp(3rem, 1.2857rem + 2.6786vw, 4.5rem);
   --fntSz-txt-dtp-1: ;
   --fntSz-txt-dtp-2: clamp(1rem, 0.3143rem + 1.0714vw, 1.6rem);

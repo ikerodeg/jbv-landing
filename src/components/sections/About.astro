@@ -133,20 +133,16 @@ const desktop = await getImage({ src: ximoAboutDesktop });
     ═══════════════════════════════════════════ */
 
   /* Seccion About */
-  .about {
-    background: oklch(var(--navy-900-base));
-  }
-
   .about-text {
     display: flex;
     flex-direction: column;
-    gap: clamp(1rem, -2.41rem + 14.55vw, 1.5rem); /* <--- */
+    gap: var(--padV-mob-3);
   }
 
   .about-photo {
     display: flex;
     align-items: center;
-    margin-block-end: clamp(1rem, -12.64rem + 58.18vw, 3rem); /* <--- */
+    margin-block-end: var(--padV-mob-3);
   }
 
   .about-glow {
@@ -184,15 +180,15 @@ const desktop = await getImage({ src: ximoAboutDesktop });
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    gap: clamp(0.5rem, -6.32rem + 29.09vw, 1.5rem); /* <--- */
+    gap: var(--padV-mob-1);
   }
 
   /* tarjeta de estadistica */
   .stat {
     text-align: center;
     inline-size: clamp(100px, 25vw, 200px);
-    padding-block: var(--pad-mob-fld-1);
-    padding-inline: var(--pad-mob-fld-1);
+    padding-block: var(--padV-mob-0);
+    padding-inline: var(--padH-mob-2);
     border: 1px solid oklch(var(--orng-base) / 0.15);
     border-radius: var(--r-md);
     background: oklch(var(--orng-base) / 0.04);
@@ -256,20 +252,18 @@ const desktop = await getImage({ src: ximoAboutDesktop });
 
   /* Numero de la tarjeta de estadistica */
   .stat-num {
-    font-family: var(--font-condensed);
-    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-size: var(--fntSz-txt-mob-7);
     color: oklch(var(--orng-base));
     text-shadow: var(--glow-sm);
     line-height: 1;
-    margin-block-end: var(--gap-mob-fld-1);
+    margin-block-end: var(--marV-mob-0);
     letter-spacing: 0.02em;
   }
 
   /* Etiqueta de la tarjeta de estadistica */
   .stat-label {
-    font-family: var(--font-condensed);
-    font-size: 0.78rem;
-    font-weight: 600;
+    font-size: var(--fntSz-txt-mob-0);
+    font-weight: var(--fntWght-semibold);
     color: oklch(var(--white-base) / 0.6);
     line-height: 1.3;
     letter-spacing: 0.05em;
@@ -282,26 +276,36 @@ const desktop = await getImage({ src: ximoAboutDesktop });
 
   @media (width >= 640px) {
     .about {
-      padding-block-start: var(--pad-mob-fld-8);
+      padding-block-start: var(--padV-mob-7);
     }
 
     .about-title {
-      margin-block-end: var(--mar-mob-fld-5);
+      margin-block-end: var(--marV-mob-4);
     }
 
     .img-main {
       inline-size: auto;
       block-size: auto;
-      max-block-size: 40vh;
+      max-block-size: 40svh;
+    }
+
+    .about-glow {
+      background: radial-gradient(
+        ellipse 80% 70% at center,
+        oklch(var(--orng-base)) 0%,
+        transparent 60%
+      );
     }
 
     .stats-row {
+      background-color: transparent;
+      gap: var(--padV-mob-2);
       align-self: stretch;
     }
 
     .about-text {
       flex-direction: column;
-      gap: var(--pad-mob-fld-3);
+      gap: var(--padV-mob-2);
       justify-content: space-between;
       flex-wrap: wrap;
     }
@@ -318,70 +322,78 @@ const desktop = await getImage({ src: ximoAboutDesktop });
   @media (width >= 920px) {
     /* Contenido principal */
     .about-inner {
-      display: flex;
-      flex-direction: row;
+      margin-inline: auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
       justify-content: center;
-      align-items: center;
-      gap: var(--gap-mob-fld-10);
+      justify-items: stretch;
+      grid-column-gap: var(--padH-dtp-5);
     }
 
     .about-photo {
+      block-size: 100%;
       margin: 0;
       padding: 0;
-      gap: var(--gap-mob-fld-10);
+      gap: var(--padV-mob-2);
     }
 
     .img-main {
+      block-size: 100%;
       max-inline-size: 100%;
       max-block-size: 100%;
     }
 
     .stats-row {
+      block-size: 100%;
       flex-direction: column;
-      gap: var(--pad-mob-fld-8);
-      justify-content: center;
-      align-content: space-around;
+      justify-content: space-between;
+      align-items: center;
     }
 
     .stat {
+      block-size: 145px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: var(--gap-mob-fld-2);
+      gap: var(--padV-mob-1);
     }
 
     .stat-num {
-      font-size: var(--fs-txt-dtp-fld-10);
+      font-size: var(--fntSz-ttl-dtp-4);
     }
 
     .stat-label {
-      font-size: 1.2rem;
+      font-size: var(--fntSz-txt-dtp-4);
     }
 
     .about-text {
       display: flex;
       flex-direction: column;
       flex-wrap: nowrap;
+      max-inline-size: 750px;
       align-items: center;
-      justify-content: space-evenly;
+      justify-content: space-between;
       padding: 0;
       margin: 0;
-      gap: 1rem;
-      max-inline-size: 450px;
+      gap: var(--padV-mob-6);
     }
 
     .about-card {
-      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      gap: var(--padV-mob-1);
+      padding-inline-start: var(--padH-dtp-4);
+      block-size: 145px;
     }
 
     .card-title {
-      font-size: var(--fs-txt-mob-fld-6);
-      margin-block-end: var(--gap-mob-fld-1);
+      font-size: var(--fntSz-txt-dtp-3);
     }
 
     .card-text {
-      font-size: var(--fs-txt-mob-fld-4);
+      font-size: var(--fntSz-txt-dtp-4);
       text-wrap: balance;
     }
 

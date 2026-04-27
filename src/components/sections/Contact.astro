@@ -68,7 +68,11 @@ const WEB3FORMS_KEY = "21e40a13-a5db-42b4-9124-6fd86e632af4";
         >
           <!-- Web3Forms hidden config fields -->
           <input type="hidden" name="access_key" value={WEB3FORMS_KEY} />
-          <input type="hidden" name="subject" value="Nueva consulta desde jbvgruas.es" />
+          <input
+            type="hidden"
+            name="subject"
+            value="Nueva consulta desde jbvgruas.es"
+          />
           <input type="hidden" name="from_name" value="JBV Grúas Web" />
 
           <!-- Honeypot anti-spam (Web3Forms standard) -->
@@ -173,8 +177,8 @@ const WEB3FORMS_KEY = "21e40a13-a5db-42b4-9124-6fd86e632af4";
         <div class="form-error" id="form-error" hidden aria-live="polite">
           <h3>Error al enviar</h3>
           <p id="form-error-message">
-            Ha ocurrido un problema. Por favor, inténtelo de nuevo o
-            contáctenos directamente por teléfono o WhatsApp.
+            Ha ocurrido un problema. Por favor, inténtelo de nuevo o contáctenos
+            directamente por teléfono o WhatsApp.
           </p>
         </div>
       </div>
@@ -189,7 +193,9 @@ const WEB3FORMS_KEY = "21e40a13-a5db-42b4-9124-6fd86e632af4";
   const success = document.getElementById("form-success");
   const errorBox = document.getElementById("form-error");
   const errorMsg = document.getElementById("form-error-message");
-  const submitBtn = document.getElementById("submit-btn") as HTMLButtonElement | null;
+  const submitBtn = document.getElementById(
+    "submit-btn",
+  ) as HTMLButtonElement | null;
   const btnText = submitBtn?.querySelector(".btn-text");
 
   const showError = (
@@ -332,27 +338,27 @@ const WEB3FORMS_KEY = "21e40a13-a5db-42b4-9124-6fd86e632af4";
   .contact-grid {
     display: flex;
     flex-direction: column;
-    gap: var(--mar-mob-fld-7);
+    gap: var(--padV-dtp-10);
     align-items: start;
   }
 
   .contact-info h3 {
-    font-size: var(--fs-txt-mob-fld-1);
+    font-size: var(--fntSz-txt-mob-3);
     font-weight: var(--fntWght-bold);
     letter-spacing: 0.04em;
-    margin-block-end: var(--mar-mob-fld-3);
+    margin-block-end: var(--padV-dtp-5);
   }
 
   .contact-info > p {
-    font-size: var(--fs-txt-mob-fld-1);
+    font-size: var(--fntSz-txt-mob-1);
     color: oklch(var(--white-base) / 0.7);
     line-height: 1.7;
-    margin-block-end: var(--mar-mob-fld-5);
+    margin-block-end: var(--padV-dtp-7);
   }
 
   .contact-methods {
     display: flex;
-    gap: var(--gap-mob-fld-3);
+    gap: var(--padH-dtp-7);
   }
 
   .contact-cta {
@@ -360,18 +366,18 @@ const WEB3FORMS_KEY = "21e40a13-a5db-42b4-9124-6fd86e632af4";
     align-items: center;
     justify-content: space-around;
     inline-size: 50%;
-    padding-block: var(--padding-space-2);
-    padding-inline: var(--padding-space-2);
+    padding-block: var(--padV-dtp-0);
+    padding-inline: var(--padH-dtp-0);
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--r-md);
     text-decoration: none;
     transition: all var(--dur) var(--ease);
-    gap: var(--padding-space-2);
+    gap: var(--padH-dtp-0);
   }
 
   .contact-cta:nth-child(1) {
-    border: 1px solid oklch(var(--green-500-base));
+    border: 1px solid oklch(var(--green-base));
   }
 
   .contact-cta:nth-child(2) {
@@ -395,8 +401,8 @@ const WEB3FORMS_KEY = "21e40a13-a5db-42b4-9124-6fd86e632af4";
   }
 
   .cta-ico.wa {
-    background: oklch(var(--green-500-base) / 0.15);
-    color: oklch(var(--green-500-base));
+    background: oklch(var(--green-base) / 0.15);
+    color: oklch(var(--green-base));
   }
 
   .cta-ico.ph {
@@ -411,45 +417,49 @@ const WEB3FORMS_KEY = "21e40a13-a5db-42b4-9124-6fd86e632af4";
 
   .cta-label strong {
     display: block;
-    font-family: var(--font-condensed);
-    font-weight: 700;
-    font-size: 0.95rem;
-    color: var(--white);
-    margin-block-end: var(--space-1);
+    font-weight: var(--fntWght-bold);
+    font-size: var(--fntSz-txt-mob-2);
+  }
+
+  .contact-cta:nth-child(1) strong {
+    color: oklch(var(--green-base));
+  }
+
+  .contact-cta:nth-child(2) strong {
+    color: oklch(var(--orng-base));
   }
 
   .cta-label span {
-    font-size: 0.82rem;
-    color: var(--white-50);
+    font-size: var(--fntSz-txt-mob-1);
+    color: oklch(var(--gray-base));
   }
 
   /* Form */
   .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: var(--padV-dtp-4);
     inline-size: 100%;
   }
 
   .form-row {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: var(--padV-dtp-4);
   }
 
   .form-field {
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
+    gap: var(--padV-dtp-0);
   }
 
   .form-field label {
-    font-family: var(--font-condensed);
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
+    font-size: var(--fntSz-txt-mob-1);
+    font-weight: var(--fntWght-semibold);
+    letter-spacing: 1px;
     text-transform: uppercase;
-    color: var(--white-50);
+    color: oklch(var(--gray-base));
   }
 
   .form-field input,
@@ -541,6 +551,16 @@ const WEB3FORMS_KEY = "21e40a13-a5db-42b4-9124-6fd86e632af4";
 
   .form-submit {
     margin-inline: auto;
+  }
+
+  .btn-primary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--padH-dtp-4);
+    padding-block: var(--padV-dtp-4);
+    padding-inline: var(--padH-dtp-7);
+    font-size: var(--fntSz-txt-mob-2);
   }
 
   .btn.is-loading {

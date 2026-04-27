@@ -276,6 +276,7 @@
   --padH-mob-6: 3.5svw;
 
   /* Margin verticales */
+  --marV-mob-0: 0.5svh;
   --marV-mob-1: 1svh;
   --marV-mob-2: 2svh;
   --marV-mob-3: 3svh;
@@ -292,9 +293,11 @@
   /* Tamaño fuentes */
   --fntSz-ttl-mob-1: clamp(1rem, calc(-0.07rem + 2.19svh), 1.2rem);
   --fntSz-ttl-mob-5: clamp(2.2rem, -0.9765rem + 14.1176vw, 2.8rem);
+  --fntSz-txt-mob-0: clamp(0.6rem, calc(-0.36rem + 2.26svh), 0.8rem);
   --fntSz-txt-mob-1: clamp(0.7rem, calc(-0.43rem + 2.71svh), 1rem);
   --fntSz-txt-mob-2: clamp(0.9rem, calc(0.33rem + 1.36svh), 1.05rem);
   --fntSz-txt-mob-3: clamp(1rem, -0.0588rem + 4.7059vw, 1.2rem);
+  --fntSz-txt-mob-7: clamp(2rem, 4vw, 2.75rem);
 
   /* Tamaños de botones  */
   --btH-mob: clamp(8.75rem, -2.8309rem + 51.4706vw, 10.9375rem);
@@ -334,6 +337,7 @@
   --fntSz-txt-dtp-1: ;
   --fntSz-txt-dtp-2: clamp(1rem, 0.3143rem + 1.0714vw, 1.6rem);
   --fntSz-txt-dtp-3: clamp(1.3rem, 0.9571rem + 0.5357vw, 1.6rem);
+  --fntSz-txt-dtp-4: clamp(1.2rem, 0.3143rem + 1.0714vw, 1.4rem);
 
   /* Tamaños de botones  */
   --btH-dtp: clamp(10.75rem, -2.4018rem + 50.4464vw, 13.4375rem);

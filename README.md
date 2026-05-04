@@ -36,17 +36,17 @@ Landing page profesional para **JBV Grúas** — servicio de intermediación esp
 <table>
   <tr>
     <td align="center" width="60%">
-      <img src="docs/screenshots/desktop.webp" alt="JBV Grúas — Vista Desktop" />
+      <img src="docs/screenshots/desktop.png" alt="JBV Grúas — Vista Desktop" />
       <br />
       <strong>Desktop</strong>
     </td>
     <td align="center" width="20%">
-      <img src="docs/screenshots/tablet.webp" alt="JBV Grúas — Vista Tablet" />
+      <img src="docs/screenshots/tablet.png" alt="JBV Grúas — Vista Tablet" />
       <br />
       <strong>Tablet</strong>
     </td>
     <td align="center" width="20%">
-      <img src="docs/screenshots/mobile.webp" alt="JBV Grúas — Vista Mobile" />
+      <img src="docs/screenshots/mobile.png" alt="JBV Grúas — Vista Mobile" />
       <br />
       <strong>Mobile</strong>
     </td>
